@@ -10,7 +10,7 @@ class App extends Component {
         <Switch>
 
           {/* Public only landing page */}
-          <Route path={'/'}>
+          <Route exact path={'/'}>
             <MainNav />
             <LandingPage />
           </Route>

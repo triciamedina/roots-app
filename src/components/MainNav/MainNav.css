@@ -10,3 +10,40 @@
     flex-direction: row;
     align-items: center;
 }
+
+nav {
+    flex: 2;
+}
+
+.PublicMenu {
+    float: right;
+    display: none;
+}
+
+.PublicMenu__list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.text-button--small {
+    border: 0px;
+    padding: 15px 45px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.contained-button--small {
+    border: 0px;
+    padding: 15px 45px;
+    background-color: rgba(0, 0, 0, 12%);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+    .PublicMenu {
+        display: block;
+    }
+}
