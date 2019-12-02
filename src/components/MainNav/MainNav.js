@@ -7,8 +7,8 @@ class MainNav extends Component {
         return (
             <header className="MainNav--sticky">
                 <Logo />
-                {/* <Hamburger />
-                <Menu /> */}
+                {/* <Hamburger /> */}
+                {/* <Menu /> */}
             </header>
         ) 
     }
