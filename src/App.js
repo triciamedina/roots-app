@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {Component} from 'react'
+import { Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <main className='App'>
-      {/* content goes here */}
-    </main>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        {/* content goes here */}
+      </div>
+    );
+  }
 }
 
 export default App;
