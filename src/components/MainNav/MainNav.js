@@ -10,7 +10,7 @@ class MainNav extends Component {
                 <label htmlFor="menu"></label>
                 <ul className="PublicCollapsibleMenu__list">
                     <li>
-                        <button className="text-button--small">Sign in</button>
+                        <button className="text-button--large">Sign in</button>
                     </li>
                     <li>
                         <button className="contained-button--large">Get started</button>

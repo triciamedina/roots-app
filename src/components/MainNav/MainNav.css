@@ -89,7 +89,7 @@ input:checked +label {
     cursor: pointer;
 }
 
-.text-button--small {
+.text-button--large {
     font-family: 'Roboto', sans-serif;
     border: 0px;
     padding: 15px 45px;
