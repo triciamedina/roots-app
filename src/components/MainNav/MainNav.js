@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Logo from '../Logo/Logo'
+import { Button } from '../Utils/Utils'
 import './MainNav.css'
 
 class MainNav extends Component {
@@ -10,10 +11,10 @@ class MainNav extends Component {
                 <label htmlFor="menu"></label>
                 <ul className="PublicCollapsibleMenu__list">
                     <li>
-                        <button className="text-button--large">Sign in</button>
+                        <Button className="Button--text-large">Sign in</Button>
                     </li>
                     <li>
-                        <button className="contained-button--large">Get started</button>
+                        <Button className="Button--contained-large">Get started</Button>
                     </li>
                 </ul>
             </div>
@@ -25,10 +26,10 @@ class MainNav extends Component {
             <div className="PublicMenu">
                 <ul className="PublicMenu__list">
                     <li>
-                        <button className="text-button--small">Sign in</button>
+                        <Button className="Button--text-small">Sign in</Button>
                     </li>
                     <li>
-                        <button className="contained-button--small">Get started</button>
+                        <Button className="Button--contained-small">Get started</Button>
                     </li>
                 </ul>
             </div>
