@@ -1,2 +1,0 @@
-(this["webpackJsonproots-app"]=this["webpackJsonproots-app"]||[]).push([[0],{3:function(e,n,t){e.exports=t(9)},8:function(e,n,t){},9:function(e,n,t){"use strict";t.r(n);var a=t(0),o=t.n(a),r=t(2),p=t.n(r);var s=function(){return o.a.createElement("main",{className:"App"})};t(8);p.a.render(o.a.createElement(s,null),document.getElementById("root"))}},[[3,1,2]]]);
-//# sourceMappingURL=main.3f0ac989.chunk.js.map
