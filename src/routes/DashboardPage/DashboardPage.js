@@ -1,29 +1,13 @@
 import React from 'react'
 import './DashboardPage.css'
-import { Button } from '../../components/Utils/Utils'
 import Tabs from '../../components/Tabs/Tabs'
+import Wallet from '../../components/Wallet/Wallet'
 
 function DashboardPage() {
     return (
         <main className="overview">
-            <section className="wallet__container">
-                <p className="wallet__title">
-                    Your total balance
-                </p>
-                <h1 className="wallet__balance">
-                    $30.00
-                </h1>
-                <p className="wallet__subtitle">
-                    + $0.45 today
-                </p>
-                <Button className="Button--contained-small Dashboard__give">
-                    Give
-                </Button>
-            </section>
-
+            <Wallet />
             <Tabs />
-
-            
             <section className="roundups__tab-container">
                 <div className="roundups__toggle-container">
                     <label htmlFor="roundups-toggle" className="toggle">
