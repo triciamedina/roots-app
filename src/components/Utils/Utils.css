@@ -5,6 +5,8 @@
     background-color: transparent;
     cursor: pointer;
     width: 100%;
+    font-family: inherit;
+    font-size: 100%;
 }
 
 .Button--contained-large {
@@ -22,6 +24,8 @@
     padding: 15px 45px;
     background-color: transparent;
     cursor: pointer;
+    font-family: inherit;
+    font-size: 100%;
 }
 
 .Button--contained-small {
@@ -30,4 +34,6 @@
     padding: 15px 45px;
     background-color: rgba(0, 0, 0, 12%);
     cursor: pointer;
+    font-family: inherit;
+    font-size: 100%;
 }

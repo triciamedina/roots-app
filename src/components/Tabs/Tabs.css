@@ -6,15 +6,22 @@
     display: flex;
     flex-direction: row;
     height: 12vh;
+    width: 100%;
+}
+
+a {
+    flex: 1;
+    text-align: center;
 }
 
 .overview__tab {
     border: 0px;
     background-color: transparent;
-    width: 50%;
+    width: 100%;
     height: 100%;
     padding: 15px 0px;
     font-size: 14px;
+    font-family: inherit;
 }
 
 .active {
