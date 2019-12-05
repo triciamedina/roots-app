@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { Route, Switch } from 'react-router-dom'
 import MainNav from '../MainNav/MainNav'
 import LandingPage from '../../routes/LandingPage/LandingPage'
+import LoginPage from '../../routes/LoginPage/LoginPage'
+import DashboardPage from '../../routes/DashboardPage/DashboardPage'
 
 class App extends Component {
   render() {
@@ -15,15 +17,19 @@ class App extends Component {
             <LandingPage />
           </Route>
 
+          <Route path={'/login'}>
+            <LoginPage />
+          </Route>
+
           {/* Private only dashboard page */}
-          {/* <Route path={'/dashboard'}>
+          <Route path={'/dashboard'}>
             <MainNav />
             <DashboardPage />
-          </Route> */}
+          </Route>
           
         </Switch>
       </div>
-    );
+    )
   }
 }
 

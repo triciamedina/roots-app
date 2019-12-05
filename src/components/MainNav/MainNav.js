@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Logo from '../Logo/Logo'
 import { Button } from '../Utils/Utils'
+import { Link } from 'react-router-dom'
 import './MainNav.css'
 
 class MainNav extends Component {
@@ -11,7 +12,9 @@ class MainNav extends Component {
                 <label htmlFor="menu"></label>
                 <ul className="PublicCollapsibleMenu__list">
                     <li>
-                        <Button className="Button--text-large">Sign in</Button>
+                        <Link to={`/login`}>
+                            <Button className="Button--text-large">Sign in</Button>
+                        </Link>
                     </li>
                     <li>
                         <Button className="Button--contained-large">Get started</Button>
@@ -26,7 +29,9 @@ class MainNav extends Component {
             <div className="PublicMenu">
                 <ul className="PublicMenu__list">
                     <li>
-                        <Button className="Button--text-small">Sign in</Button>
+                        <Link to={`/login`}>
+                            <Button className="Button--text-small">Sign in</Button>
+                        </Link>
                     </li>
                     <li>
                         <Button className="Button--contained-small">Get started</Button>
