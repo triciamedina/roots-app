@@ -1,19 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from '../Utils/Utils'
 import './Tabs.css'
 
 function Tabs() {
     return (
         <section className="tabs">
                 <Link to={'/dashboard/roundups'}>
-                    <button className="overview__tab active">
+                    <Button className="Button--tab active">
                         Round ups
-                    </button>
+                    </Button>
                 </Link>
-                <Link to={'/dashboard/roundups'}>
-                    <button className="overview__tab">
+                <Link to={'/dashboard/donations'}>
+                    <Button className="Button--tab">
                         Donations
-                    </button>
+                    </Button>
                 </Link>
         </section>
     )

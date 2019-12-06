@@ -167,7 +167,7 @@ span.circle {
     font-size: 30px;
     color: rgba(0, 0, 0, 50%);
     position: absolute;
-    top: 4px;
+    top: 0px;
     left: 10px;
 }
 

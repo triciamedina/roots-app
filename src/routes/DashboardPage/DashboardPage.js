@@ -4,6 +4,7 @@ import './DashboardPage.css'
 import Tabs from '../../components/Tabs/Tabs'
 import Wallet from '../../components/Wallet/Wallet'
 import RoundupsTab from '../RoundupsTab/RoundupsTab'
+import DonationsTab from '../DonationsTab/DonationsTab'
 
 function DashboardPage() {
     return (
@@ -11,8 +12,11 @@ function DashboardPage() {
             <Wallet />
             <Tabs />
             <Switch>
-                <Route path={['/dashboard', '/dashboard/roundups']}>
+                <Route exact path={['/dashboard', '/dashboard/roundups']}>
                     <RoundupsTab />
+                </Route>
+                <Route exact path={['/dashboard/donations']}>
+                    <DonationsTab />
                 </Route>
             </Switch>
          </main>
