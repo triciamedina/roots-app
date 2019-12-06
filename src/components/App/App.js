@@ -22,7 +22,7 @@ class App extends Component {
           </Route>
 
           {/* Private only dashboard page */}
-          <Route path={'/dashboard'}>
+          <Route path={'/dashboard'} >
             <MainNav />
             <DashboardPage />
           </Route>

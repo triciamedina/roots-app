@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './DashboardPage.css'
-import Tabs from '../../components/Tabs/Tabs'
 import Wallet from '../../components/Wallet/Wallet'
 import RoundupsTab from '../RoundupsTab/RoundupsTab'
 import DonationsTab from '../DonationsTab/DonationsTab'
@@ -10,7 +9,6 @@ function DashboardPage() {
     return (
         <main className="overview">
             <Wallet />
-            <Tabs />
             <Switch>
                 <Route exact path={['/dashboard', '/dashboard/roundups']}>
                     <RoundupsTab />

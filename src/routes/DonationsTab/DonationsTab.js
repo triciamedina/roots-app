@@ -1,9 +1,12 @@
 import React from 'react'
 import './DonationsTab.css'
+import Tabs from '../../components/Tabs/Tabs'
 
 function DonationsTab() {
     return (
-        <section className="donations__tab-container">
+        <>
+            <Tabs active='donations'/>
+            <section className="donations__tab-container">
                 <div className="donations__notification-container">
                     <p className="donations__notification-title">You’ve given $200 this year!</p>
                 </div>
@@ -57,6 +60,7 @@ function DonationsTab() {
                     </ul>
                 </div>
             </section>
+        </>
     )
 }
 

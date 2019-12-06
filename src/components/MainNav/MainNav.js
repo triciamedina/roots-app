@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import './MainNav.css'
 
 class MainNav extends Component {
+    
     renderPublicCollapsibleMenu() {
         return (
             <div className="PublicCollapsibleMenu">
@@ -44,8 +45,11 @@ class MainNav extends Component {
     render() {
         return (
             <header className="MainNav--sticky">
-                {/* Logo component only shows in Public menu */}
+                {/* TODO: use basic token to manage logged out/logged in state */}
+                {/* Logo component public/private nav to conditionally render based on logged in/logged out state*/}
+
                 <Logo />
+
                 <nav>
                     {this.renderPublicCollapsibleMenu()}
                     {this.renderPublicMenu()}

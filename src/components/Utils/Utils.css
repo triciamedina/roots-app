@@ -17,6 +17,7 @@
     cursor: pointer;
     width: 100%;
     font-family: inherit;
+    font-size: 100%;
 }
 
 .Button--text-small {
