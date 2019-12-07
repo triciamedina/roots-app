@@ -1,5 +1,12 @@
-.login-form {
-    padding-top: 130px;
+.projects-search {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form {
+    padding-top: 90px;
     padding-left: 24px;
     padding-right: 24px;
     height: 100%;
@@ -10,20 +17,25 @@
     justify-content: space-between;
 }
 
-.login-form__container {
+.search-form__container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
 }
 
-.login-form__input {
+.search-form__container {
+    padding-top: 10px;
+    padding-bottom: 35px;
+}
+
+.search-form__input {
     display: flex;
     flex-direction: column;
     margin: 15px 0px;
 }
 
-.login-form__input input {
+.search-form__input input {
     padding: 16px 22px;
     border-top: 0px;
     border-left: 0px;
@@ -32,23 +44,16 @@
     background-color: rgba(0, 0, 0, 12%);
 }
 
-.login-form__input label {
+.search-form__input label {
     padding-bottom: 10px;
 }
 
-.login-form__label {
+.search-form__label {
     color: rgba(0, 0, 0, 38%);
     font-size: 16px;
 }
 
-.login-form__submit {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 20%;
-}
-
-.login-form__title {
+.search-form__title {
     font-weight: 500;
     font-size: 26px;
     line-height: 32px;
@@ -56,23 +61,25 @@
     padding: 0px;
 }
 
-.login-form__secondary p {
+.search-form__title {
+    margin-bottom: 20px;
+}
+
+.search-form__title {
+    width: 200px;
+}
+
+.search-form__sub-title {
     font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 14px;
+    line-height: 19px;
     padding: 0px;
     margin: 0px;
+    color: black;
 }
 
-.login-form__secondary {
+.search-form__submit {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-bottom: 15px;
-}
-
-.login-form__submit a {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    padding-top: 34px;
 }

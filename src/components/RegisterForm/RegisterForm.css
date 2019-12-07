@@ -70,3 +70,9 @@
     align-items: center;
     padding-bottom: 15px;
 }
+
+.register-form__submit a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}

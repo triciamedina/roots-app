@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Wallet.css'
 import { Button } from '../Utils/Utils'
 
@@ -14,9 +15,11 @@ function Wallet() {
                 <p className='wallet__subtitle'>
                     + $0.45 today
                 </p>
-                <Button className='Button--contained-small Wallet__give'>
-                    Give
-                </Button>
+                <Link to={'/projects'}>
+                    <Button className='Button--contained-small Wallet__give'>
+                        Give
+                    </Button>
+                </Link>
             </section>
     )
 }

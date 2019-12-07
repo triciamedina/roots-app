@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-a {
+.tabs a {
     flex: 1;
     text-align: center;
 }

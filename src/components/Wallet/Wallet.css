@@ -38,3 +38,9 @@
     margin: 36px 0px;
     padding: 17px 70px;
 }
+
+.wallet__container a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -62,7 +62,11 @@ class RegisterForm extends Component {
         return (
             <section className='register-form__secondary'>
                 <p>Already have an account?</p>
-                <p><a href='#' className='text-link'>Login</a></p>
+                <p>
+                    <Link to={'/login'} className='text-link'>
+                        Login
+                    </Link>
+                </p>
             </section>
         )
     }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../../components/Utils/Utils'
+import RegisterButton from '../../components/RegisterButton/RegisterButton'
 import './LandingPage.css'
 
 function LandingPage() {
@@ -9,7 +9,7 @@ function LandingPage() {
                 <div className='text-container left'>
                     <h1 className='hero__title'>Invest in a future for everyone</h1>
                     <p className='hero__body'>We make it easy for anyone to give back to their community.</p>
-                    <Button className='Button--contained-small'>Get started</Button>
+                    <RegisterButton className='Button--contained-small' />
                 </div>
                 <div className='image-container'>
                     <img className='hero__image' src='https://dummyimage.com/295x360/cccccc/909090.png&text=placeholder' />

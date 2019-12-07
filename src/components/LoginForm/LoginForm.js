@@ -30,7 +30,11 @@ function LoginForm() {
         </section>
         <section className='login-form__secondary'>
             <p>Don’t have an account?</p>
-            <p><a href='#' className='text-link'>Get started</a></p>
+            <p>
+                <Link to={'/register'} className='text-link'>
+                    Get started
+                </Link>
+            </p>
         </section>
     </form>
     )

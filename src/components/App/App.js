@@ -5,6 +5,7 @@ import LandingPage from '../../routes/LandingPage/LandingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegisterPage from '../../routes/RegisterPage/RegisterPage'
 import DashboardPage from '../../routes/DashboardPage/DashboardPage'
+import ProjectsPage from '../../routes/ProjectsPage/ProjectsPage'
 
 class App extends Component {
   render() {
@@ -26,6 +27,9 @@ class App extends Component {
           <Route path={'/dashboard'} >
             <MainNav />
             <DashboardPage />
+          </Route>
+          <Route path={'/projects'}>
+              <ProjectsPage />
           </Route>
         </Switch>
       </div>
