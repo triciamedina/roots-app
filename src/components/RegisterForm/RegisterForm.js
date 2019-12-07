@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './RegisterForm.css'
 import { Button } from '../Utils/Utils'
 
@@ -72,9 +73,11 @@ class RegisterForm extends Component {
                 <section className='register-form__container'>
                     {this.renderStepOne()}
                     <div className='register-form__submit'>
-                        <Button className='Button--contained-large' type='submit'>
-                            Next
-                        </Button>
+                        <Link to={'/dashboard'}>
+                            <Button className='Button--contained-large' type='submit'>
+                                Next
+                            </Button>
+                        </Link>
                     </div>
                 </section>
                 {this.renderLoginLink()}

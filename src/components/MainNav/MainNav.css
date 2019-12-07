@@ -84,6 +84,10 @@ input:checked +label {
     background-image: url(../../img/times-solid.svg);
 }
 
+a {
+    width: 100%;
+}
+
 @media screen and (min-width: 600px) {
     .PublicCollapsibleMenu {
         display: none;
