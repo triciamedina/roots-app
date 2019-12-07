@@ -8,17 +8,17 @@ class MainNav extends Component {
     
     renderPublicCollapsibleMenu() {
         return (
-            <div className="PublicCollapsibleMenu">
-                <input type="checkbox" id="menu" />
-                <label htmlFor="menu"></label>
-                <ul className="PublicCollapsibleMenu__list">
+            <div className='PublicCollapsibleMenu'>
+                <input type='checkbox' id='menu' />
+                <label htmlFor='menu'></label>
+                <ul className='PublicCollapsibleMenu__list'>
                     <li>
                         <Link to={`/login`}>
-                            <Button className="Button--text-large">Sign in</Button>
+                            <Button className='Button--text-large'>Sign in</Button>
                         </Link>
                     </li>
                     <li>
-                        <Button className="Button--contained-large">Get started</Button>
+                        <Button className='Button--contained-large'>Get started</Button>
                     </li>
                 </ul>
             </div>
@@ -27,15 +27,15 @@ class MainNav extends Component {
 
     renderPublicMenu() {
         return (
-            <div className="PublicMenu">
-                <ul className="PublicMenu__list">
+            <div className='PublicMenu'>
+                <ul className='PublicMenu__list'>
                     <li>
                         <Link to={`/login`}>
-                            <Button className="Button--text-small">Sign in</Button>
+                            <Button className='Button--text-small'>Sign in</Button>
                         </Link>
                     </li>
                     <li>
-                        <Button className="Button--contained-small">Get started</Button>
+                        <Button className='Button--contained-small'>Get started</Button>
                     </li>
                 </ul>
             </div>
@@ -44,7 +44,7 @@ class MainNav extends Component {
 
     render() {
         return (
-            <header className="MainNav--sticky">
+            <header className='MainNav--sticky'>
                 {/* TODO: use basic token to manage logged out/logged in state */}
                 {/* Logo component public/private nav to conditionally render based on logged in/logged out state*/}
 

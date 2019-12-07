@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import MainNav from '../MainNav/MainNav'
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
+import RegisterPage from '../../routes/RegisterPage/RegisterPage'
 import DashboardPage from '../../routes/DashboardPage/DashboardPage'
 
 class App extends Component {
@@ -10,23 +11,22 @@ class App extends Component {
     return (
       <div className='App'>
         <Switch>
-
           {/* Public only landing page */}
           <Route exact path={'/'}>
             <MainNav />
             <LandingPage />
           </Route>
-
-          <Route path={'/login'}>
+          <Route exact path={'/login'}>
             <LoginPage />
           </Route>
-
+          <Route exact path={'/register'}>
+            <RegisterPage />
+          </Route>
           {/* Private only dashboard page */}
           <Route path={'/dashboard'} >
             <MainNav />
             <DashboardPage />
           </Route>
-          
         </Switch>
       </div>
     )

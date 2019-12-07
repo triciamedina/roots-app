@@ -7,7 +7,7 @@ class Tabs extends Component {
     render() {
         const { active } = this.props
         return (
-            <section className="tabs">
+            <section className='tabs'>
                     <Link to={'/dashboard/roundups'}>
                         <Button className={'Button--tab ' + (active === 'roundups' && 'active')}>
                             Round ups

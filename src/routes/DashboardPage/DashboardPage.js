@@ -7,7 +7,7 @@ import DonationsTab from '../DonationsTab/DonationsTab'
 
 function DashboardPage() {
     return (
-        <main className="overview">
+        <main className='overview'>
             <Wallet />
             <Switch>
                 <Route exact path={['/dashboard', '/dashboard/roundups']}>
