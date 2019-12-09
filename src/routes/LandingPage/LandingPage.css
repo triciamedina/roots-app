@@ -105,3 +105,9 @@
     justify-content: flex-end;
     align-items: center;
 }
+
+.hero a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,28 @@
+.header--sticky {
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.left-arrow-icon {
+    display: inline-block;
+}
+
+.back-button {
+    border: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 10px 0px;
+    height: 48px;
+}
+
+.back-button i {
+    font-size: 20px;
+}

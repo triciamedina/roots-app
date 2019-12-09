@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Logo from '../Logo/Logo'
-import { Button } from '../Utils/Utils'
-import { Link } from 'react-router-dom'
 import RegisterButton from '../RegisterButton/RegisterButton'
 import LoginButton from '../LoginButton/LoginButton'
 import './MainNav.css'
