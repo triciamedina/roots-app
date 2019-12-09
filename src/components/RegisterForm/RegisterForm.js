@@ -70,19 +70,24 @@ class RegisterForm extends Component {
             </section>
         )
     }
+    renderSubmit() {
+        return (
+            <div className='register-form__submit'>
+                <Link to={'/dashboard'}>
+                    <Button className='Button--contained-large' type='submit'>
+                        Next
+                    </Button>
+                </Link>
+            </div>
+        )
+    }
     render() {
         return (
             <form action='' className='register-form'>
                 <h1 className='register-form__title'>Let’s get started</h1>
                 <section className='register-form__container'>
                     {this.renderStepOne()}
-                    <div className='register-form__submit'>
-                        <Link to={'/dashboard'}>
-                            <Button className='Button--contained-large' type='submit'>
-                                Next
-                            </Button>
-                        </Link>
-                    </div>
+                    {this.renderSubmit()}
                 </section>
                 {this.renderLoginLink()}
             </form>

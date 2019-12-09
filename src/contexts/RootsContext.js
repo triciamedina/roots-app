@@ -14,6 +14,10 @@ const RootsContext = React.createContext({
         lastNameChanged: () => {},
         passwordChanged: () => {},
         confirmedPasswordChanged: () => {},
+    },
+    projectsSearch: {
+        searchInput: '',
+        searchInputChanged: () => {},
     }
 })
 
