@@ -4,19 +4,10 @@ import RegisterForm from '../../components/RegisterForm/RegisterForm'
 import SecondaryNav from '../../components/SecondaryNav/SecondaryNav'
 
 class RegisterPage extends Component {
-    static defaultProps = {
-        history: {
-          goBack: () => {},
-        },
-      }
-    handleGoback = () => {
-        const { history } = this.props
-        history.goBack()
-    }
     render() {
         return (
             <>
-                <SecondaryNav handleGoBack={this.handleGoback}/>
+                <SecondaryNav />
                 <main className='register'>
                     <RegisterForm />
                 </main>
