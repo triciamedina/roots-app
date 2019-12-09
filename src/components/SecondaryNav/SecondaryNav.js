@@ -7,6 +7,10 @@ class SecondaryNav extends Component {
         const { history } = this.props
         history.goBack()
     }
+    handleClose = () => {
+        const { history } = this.props
+        history.push('/dashboard')
+    }
     renderBackButton() {
         return (
             <div className='left-arrow-icon'>
@@ -16,11 +20,22 @@ class SecondaryNav extends Component {
             </div>
         )
     }
+    renderCloseButton() {
+        return (
+            <div className='times-icon'>
+                <button className='close-button' onClick={this.handleClose}>
+                    <i className='fas fa-times'></i>
+                </button>
+            </div>
+        )
+    }
     render() {
+        const { location } = this.props
         return (
             <header className='header--sticky'>
                 <nav>
                     {this.renderBackButton()}
+                    {location.pathname === '/projects' && this.renderCloseButton()}
                 </nav>
             </header>
         ) 

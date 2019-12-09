@@ -15,7 +15,8 @@
     display: inline-block;
 }
 
-.back-button {
+.back-button,
+.close-button {
     border: 0px;
     background-color: transparent;
     cursor: pointer;
@@ -23,6 +24,11 @@
     height: 48px;
 }
 
-.back-button i {
+.back-button i,
+.close-button i {
     font-size: 20px;
+}
+
+.times-icon {
+    float: right;
 }
