@@ -9,10 +9,10 @@ class LoginForm extends Component {
     static contextType = RootsContext
     handleSubmit = (event) => {
         event.preventDefault()
-        const { emailInput, passwordInput } = event.target
+        const { email, password } = event.target
         this.context.handleSubmitBasicAuth()
-        emailInput.value = ''
-        passwordInput.value = ''
+        email.value = ''
+        password.value = ''
         this.props.history.push('/dashboard')
     }
     render() {
@@ -34,8 +34,8 @@ class LoginForm extends Component {
                     </label>
                     <input 
                         type='text' 
-                        id='emailInput' 
-                        name='emailInput' 
+                        id='email' 
+                        name='email' 
                         aria-label='Login email'
                         aria-required
                         onChange={e => this.context.onLoginEmailChanged(e.target.value)}
@@ -49,8 +49,8 @@ class LoginForm extends Component {
                     </label>
                     <input 
                         type='text'
-                        id='passwordInput'
-                        name='passwordInput' 
+                        id='password'
+                        name='password' 
                         aria-label='Login password'
                         aria-required
                         onChange={e => this.context.onLoginPasswordChanged(e.target.value)}

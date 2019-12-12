@@ -20,6 +20,40 @@ class App extends Component {
           value: '',
         },
       },
+      register: {
+        email: {
+          value: '',
+        },
+        confirmedEmail: {
+          value: '',
+        },
+        firstName: {
+          value: '',
+        },
+        lastName: {
+          value: '',
+        },
+        password: {
+          value: '',
+        },
+        confirmedPassword: {
+          value: '',
+        },
+        currentStep: 1,
+      },
+      onLoginEmailChanged: this.onLoginEmailChanged,
+      onLoginPasswordChanged: this.onLoginPasswordChanged,
+      handleSubmitBasicAuth: this.handleSubmitBasicAuth,
+      handleLogout: this.handleLogout,
+      onRegisterEmailChanged: this.onRegisterEmailChanged,
+      onRegisterConfirmedEmailChanged: this.onRegisterConfirmedEmailChanged,
+      handleRegisterStepOne: this.handleRegisterStepOne,
+      onRegisterFirstNameChanged: this.onRegisterFirstNameChanged,
+      onRegisterLastNameChanged: this.onRegisterLastNameChanged,
+      handleRegisterStepTwo: this.handleRegisterStepTwo,
+      onRegisterPasswordChanged: this.onRegisterPasswordChanged,
+      onRegisterConfirmedPasswordChanged: this.onRegisterConfirmedPasswordChanged,
+      handleRegisterSubmit: this.handleRegisterSubmit,
     }
   }
   onLoginEmailChanged = (loginEmail) => {
@@ -37,6 +71,8 @@ class App extends Component {
     TokenService.saveAuthToken(
       TokenService.makeBasicAuthToken(email.value, password.value)
     )
+  }
+  handleLogout = () => {
     this.setState({
       login: {
         ...this.state.login, 
@@ -45,14 +81,65 @@ class App extends Component {
       }
     })
   }
-  render() {
-    const contextValue = {
-      onLoginEmailChanged: this.onLoginEmailChanged,
-      onLoginPasswordChanged: this.onLoginPasswordChanged,
-      handleSubmitBasicAuth: this.handleSubmitBasicAuth,
+  onRegisterEmailChanged = (registerEmail) => {
+    this.setState({
+      register: {...this.state.register, email: { value: registerEmail }}
+    })
+  }
+  onRegisterConfirmedEmailChanged = (registerConfirmedEmail) => {
+    this.setState({
+      register: {...this.state.register, confirmedEmail: { value: registerConfirmedEmail }}
+    })
+  }
+  handleRegisterStepOne = () => {
+    const { email, confirmedEmail } = this.state.register
+    if (email.value === confirmedEmail.value) {
+      this.setState({
+        register: {...this.state.register, currentStep: 2 }
+      })
     }
+  }
+  onRegisterFirstNameChanged = (firstNameInput) => {
+    this.setState({
+      register: {...this.state.register, firstName: { value: firstNameInput }}
+    })
+  }
+  onRegisterLastNameChanged = (lastNameInput) => {
+    this.setState({
+      register: {...this.state.register, lastName: { value: lastNameInput }}
+    })
+  }
+  handleRegisterStepTwo = () => {
+    this.setState({
+      register: {...this.state.register, currentStep: 3 }
+    })
+  }
+  onRegisterPasswordChanged = (passwordInput) => {
+    this.setState({
+      register: {...this.state.register, password: { value: passwordInput }}
+    })
+  }
+  onRegisterConfirmedPasswordChanged = (confirmedPasswordInput) => {
+    this.setState({
+      register: {...this.state.register, confirmedPassword: { value: confirmedPasswordInput }}
+    })
+  }
+  handleRegisterSubmit = () => {
+    const { password, confirmedPassword, confirmedEmail, firstName, lastName } = this.state.register
+    if (password.value === confirmedPassword.value) {
+      this.setState({
+        login: {
+          ...this.state.login, 
+          email: { value: confirmedEmail },
+          password: { value: confirmedPassword }
+        }
+      })
+      this.handleSubmitBasicAuth()
+    }
+  }
+  render() {
     return (
-      <RootsContext.Provider value={contextValue}>
+      <RootsContext.Provider value={this.state}>
         <div className='App'>
             <Switch>
               {/* Public only landing page */}

@@ -20,12 +20,16 @@ const RootsContext = React.createContext({
         confirmedPassword: {
             value: '',
         },
+        currentStep: '',
         onRegisterEmailChanged: () => {},
         onRegisterConfirmedEmailChanged: () => {},
+        handleRegisterStepOne: () => {},
         onRegisterFirstNameChanged: () => {},
         onRegisterLastNameChanged: () => {},
+        handleRegisterStepTwo: () => {},
         onRegisterPasswordChanged: () => {},
         onRegisterConfirmedPasswordChanged: () => {},
+        handleRegisterSubmit: () => {},
     },
     login: {
         email: {
@@ -38,6 +42,9 @@ const RootsContext = React.createContext({
         onLoginPasswordChanged: () => {},
         // TODO: replace basic auth with JWT auth
         handleSubmitBasicAuth: () => {},
+    },
+    logout: {
+        handleLogout: () => {},
     },
     projects: {
         searchInput: {
