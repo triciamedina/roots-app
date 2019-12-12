@@ -74,7 +74,8 @@ const STORE = {
             projectSchoolName: 'Mission Elementary',
             projectImage: 'https://dummyimage.com/80x80/cccccc/909090.png&text=placeholder',
         },
-    ]
+    ],
+    donationsTotal: 150,
 }
 
 export default STORE

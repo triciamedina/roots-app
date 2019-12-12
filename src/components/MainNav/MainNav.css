@@ -1,26 +1,36 @@
-.MainNav--sticky {
-    padding: 20px;
+.MainNav--public,
+.MainNav--private {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: white;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    border: 1px solid white;
+}
+
+.MainNav--public {
+    background-color: white;
+}
+
+.MainNav--private {
+    background-color: transparent;
 }
 
 nav {
+    padding: 20px;
     flex: 2;
+    min-height: 90px;
 }
 
-.PublicMenu {
+.PublicMenu,
+.PrivateMenu {
     float: right;
     display: none;
 }
 
-.PublicMenu__list {
+.PublicMenu__list,
+.PrivateMenu__list {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -29,7 +39,7 @@ nav {
 }
 
 .PublicCollapsibleMenu {
-    float: right;
+    margin-left: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -39,6 +49,7 @@ nav {
     opacity: 0;
     width: 0;
     height: 0;
+    position: absolute;
 }
 
 .PublicCollapsibleMenu label {
@@ -64,20 +75,20 @@ nav {
     width: 100%;
     padding: 0px 24px;
 }
-
 input:checked ~ .PublicCollapsibleMenu__list {
     position: absolute;
-    top: 90px;
+    z-index: -1;
+    top: 0px;
     right: 0;
     max-height: 100%;
-    min-height: 20vh;
+    min-height: 40vh;
     width: 100%;
     background-color: white;
     border: 1px solid white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0px;
+    padding: 120px 0px 0px 0px;
 }
 
 input:checked +label {
@@ -93,7 +104,8 @@ a {
         display: none;
     }
 
-    .PublicMenu {
+    .PublicMenu,
+    .PrivateMenu {
         display: block;
     }
 }

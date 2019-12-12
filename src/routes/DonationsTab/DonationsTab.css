@@ -8,15 +8,7 @@
     align-items: center;
 }
 
-.donations__notification-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 36px 0px;
-}
-
-.donations__list h2,
-.donations__notification-title {
+.donations__list h2 {
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;

@@ -35,11 +35,11 @@
 }
 
 .Wallet__give {
-    margin: 36px 0px;
     padding: 17px 70px;
 }
 
 .wallet__container a {
+    margin: 36px 0px;
     display: flex;
     flex-direction: row;
     justify-content: center;

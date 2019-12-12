@@ -1,23 +1,51 @@
 import React from 'react'
 
 const RootsContext = React.createContext({
-    registration: {
-        email: '',
-        confirmedEmail: '',
-        firstName: '',
-        lastName: '',
-        password: '',
-        confirmedPassword: '',
-        emailChanged: () => {},
-        confirmedEmailChanged: () => {},
-        firstNameChanged: () => {},
-        lastNameChanged: () => {},
-        passwordChanged: () => {},
-        confirmedPasswordChanged: () => {},
+    register: {
+        email: {
+            value: '',
+        },
+        confirmedEmail: {
+            value: '',
+        },
+        firstName: {
+            value: '',
+        },
+        lastName: {
+            value: '',
+        },
+        password: {
+            value: '',
+        },
+        confirmedPassword: {
+            value: '',
+        },
+        onRegisterEmailChanged: () => {},
+        onRegisterConfirmedEmailChanged: () => {},
+        onRegisterFirstNameChanged: () => {},
+        onRegisterLastNameChanged: () => {},
+        onRegisterPasswordChanged: () => {},
+        onRegisterConfirmedPasswordChanged: () => {},
     },
-    projectsSearch: {
-        searchInput: '',
-        searchInputChanged: () => {},
+    login: {
+        email: {
+            value: '',
+        },
+        password: {
+            value: '',
+        },
+        onLoginEmailChanged: () => {},
+        onLoginPasswordChanged: () => {},
+        // basic auth for static app
+        // TODO: replace basic auth with JWT auth
+        handleSubmitBasicAuth: () => {},
+        onLoginSuccess: () => {},
+    },
+    projects: {
+        searchInput: {
+            value: '',
+        },
+        onSearchInputChange: () => {},
     }
 })
 
