@@ -37,6 +37,13 @@ class App extends Component {
     TokenService.saveAuthToken(
       TokenService.makeBasicAuthToken(email.value, password.value)
     )
+    this.setState({
+      login: {
+        ...this.state.login, 
+        email: { value: '' },
+        password: { value: '' },
+      }
+    })
   }
   render() {
     const contextValue = {

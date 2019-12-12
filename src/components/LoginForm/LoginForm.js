@@ -8,8 +8,8 @@ import { withRouter } from 'react-router'
 class LoginForm extends Component {
     static contextType = RootsContext
     handleSubmit = (event) => {
-        const { emailInput, passwordInput } = event.target
         event.preventDefault()
+        const { emailInput, passwordInput } = event.target
         this.context.handleSubmitBasicAuth()
         emailInput.value = ''
         passwordInput.value = ''

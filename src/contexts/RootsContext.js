@@ -36,10 +36,8 @@ const RootsContext = React.createContext({
         },
         onLoginEmailChanged: () => {},
         onLoginPasswordChanged: () => {},
-        // basic auth for static app
         // TODO: replace basic auth with JWT auth
         handleSubmitBasicAuth: () => {},
-        onLoginSuccess: () => {},
     },
     projects: {
         searchInput: {
