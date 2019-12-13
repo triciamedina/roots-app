@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './RegisterForm.css'
-import { Button } from '../Utils/Utils'
+import { RegisterSubmitButton } from '../Utils/Utils'
 import RootsContext from '../../contexts/RootsContext'
 import { withRouter } from 'react-router'
 
@@ -65,7 +65,7 @@ class RegisterForm extends Component {
                             onChange={e => this.context.onRegisterConfirmedEmailChanged(e.target.value)}
                         />
                     </div>
-                    {this.renderSubmit()}
+                    <RegisterSubmitButton />
                 </section>
                 {this.renderLoginLink()}
             </form>
@@ -83,34 +83,34 @@ class RegisterForm extends Component {
                 </h1>
                 <section className='register-form__container'>
                     <div className='register-form__input'>
-                            <label htmlFor='firstName'>
-                                <span className='register-form__label'>
-                                    First name
-                                </span>
-                            </label>
-                            <input 
-                                type='text'
-                                id='firstName'
-                                name='firstName'
-                                aria-required 
-                                onChange={e => this.context.onRegisterFirstNameChanged(e.target.value)}
-                            />
-                        </div>
-                        <div className='register-form__input'>
-                            <label htmlFor='lastName'>
-                                <span className='register-form__label'>
-                                    Last name
-                                </span>
-                            </label>
-                            <input 
-                                type='text' 
-                                id='lastName'
-                                name='lastName'
-                                aria-required
-                                onChange={e => this.context.onRegisterLastNameChanged(e.target.value)}
-                            />
-                        </div>
-                    {this.renderSubmit()}
+                        <label htmlFor='firstName'>
+                            <span className='register-form__label'>
+                                First name
+                            </span>
+                        </label>
+                        <input 
+                            type='text'
+                            id='firstName'
+                            name='firstName'
+                            aria-required 
+                            onChange={e => this.context.onRegisterFirstNameChanged(e.target.value)}
+                        />
+                    </div>
+                    <div className='register-form__input'>
+                        <label htmlFor='lastName'>
+                            <span className='register-form__label'>
+                                Last name
+                            </span>
+                        </label>
+                        <input 
+                            type='text' 
+                            id='lastName'
+                            name='lastName'
+                            aria-required
+                            onChange={e => this.context.onRegisterLastNameChanged(e.target.value)}
+                        />
+                    </div>
+                    <RegisterSubmitButton />
                 </section>
                 {this.renderLoginLink()}
             </form>
@@ -155,7 +155,7 @@ class RegisterForm extends Component {
                             onChange={e => this.context.onRegisterConfirmedPasswordChanged(e.target.value)}
                         />
                     </div>
-                    {this.renderSubmit()}
+                    <RegisterSubmitButton />
                 </section>
                 {this.renderLoginLink()}
             </form>
@@ -171,15 +171,6 @@ class RegisterForm extends Component {
                     </Link>
                 </p>
             </section>
-        )
-    }
-    renderSubmit() {
-        return (
-            <div className='register-form__submit'>
-                <Button className='Button--contained-large' type='submit'>
-                        Next
-                </Button>
-            </div>
         )
     }
     render() {

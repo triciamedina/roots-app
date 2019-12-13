@@ -42,3 +42,13 @@ export class LogoutButton extends Component {
         )
     }
 }
+
+export function RegisterSubmitButton() {
+    return (
+        <div className='register-form__submit'>
+            <button className='Button--contained-large' type='submit'>
+                    Next
+            </button>
+        </div>
+    )
+}
