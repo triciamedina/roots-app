@@ -50,7 +50,10 @@ const RootsContext = React.createContext({
         searchInput: {
             value: '',
         },
+        showResults: false,
         onSearchInputChange: () => {},
+        handleSearchSubmit: () => {},
+        handleClearSearch: () => {}
     }
 })
 

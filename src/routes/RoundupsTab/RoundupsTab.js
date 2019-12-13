@@ -10,10 +10,7 @@ function RoundupsTab() {
             <Tabs active='roundups'/>
             <section className='roundups__tab-container'>
                 <RoundupsToggle />
-                <div className='roundups__list'>
-                    <h2>October 1, 2019</h2>
-                    <TransactionsList />
-                </div>
+                <TransactionsList />
             </section>
         </>
     )

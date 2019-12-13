@@ -41,6 +41,12 @@ class App extends Component {
         },
         currentStep: 1,
       },
+      projects: {
+        searchInput: {
+            value: '',
+        },
+        showResults: false,
+      },
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
       handleSubmitBasicAuth: this.handleSubmitBasicAuth,
@@ -54,6 +60,9 @@ class App extends Component {
       onRegisterPasswordChanged: this.onRegisterPasswordChanged,
       onRegisterConfirmedPasswordChanged: this.onRegisterConfirmedPasswordChanged,
       handleRegisterSubmit: this.handleRegisterSubmit,
+      onSearchInputChange: this.onSearchInputChange,
+      handleSearchSubmit: this.handleSearchSubmit,
+      handleClearSearch: this.handleClearSearch,
     }
   }
   onLoginEmailChanged = (loginEmail) => {
@@ -137,6 +146,21 @@ class App extends Component {
       })
       this.handleSubmitBasicAuth()
     }
+  }
+  onSearchInputChange = (searchInput) => {
+    this.setState({
+      projects: {...this.state.projects, searchInput: { value: searchInput }}
+    })
+  }
+  handleSearchSubmit = () => {
+    this.setState({
+      projects: {...this.state.projects, showResults: true }
+    })
+  }
+  handleClearSearch = () => {
+    this.setState({
+      projects: {...this.state.projects, showResults: false }
+    })
   }
   render() {
     return (

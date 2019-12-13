@@ -76,6 +76,76 @@ const STORE = {
         },
     ],
     donationsTotal: 150,
+    projects: [
+        {
+            id: 1,
+            projectName: 'Help Expand Our SEL and Environment Library',
+            projectDescription: 'Help me give my students new books that focus on social justice, multicultural titles, the environment and climate change, and activism. Help me give my students new books that focus on social justice, multicultural titles, the environment and climate change, and activism.',
+            url: '',
+            image: 'https://dummyimage.com/328x184/cccccc/909090.png&text=placeholder',
+            schoolInfo: {
+                teacherName: 'Ms. Stillford',
+                ageGroup: 'Grades 3-5',
+                schoolName: 'King Elementary School',
+                location: 'Richmond, CA',
+            },
+            funding: {
+                goal: 412,
+                stillNeeded: 312,
+            },
+        },
+        {
+            id: 2,
+            projectName: 'Help Expand Our SEL and Environment Library',
+            projectDescription: 'Help me give my students new books that focus on social justice, multicultural titles, the environment and climate change, and activism. Help me give my students new books that focus on social justice, multicultural titles, the environment and climate change, and activism.',
+            url: '',
+            image: 'https://dummyimage.com/328x184/cccccc/909090.png&text=placeholder',
+            schoolInfo: {
+                teacherName: 'Ms. Stillford',
+                ageGroup: 'Grades 3-5',
+                schoolName: 'King Elementary School',
+                location: 'Richmond, CA',
+            },
+            funding: {
+                goal: 412,
+                stillNeeded: 312,
+            },
+        },
+        {
+            id: 3,
+            projectName: 'Help Expand Our SEL and Environment Library',
+            projectDescription: 'Help me give my students new books that focus on social justice, multicultural titles, the environment and climate change, and activism. Help me give my students new books that focus on social justice, multicultural titles, the environment and climate change, and activism.',
+            url: '',
+            image: 'https://dummyimage.com/328x184/cccccc/909090.png&text=placeholder',
+            schoolInfo: {
+                teacherName: 'Ms. Stillford',
+                ageGroup: 'Grades 3-5',
+                schoolName: 'King Elementary School',
+                location: 'Richmond, CA',
+            },
+            funding: {
+                goal: 412,
+                stillNeeded: 312,
+            },
+        },
+        {
+            id: 4,
+            projectName: 'Help Expand Our SEL and Environment Library',
+            projectDescription: 'Help me give my students new books that focus on social justice, multicultural titles, the environment and climate change, and activism. Help me give my students new books that focus on social justice, multicultural titles, the environment and climate change, and activism.',
+            url: '',
+            image: 'https://dummyimage.com/328x184/cccccc/909090.png&text=placeholder',
+            schoolInfo: {
+                teacherName: 'Ms. Stillford',
+                ageGroup: 'Grades 3-5',
+                schoolName: 'King Elementary School',
+                location: 'Richmond, CA',
+            },
+            funding: {
+                goal: 412,
+                stillNeeded: 312,
+            },
+        },
+    ]
 }
 
 export default STORE

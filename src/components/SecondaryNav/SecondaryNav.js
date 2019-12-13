@@ -3,14 +3,20 @@ import './SecondaryNav.css'
 import { withRouter } from 'react-router'
 import Times from '../../img/times-solid.svg'
 import LeftArrow from '../../img/chevron-left-solid.svg'
+import RootsContext from '../../contexts/RootsContext'
 
 class SecondaryNav extends Component {
+    static contextType = RootsContext
     handleGoback = () => {
-        const { history } = this.props
+        const { history, location } = this.props
+        if (location.pathname === '/projects') {
+            this.context.handleClearSearch()
+        }
         history.goBack()
     }
     handleClose = () => {
         const { history } = this.props
+        this.context.handleClearSearch()
         history.push('/dashboard')
     }
     renderBackButton() {
