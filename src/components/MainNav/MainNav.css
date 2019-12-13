@@ -17,7 +17,8 @@
     background-color: transparent;
 }
 
-nav {
+.MainNav--public nav,
+.MainNav--private nav {
     padding: 20px;
     flex: 2;
     min-height: 90px;

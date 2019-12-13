@@ -1,18 +1,25 @@
-.header--sticky {
+.SecondaryNav {
     padding: 20px;
     position: fixed;
     top: 0;
     left: 0;
     background-color: white;
     width: 100%;
-    height: 75px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
+.SecondaryNav nav {
+    flex: 2;
+}
+
 .left-arrow-icon {
     display: inline-block;
+}
+
+.left-arrow-icon img {
+    width: 18px;
 }
 
 .back-button,
@@ -31,4 +38,8 @@
 
 .times-icon {
     float: right;
+}
+
+.times-icon img {
+    width: 20px;
 }

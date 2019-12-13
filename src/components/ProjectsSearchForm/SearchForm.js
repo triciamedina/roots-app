@@ -1,8 +1,8 @@
 import React from 'react'
-import './ProjectsSearchForm.css'
-import { Button } from '../../components/Utils/Utils'
+import './SearchForm.css'
+import { Button } from '../Utils/Utils'
 
-function ProjectsSearchForm() {
+function SearchForm() {
     return (
         <form action='' className='search-form'>
             <h1 className='search-form__title'>Find a classroom to support</h1>
@@ -23,4 +23,4 @@ function ProjectsSearchForm() {
     )
 }
 
-export default ProjectsSearchForm
+export default SearchForm

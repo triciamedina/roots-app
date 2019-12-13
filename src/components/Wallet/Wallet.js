@@ -2,7 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Wallet.css'
 import { Button } from '../Utils/Utils'
+// import STORE from '../../store'
 
+// TODO: use STORE.js to dynamically generate balances
+// Wallet should be class component with componentDidMount that makes a call to get data and add to state
 function Wallet() {
     return (
         <section className='wallet__container'>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './RegisterForm.css'
-import { RegisterSubmitButton } from '../Utils/Utils'
+import { Button } from '../Utils/Utils'
 import RootsContext from '../../contexts/RootsContext'
 import { withRouter } from 'react-router'
 
@@ -65,7 +65,7 @@ class RegisterForm extends Component {
                             onChange={e => this.context.onRegisterConfirmedEmailChanged(e.target.value)}
                         />
                     </div>
-                    <RegisterSubmitButton />
+                    {this.renderSubmitButton()}
                 </section>
                 {this.renderLoginLink()}
             </form>
@@ -110,7 +110,7 @@ class RegisterForm extends Component {
                             onChange={e => this.context.onRegisterLastNameChanged(e.target.value)}
                         />
                     </div>
-                    <RegisterSubmitButton />
+                    {this.renderSubmitButton()}
                 </section>
                 {this.renderLoginLink()}
             </form>
@@ -155,10 +155,19 @@ class RegisterForm extends Component {
                             onChange={e => this.context.onRegisterConfirmedPasswordChanged(e.target.value)}
                         />
                     </div>
-                    <RegisterSubmitButton />
+                    {this.renderSubmitButton()}
                 </section>
                 {this.renderLoginLink()}
             </form>
+        )
+    }
+    renderSubmitButton() {
+        return (
+            <div className='register-form__submit'>
+                <Button className='Button--contained-large' type='submit'>
+                        Next
+                </Button>
+            </div>
         )
     }
     renderLoginLink() {

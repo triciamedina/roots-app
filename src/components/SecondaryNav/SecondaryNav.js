@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './SecondaryNav.css'
 import { withRouter } from 'react-router'
+import Times from '../../img/times-solid.svg'
+import LeftArrow from '../../img/chevron-left-solid.svg'
 
 class SecondaryNav extends Component {
     handleGoback = () => {
@@ -15,7 +17,7 @@ class SecondaryNav extends Component {
         return (
             <div className='left-arrow-icon'>
                 <button className='back-button' onClick={this.handleGoback}>
-                    <i className='fas fa-chevron-left'></i>
+                    <img src={LeftArrow} />
                 </button>
             </div>
         )
@@ -24,7 +26,7 @@ class SecondaryNav extends Component {
         return (
             <div className='times-icon'>
                 <button className='close-button' onClick={this.handleClose}>
-                    <i className='fas fa-times'></i>
+                    <img src={Times} />
                 </button>
             </div>
         )
@@ -32,7 +34,7 @@ class SecondaryNav extends Component {
     render() {
         const { location } = this.props
         return (
-            <header className='header--sticky'>
+            <header className='SecondaryNav'>
                 <nav>
                     {this.renderBackButton()}
                     {location.pathname === '/projects' && this.renderCloseButton()}

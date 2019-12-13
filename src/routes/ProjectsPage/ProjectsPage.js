@@ -1,7 +1,7 @@
 import React from 'react'
 import './ProjectsPage.css' 
 import SecondaryNav from '../../components/SecondaryNav/SecondaryNav'
-import ProjectsSearchForm from '../../components/ProjectsSearchForm/ProjectsSearchForm'
+import ProjectsSearchForm from '../../components/ProjectsSearchForm/SearchForm'
 
 function ProjectsPage() {
     return (
