@@ -73,6 +73,7 @@ class App extends Component {
     )
   }
   handleLogout = () => {
+    TokenService.clearAuthToken()
     this.setState({
       login: {
         ...this.state.login, 

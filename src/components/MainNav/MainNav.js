@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Logo from '../Logo/Logo'
-import RegisterButton from '../RegisterButton/RegisterButton'
-import LoginButton from '../LoginButton/LoginButton'
-import LogoutButton from '../LogoutButton/LogoutButton'
+import { LoginButton, LogoutButton, RegisterButton } from '../Utils/Utils'
 import './MainNav.css'
 import TokenService from '../../services/token-service'
 
