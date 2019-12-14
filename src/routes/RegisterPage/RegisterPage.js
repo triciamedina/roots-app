@@ -1,19 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './RegisterPage.css'
 import RegisterForm from '../../components/RegisterForm/RegisterForm'
 import SecondaryNav from '../../components/SecondaryNav/SecondaryNav'
 
-class RegisterPage extends Component {
-    render() {
-        return (
-            <>
-                <SecondaryNav />
-                <main className='register'>
-                    <RegisterForm />
-                </main>
-            </>
-        )
-    }
+function RegisterPage() {
+    return (
+        <>
+            <SecondaryNav />
+            <main className='RegisterPage'>
+                <RegisterForm />
+            </main>
+        </>
+    )
 }
 
 export default RegisterPage

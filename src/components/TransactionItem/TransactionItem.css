@@ -1,0 +1,115 @@
+
+.transactions-list li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 13px;
+    margin: 10px 0px;
+    min-height: 75px;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 20%);
+}
+
+.TransactionItem__title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0px;
+    margin: 0px;
+    color: black;
+}
+
+.TransactionItem__amount {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0px;
+    margin: 0px;
+    color: rgba(0, 0, 0, 60%);
+}
+
+.TransactionItem__toggle {
+    margin-left: auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.TransactionItem__toggle input {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: -10px;
+    width: 40px;
+    height: 40px;
+}
+
+span.circle {
+    position: absolute;
+    top: -8px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+}
+
+.TransactionItem__toggle input + span.circle::before {
+	content: "+";
+    height: 40px;
+    width: 40px;
+    font-weight: 300;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 50%);
+    position: absolute;
+    top: 0px;
+    left: 10px;
+}
+
+.TransactionItem__toggle input + span.circle::after {
+    border: 1px solid rgba(0, 0, 0, 12%);
+    border-radius: 50%;
+	content: "";
+    height: 40px;
+    width: 40px;
+	position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.TransactionItem__toggle input:checked + span.circle::before {
+	content: "";
+    border: 2px solid;
+    border-radius: 0px;
+    border-left: 0;
+    border-top: 0;
+    height: 15px;
+    width: 7px;
+    transform: rotate(45deg);
+    color: rgba(0, 0, 0, 50%);
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.TransactionItem__toggle input:checked + span.circle::after {
+    border: 0;
+    background-color: rgba(0, 0, 0, 12%);;
+    border-radius: 50%;
+	content: "";
+    height: 40px;
+    width: 40px;
+	position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.TransactionItem__roundup {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0px;
+    padding: 0px;
+    margin-right: 50px;
+}

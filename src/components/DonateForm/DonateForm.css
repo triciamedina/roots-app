@@ -1,0 +1,73 @@
+
+.DonateForm {
+    position: absolute;
+    bottom: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    width: 100%;
+    max-width: 600px;
+    height: 239px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.DonateForm__slide-caption-container {
+    display: flex;
+    flex-direction: row;
+    margin: 28px 0px 0px 0px;
+}
+
+.DonateForm__funding-balance,
+.DonateForm__funding-goal {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0px;
+    margin: 0px;
+    color: black;
+}
+
+.DonateForm__funding-goal {
+    margin-left: auto;
+}
+
+.DonateForm__slider {
+    width: 100%;
+    height: 5px;
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    border-radius: 1px;
+    background: #d3d3d3;
+    margin: 15px 0px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #414141;
+    height: 12px;
+    width: 12px;
+    border-radius: 50px;
+}
+
+.DonateForm__form-input {
+    display: flex;
+    flex-direction: column;
+    margin: 22px 0px 15px 0px;
+}
+
+.DonateForm__form-input input {
+    padding: 16px 22px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid black;
+    background-color: rgba(0, 0, 0, 12%);
+    font-family: inherit;
+    font-size: 100%;
+    text-align: center;
+}

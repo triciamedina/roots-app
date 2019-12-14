@@ -43,7 +43,7 @@ class SecondaryNav extends Component {
             <header className='SecondaryNav'>
                 <nav>
                     {this.renderBackButton()}
-                    {location.pathname === '/projects' && this.renderCloseButton()}
+                    {location.pathname.includes('/projects') && this.renderCloseButton()}
                 </nav>
             </header>
         ) 

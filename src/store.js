@@ -90,6 +90,7 @@ const STORE = {
                 location: 'Richmond, CA',
             },
             funding: {
+                balance: 100,
                 goal: 412,
                 stillNeeded: 312,
             },
@@ -107,6 +108,7 @@ const STORE = {
                 location: 'Richmond, CA',
             },
             funding: {
+                balance: 100,
                 goal: 412,
                 stillNeeded: 312,
             },
@@ -124,6 +126,7 @@ const STORE = {
                 location: 'Richmond, CA',
             },
             funding: {
+                balance: 100,
                 goal: 412,
                 stillNeeded: 312,
             },
@@ -141,11 +144,13 @@ const STORE = {
                 location: 'Richmond, CA',
             },
             funding: {
+                balance: 100,
                 goal: 412,
                 stillNeeded: 312,
             },
         },
-    ]
+    ],
+    walletBalance: 30.00
 }
 
 export default STORE

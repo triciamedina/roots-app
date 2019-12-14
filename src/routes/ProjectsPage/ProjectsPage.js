@@ -8,7 +8,7 @@ function ProjectsPage() {
     return (
         <>
             <SecondaryNav />
-            <main className='projects-search'>
+            <main className='ProjectsPage'>
                 <SearchForm />
                 <SearchResults />
             </main>

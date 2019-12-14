@@ -5,6 +5,7 @@ import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegisterPage from '../../routes/RegisterPage/RegisterPage'
 import DashboardPage from '../../routes/DashboardPage/DashboardPage'
 import ProjectsPage from '../../routes/ProjectsPage/ProjectsPage'
+import ProjectDetailPage from '../../routes/ProjectDetailPage/ProjectDetailPage'
 import RootsContext from '../../contexts/RootsContext'
 import TokenService from '../../services/token-service'
 
@@ -189,8 +190,13 @@ class App extends Component {
                 component={DashboardPage}
               />
               <Route
+                exact
                 path={'/projects'}
                 component={ProjectsPage}
+              />
+              <Route
+                path={'/projects/:project_id'} 
+                component={ProjectDetailPage}
               />
             </Switch>
         </div>

@@ -11,10 +11,10 @@ class MainNav extends Component {
             <header className='MainNav--public'>
                 <Logo />
                 <nav>
-                    <div className='PublicCollapsibleMenu'>
+                    <div className='CollapsibleMenu'>
                         <input type='checkbox' id='menu' />
                         <label htmlFor='menu'></label>
-                        <ul className='PublicCollapsibleMenu__list'>
+                        <ul className='CollapsibleMenu__list'>
                             <li>
                                 <LoginButton className='Button--text-large' />
                             </li>
@@ -41,10 +41,10 @@ class MainNav extends Component {
         return (
             <header className='MainNav--private'>
                 <nav>
-                    <div className='PublicCollapsibleMenu'>
+                    <div className='CollapsibleMenu'>
                         <input type='checkbox' id='menu' />
                         <label htmlFor='menu'></label>
-                        <ul className='PublicCollapsibleMenu__list'>
+                        <ul className='CollapsibleMenu__list'>
                             <li>
                                 <LogoutButton className='Button--contained-large' />
                             </li>

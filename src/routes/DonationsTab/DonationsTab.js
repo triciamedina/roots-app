@@ -9,10 +9,10 @@ function DonationsTab() {
     return (
         <>
             <Tabs active='donations'/>
-            <section className='donations__tab-container'>
+            <section className='DonationsTab'>
                 <DonationsNotification donationsTotal={STORE.donationsTotal}/>
-                <div className='donations__list'>
-                    <h2>2019</h2>
+                <div className='DonationsTab__container'>
+                    <h2 className='DonationsTab__title'>2019</h2>
                     <DonationsList />
                 </div>
             </section>

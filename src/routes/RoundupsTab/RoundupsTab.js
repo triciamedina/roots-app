@@ -8,7 +8,7 @@ function RoundupsTab() {
     return (
         <>
             <Tabs active='roundups'/>
-            <section className='roundups__tab-container'>
+            <section className='RoundupsTab'>
                 <RoundupsToggle />
                 <TransactionsList />
             </section>

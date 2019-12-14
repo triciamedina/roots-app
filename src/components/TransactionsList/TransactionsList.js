@@ -19,9 +19,11 @@ class TransactionsList extends Component {
             />
         )
         return (
-            <div className='roundups__list'>
-                <h2>October 1, 2019</h2>
-                <ul className='transactions-list'>
+            <div className='TransactionsList__container'>
+                <h2 className='TransactionsList__title'>
+                    October 1, 2019
+                </h2>
+                <ul className='TransactionsList'>
                     {items}
                 </ul>
             </div>

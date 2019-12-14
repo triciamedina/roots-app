@@ -10,7 +10,7 @@ function DashboardPage() {
     return (
         <>
             <MainNav />
-            <main className='overview'>
+            <main className='DashBoardPage'>
                 <Wallet />
                 <Switch>
                     <Route exact path={['/dashboard', '/dashboard/roundups']}>

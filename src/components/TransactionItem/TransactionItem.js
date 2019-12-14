@@ -10,16 +10,16 @@ function TransactionItem(props) {
       })
     return (
         <li>
-            <div className='transactions__container'>
-                <p className='transactions__item-name'>
+            <div className='TransactionItem__container'>
+                <p className='TransactionItem__title'>
                     {vendorName}
                 </p>
-                <p className='transactions__item-subtitle'>
+                <p className='TransactionItem__amount'>
                     {formatter.format(transactionAmount)}
                 </p>
             </div>
-                <label htmlFor={id} className='transactions-toggle'>
-                    <span className='transactions-toggle__title'>
+                <label htmlFor={id} className='TransactionItem__toggle'>
+                    <span className='TransactionItem__roundup'>
                         {formatter.format(roundupAmount)}
                     </span>
                     <input type='checkbox' id={id} name='transactions' checked={isChecked}/>

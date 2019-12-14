@@ -1,4 +1,4 @@
-.roundups__tab-container {
+.RoundupsTab {
     width: 100%;
     height: 100%;
     overflow: scroll;
@@ -6,26 +6,4 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.roundups__list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.roundups__list h2 {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    padding: 0px;
-    margin: 0px;
-    color: black;
-}
-
-.roundups__list h2 {
-    padding: 0px 24px 20px 24px;
-    width: 100%;
-    max-width: 600px;
 }

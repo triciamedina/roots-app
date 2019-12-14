@@ -19,16 +19,16 @@ class LoginForm extends Component {
         return (
             <form 
                 action='' 
-                className='login-form'
+                className='LoginForm'
                 onSubmit={this.handleSubmit}
             >
-            <h1 className='login-form__title'>
+            <h1 className='LoginForm__title'>
                 Welcome back
             </h1>
-            <section className='login-form__container'>
-                <div className='login-form__input'>
+            <section className='LoginForm__container'>
+                <div className='LoginForm__input'>
                     <label htmlFor='email'>
-                        <span className='login-form__label'>
+                        <span className='LoginForm__input-label'>
                             Email address
                         </span>
                     </label>
@@ -41,9 +41,9 @@ class LoginForm extends Component {
                         onChange={e => this.context.onLoginEmailChanged(e.target.value)}
                     />
                 </div>
-                <div className='login-form__input'>
+                <div className='LoginForm__input'>
                     <label htmlFor='password'>
-                        <span className='login-form__label'>
+                        <span className='LoginForm__input-label'>
                             Password
                         </span>
                     </label>
@@ -56,13 +56,13 @@ class LoginForm extends Component {
                         onChange={e => this.context.onLoginPasswordChanged(e.target.value)}
                     />
                 </div>
-                <div className='login-form__submit'>
+                <div className='LoginForm__submit'>
                     <Button className='Button--contained-large' type='submit'>
                         Next
                     </Button>
                 </div>
             </section>
-            <section className='login-form__secondary'>
+            <section className='LoginForm__secondary'>
                 <p>Don’t have an account?</p>
                 <p>
                     <Link to={'/register'} className='text-link'>

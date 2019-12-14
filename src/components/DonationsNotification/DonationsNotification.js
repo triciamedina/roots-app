@@ -8,8 +8,8 @@ function DonationsNotification(props) {
         minimumFractionDigits: 2
         })
     return (
-        <div className='donations__notification-container'>
-            <p className='donations__notification-title'>
+        <div className='DonationsNotification'>
+            <p className='DonationsNotification__title'>
                 You’ve given {formatter.format(props.donationsTotal)} this year!
             </p>
         </div>

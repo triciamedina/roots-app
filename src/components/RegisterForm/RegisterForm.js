@@ -30,16 +30,16 @@ class RegisterForm extends Component {
         return (
             <form 
                 action=''
-                className='register-form'
+                className='RegisterForm'
                 onSubmit={this.handleStepOne}
             >
-                <h1 className='register-form__title'>
+                <h1 className='RegisterForm__title'>
                     Let’s get started
                 </h1>
-                <section className='register-form__container'>
-                    <div className='register-form__input'>
+                <section className='RegisterForm__container'>
+                    <div className='RegisterForm__input'>
                         <label htmlFor='emailInput'>
-                            <span className='register-form__label'>
+                            <span className='RegisterForm__label'>
                                 Email address
                             </span>
                         </label>
@@ -51,9 +51,9 @@ class RegisterForm extends Component {
                             onChange={e => this.context.onRegisterEmailChanged(e.target.value)}
                         />
                     </div>
-                    <div className='register-form__input'>
+                    <div className='RegisterForm__input'>
                         <label htmlFor='emailConfirmInput'>
-                            <span className='register-form__label'>
+                            <span className='RegisterForm__label'>
                                 Confirm email address
                             </span>
                         </label>
@@ -75,16 +75,16 @@ class RegisterForm extends Component {
         return (
             <form 
                 action=''
-                className='register-form'
+                className='RegisterForm'
                 onSubmit={this.handleStepTwo}
             >
-                <h1 className='register-form__title'>
+                <h1 className='RegisterForm__title'>
                     Let’s get started
                 </h1>
-                <section className='register-form__container'>
-                    <div className='register-form__input'>
+                <section className='RegisterForm__container'>
+                    <div className='RegisterForm__input'>
                         <label htmlFor='firstName'>
-                            <span className='register-form__label'>
+                            <span className='RegisterForm__label'>
                                 First name
                             </span>
                         </label>
@@ -96,9 +96,9 @@ class RegisterForm extends Component {
                             onChange={e => this.context.onRegisterFirstNameChanged(e.target.value)}
                         />
                     </div>
-                    <div className='register-form__input'>
+                    <div className='RegisterForm__input'>
                         <label htmlFor='lastName'>
-                            <span className='register-form__label'>
+                            <span className='RegisterForm__label'>
                                 Last name
                             </span>
                         </label>
@@ -120,16 +120,16 @@ class RegisterForm extends Component {
         return (
             <form 
                 action=''
-                className='register-form'
+                className='RegisterForm'
                 onSubmit={this.handleStepThree}
             >
-                <h1 className='register-form__title'>
+                <h1 className='RegisterForm__title'>
                     Let’s get started
                 </h1>
-                <section className='register-form__container'>
-                    <div className='register-form__input'>
+                <section className='RegisterForm__container'>
+                    <div className='RegisterForm__input'>
                         <label htmlFor='passwordInput'>
-                            <span className='register-form__label'>
+                            <span className='RegisterForm__label'>
                                 Password
                             </span>
                         </label>
@@ -141,9 +141,9 @@ class RegisterForm extends Component {
                             onChange={e => this.context.onRegisterPasswordChanged(e.target.value)}
                         />
                     </div>
-                    <div className='register-form__input'>
+                    <div className='RegisterForm__input'>
                         <label htmlFor='passwordConfirmInput'>
-                            <span className='register-form__label'>
+                            <span className='RegisterForm__label'>
                                 Confirm password
                             </span>
                         </label>
@@ -163,7 +163,7 @@ class RegisterForm extends Component {
     }
     renderSubmitButton() {
         return (
-            <div className='register-form__submit'>
+            <div className='RegisterForm__submit'>
                 <Button className='Button--contained-large' type='submit'>
                         Next
                 </Button>

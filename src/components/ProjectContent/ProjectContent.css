@@ -1,0 +1,50 @@
+.ProjectContent {
+    padding-top: 90px;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+    max-width: 600px;
+    height: calc(100vh - 239px);
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.ProjectContent__title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    margin: 25px 0px 0px 0px;
+    margin-top: 25px;
+    padding: 0px;
+}
+
+.ProjectContent__teacher-info-container {
+    margin: 0px 0px 22px 0px;
+}
+
+.ProjectContent__teacher-name,
+.ProjectContent__age-group,
+.ProjectContent__school-name,
+.ProjectContent__city {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    padding: 0px;
+    margin: 0px;
+    color: black;
+}
+
+.ProjectContent__teacher-name {
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.ProjectContent__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0px;
+    margin: 0px;
+    color: rgba(0, 0, 0, 60%);
+}
