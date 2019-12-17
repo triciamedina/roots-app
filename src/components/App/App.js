@@ -84,13 +84,9 @@ class App extends Component {
   }
   handleLogout = () => {
     TokenService.clearAuthToken()
-    this.setState({
-      login: {
-        ...this.state.login, 
-        email: { value: '' },
-        password: { value: '' },
-      }
-    })
+    this.handleClearSearch()
+    this.handleClearLogin()
+    this.handleClearRegister()
   }
   onRegisterEmailChanged = (registerEmail) => {
     this.setState({
@@ -160,7 +156,34 @@ class App extends Component {
   }
   handleClearSearch = () => {
     this.setState({
-      projects: {...this.state.projects, showResults: false }
+      projects: {
+        ...this.state.projects,
+        searchInput: { value: '' },
+        showResults: false,
+      }
+    })
+  }
+  handleClearLogin = () => {
+    this.setState({
+      login: {
+        ...this.state.login, 
+        email: { value: '' },
+        password: { value: '' },
+      },
+    })
+  }
+  handleClearRegister = () => {
+    this.setState({
+      register: {
+        ...this.state.register,
+        email: { value: '' },
+        confirmedEmail: { value: '' },
+        firstName: { value: '' },
+        lastName: { value: '' },
+        password: { value: '' },
+        confirmedPassword: { value: '' },
+        currentStep: 1,
+      },
     })
   }
   render() {

@@ -1,4 +1,4 @@
-.wallet__container {
+.Wallet__container {
     padding-left: 24px;
     padding-right: 24px;
     background-color: #d8d8d8;
@@ -9,7 +9,7 @@
     justify-content: flex-end;
 }
 
-.wallet__title {
+.Wallet__title {
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
@@ -17,7 +17,7 @@
     padding: 0px;
 }
 
-.wallet__balance {
+.Wallet__balance {
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
@@ -25,7 +25,7 @@
     padding: 0px;
 }
 
-.wallet__subtitle {
+.Wallet__subtitle {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
@@ -38,7 +38,7 @@
     padding: 17px 70px;
 }
 
-.wallet__container a {
+.Wallet__container a {
     margin: 36px 0px;
     display: flex;
     flex-direction: row;

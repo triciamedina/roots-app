@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom'
 import './Utils.css'
 import RootsContext from '../../contexts/RootsContext'
 
+export const Formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2
+})
+
 export function Button(props) {
     return <button className={props.className} {...props}>{props.children}</button>
 }

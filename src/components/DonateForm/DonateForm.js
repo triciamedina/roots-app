@@ -1,6 +1,6 @@
 import React from 'react'
 import './DonateForm.css'
-import { Button } from '../Utils/Utils'
+import { Button, Formatter } from '../Utils/Utils'
 import STORE from '../../store'
 import { Link, withRouter } from 'react-router-dom'
 
@@ -8,20 +8,15 @@ function DonateForm(props) {
     const project = STORE.projects.filter(project => project.id === parseInt(props.match.params.project_id))
     const { funding, url } = project[0]
     const { walletBalance } = STORE
-    const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2
-        })
     return (
         <section className='DonateForm'>
             <div className='DonateForm__slide-container'>
                 <div className='DonateForm__slide-caption-container'>
                     <p className='DonateForm__funding-balance'>
-                        {formatter.format(funding.stillNeeded)} still needed
+                        {Formatter.format(funding.stillNeeded)} still needed
                     </p>
                     <p className='DonateForm__funding-goal'>
-                        {formatter.format(funding.goal)} goal
+                        {Formatter.format(funding.goal)} goal
                     </p>
                 </div>
                 <input 
@@ -40,7 +35,7 @@ function DonateForm(props) {
                             type='text'
                             id='donate-amount'
                             name='amount' 
-                            value={formatter.format(walletBalance)} // Pull from context
+                            value={Formatter.format(walletBalance)} // Pull from context
                         />
                     </div>
                     <div className='donate-form__submit'> 

@@ -1,5 +1,5 @@
 
-.transactions-list li {
+.TransactionItem {
     display: flex;
     flex-direction: row;
     align-items: center;

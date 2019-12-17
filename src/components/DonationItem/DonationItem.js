@@ -1,13 +1,9 @@
 import React from 'react'
 import './DonationItem.css'
+import { Formatter } from '../Utils/Utils'
 
 function DonationItem(props) {
     const { donationDate, projectName, projectSchoolName, donationAmount, projectImage } = props
-    const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2
-        })
     return (
         <li className='DonationItem'>
             <div className='DonationItem__container'>
@@ -22,7 +18,7 @@ function DonationItem(props) {
                 </p>
                 <p className='DonationItem__project-amount'>
                     <i className="fas fa-check"></i>
-                    {formatter.format(donationAmount)}
+                    {Formatter.format(donationAmount)}
                 </p>
             </div>
             <div className='DonationItem__project-image'>

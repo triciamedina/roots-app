@@ -150,7 +150,8 @@ const STORE = {
             },
         },
     ],
-    walletBalance: 30.00
+    walletBalance: 30.00,
+    walletDailyTotal: 0.45,
 }
 
 export default STORE
