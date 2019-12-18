@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import './TransactionsList.css'
 import STORE from '../../store'
 import TransactionItem from '../TransactionItem/TransactionItem'
-
-// TODO: refactor so componentDidMount makes a request to get data and then store in state
-// Will need an onChange property that updates state (and eventually posts to backend)
+import RootsContext from '../../contexts/RootsContext'
 
 class TransactionsList extends Component {
+    static contextType = RootsContext
+    componentDidMount() {
+        const transactions = STORE.transactions
+        this.context.updateTransactions(transactions)
+    }
     render() {
-        const items = STORE.transactions.map(item => 
+        const items = this.context.transactions.items.map(item => 
             <TransactionItem 
                 key={item.id}
                 vendorName={item.vendorName} 

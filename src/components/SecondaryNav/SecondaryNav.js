@@ -23,7 +23,7 @@ class SecondaryNav extends Component {
         return (
             <div className='left-arrow-icon'>
                 <button className='back-button' onClick={this.handleGoback}>
-                    <img src={LeftArrow} />
+                    <img src={LeftArrow} alt=''/>
                 </button>
             </div>
         )
@@ -32,12 +32,15 @@ class SecondaryNav extends Component {
         return (
             <div className='times-icon'>
                 <button className='close-button' onClick={this.handleClose}>
-                    <img src={Times} />
+                    <img src={Times} alt=''/>
                 </button>
             </div>
         )
     }
     render() {
+        if (this.context.projects.showModal) {
+            return null
+        }
         const { location } = this.props
         return (
             <header className='SecondaryNav'>

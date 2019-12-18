@@ -1,6 +1,22 @@
 import React from 'react'
 
 const RootsContext = React.createContext({
+    transactions: {
+        items: [],
+        updateTransactions: () => {},
+        handleCheckTransaction: () => {},
+    },
+    donations: {
+        items: [],
+        total: '',
+        updateDonationsTotal: () => {},
+        updateDonations: () => {},
+    },
+    wallet: {
+        balance: '',
+        dailyTotal: '',
+        updateWallet: () => {},
+      },
     register: {
         email: {
             value: '',
@@ -47,13 +63,23 @@ const RootsContext = React.createContext({
         handleLogout: () => {},
     },
     projects: {
+        results: [],
         searchInput: {
             value: '',
         },
+        donateAmount: {
+            value: '',
+        },
         showResults: false,
+        showModal: false,
         onSearchInputChange: () => {},
         handleSearchSubmit: () => {},
-        handleClearSearch: () => {}
+        handleClearSearch: () => {},
+        handleOpenModal: () => {},
+        handleCloseModal: () => {},
+        onDonateAmountChange: () => {},
+        handleConfirmDonation: () => {},
+        updateProjectResults: () => {},
     }
 })
 

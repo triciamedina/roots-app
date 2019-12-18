@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './DonationsNotification.css'
 import { Formatter } from '../Utils/Utils'
+import RootsContext from '../../contexts/RootsContext'
+import STORE from '../../store'
 
-function DonationsNotification(props) {
-    return (
-        <div className='DonationsNotification'>
-            <p className='DonationsNotification__title'>
-                You’ve given {Formatter.format(props.donationsTotal)} this year!
-            </p>
-        </div>
-    )
+class DonationsNotification extends Component {
+    static contextType = RootsContext
+    componentDidMount() {
+        const { donationsTotal } = STORE
+        this.context.updateDonationsTotal(donationsTotal)
+    }
+    render() {
+        const { total } = this.context.donations
+        return (
+            <div className='DonationsNotification'>
+                <p className='DonationsNotification__title'>
+                    You’ve given {Formatter.format(total)} this year!
+                </p>
+            </div>
+        )
+    }
 }
 
 export default DonationsNotification

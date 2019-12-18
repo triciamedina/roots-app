@@ -8,11 +8,23 @@ import ProjectsPage from '../../routes/ProjectsPage/ProjectsPage'
 import ProjectDetailPage from '../../routes/ProjectDetailPage/ProjectDetailPage'
 import RootsContext from '../../contexts/RootsContext'
 import TokenService from '../../services/token-service'
+import STORE from '../../store'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      transactions: {
+        items: [],
+      },
+      donations: {
+        items: [],
+        total: '',
+      },
+      wallet: {
+        balance: '',
+        dailyTotal: '',
+      },
       login: {
         email: {
           value: '',
@@ -43,10 +55,15 @@ class App extends Component {
         currentStep: 1,
       },
       projects: {
+        results: [],
         searchInput: {
             value: '',
         },
+        donateAmount: {
+          value: STORE.walletBalance,
+        },
         showResults: false,
+        showModal: false,
       },
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
@@ -64,6 +81,16 @@ class App extends Component {
       onSearchInputChange: this.onSearchInputChange,
       handleSearchSubmit: this.handleSearchSubmit,
       handleClearSearch: this.handleClearSearch,
+      handleOpenModal: this.handleOpenModal,
+      handleCloseModal: this.handleCloseModal,
+      onDonateAmountChange: this.onDonateAmountChange,
+      handleConfirmDonation: this.handleConfirmDonation,
+      updateTransactions: this.updateTransactions,
+      handleCheckTransaction: this.handleCheckTransaction,
+      updateWallet: this.updateWallet,
+      updateProjectResults: this.updateProjectResults,
+      updateDonationsTotal: this.updateDonationsTotal,
+      updateDonations: this.updateDonations,
     }
   }
   onLoginEmailChanged = (loginEmail) => {
@@ -132,7 +159,7 @@ class App extends Component {
     })
   }
   handleRegisterSubmit = () => {
-    const { password, confirmedPassword, confirmedEmail, firstName, lastName } = this.state.register
+    const { password, confirmedPassword, confirmedEmail } = this.state.register
     if (password.value === confirmedPassword.value) {
       this.setState({
         login: {
@@ -159,6 +186,7 @@ class App extends Component {
       projects: {
         ...this.state.projects,
         searchInput: { value: '' },
+        donateAmount: { value: STORE.walletBalance },
         showResults: false,
       }
     })
@@ -184,6 +212,93 @@ class App extends Component {
         confirmedPassword: { value: '' },
         currentStep: 1,
       },
+    })
+  }
+  handleOpenModal = () => {
+    this.setState({
+      projects: {
+        ...this.state.projects, 
+        showModal: true
+      },
+    })
+  }
+  handleCloseModal = () => {
+    this.setState({
+      projects: {
+        ...this.state.projects,
+        showModal: false
+      },
+    })
+  }
+  onDonateAmountChange = (donateAmount) => {
+    this.setState({
+      projects: {
+        ...this.state.projects, 
+        donateAmount: { value: parseFloat(donateAmount) },
+      },
+    })
+  }
+  handleConfirmDonation = () => {
+    this.setState({
+      projects: {
+        ...this.state.projects,
+        donateAmount: { value: STORE.walletBalance },
+        searchInput: { value: '' },
+        showModal: false,
+        showResults: false,
+      },
+    })
+  }
+  updateTransactions = (transactions) => {
+    this.setState({
+      transactions: {
+        items: [...transactions]
+      }
+    })
+  }
+  handleCheckTransaction = (id) => {
+    const newItems = this.state.transactions.items.map(item => item.id === id 
+      ? item = {...item, isChecked: (item.isChecked ? false : true)}
+      : item
+      )
+    this.setState({
+      transactions: {
+        ...this.state.transactions,
+        items: newItems
+      }
+    })
+  }
+  updateWallet = (walletBalance, walletDailyTotal) => {
+    this.setState({
+      wallet: {
+        ...this.state.wallet,
+        balance: walletBalance,
+        dailyTotal: walletDailyTotal,
+      }
+    })
+  }
+  updateProjectResults = (items) => {
+    this.setState({
+      projects: {
+        ...this.state.projects,
+        results: items,
+      }
+    })
+  }
+  updateDonationsTotal = (donationsTotal) => {
+    this.setState({
+      donations: {
+        ...this.state.donations,
+        total: donationsTotal,
+      }
+    })
+  }
+  updateDonations = (donations) => {
+    this.setState({
+      donations: {
+        ...this.state.donations,
+        items: donations,
+      }
     })
   }
   render() {

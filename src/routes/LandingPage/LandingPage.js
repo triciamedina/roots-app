@@ -15,7 +15,7 @@ function LandingPage() {
                         <RegisterButton className='Button--contained-small' />
                     </div>
                     <div className='image-container'>
-                        <img className='hero__image' src='https://dummyimage.com/295x360/cccccc/909090.png&text=placeholder' />
+                        <img className='hero__image' src='https://dummyimage.com/295x360/cccccc/909090.png&text=placeholder' alt=''/>
                     </div>
                 </section>
                 <section className='secondary'>
@@ -24,7 +24,7 @@ function LandingPage() {
                         <p className='secondary__body'>We’ll take the leftover change from your card purchases and help you invest it back where it matters.</p>
                     </div>
                     <div className='image-container'>
-                        <img className='secondary__image' src='https://dummyimage.com/295x360/cccccc/909090.png&text=placeholder' />
+                        <img className='secondary__image' src='https://dummyimage.com/295x360/cccccc/909090.png&text=placeholder' alt=''/>
                     </div>
                 </section>
                 <section className='secondary section--dark'>
@@ -33,7 +33,7 @@ function LandingPage() {
                         <p className='secondary__body'>Connect with classroom projects in your area that would benefit from a donation of any size.</p>
                     </div>
                     <div className='image-container'>
-                        <img className='secondary__image' src='https://dummyimage.com/295x360/cccccc/909090.png&text=placeholder' />
+                        <img className='secondary__image' src='https://dummyimage.com/295x360/cccccc/909090.png&text=placeholder' alt=''/>
                     </div>
                 </section>
                 <section className='secondary'>
@@ -42,7 +42,7 @@ function LandingPage() {
                         <p className='secondary__body'>Make a direct impact on public school children in your area by investing in resources they need for a strong future.</p>
                     </div>
                     <div className='image-container'>
-                        <img className='secondary__image' src='https://dummyimage.com/295x360/cccccc/909090.png&text=placeholder' />
+                        <img className='secondary__image' src='https://dummyimage.com/295x360/cccccc/909090.png&text=placeholder' alt=''/>
                     </div>
                 </section>
             </main>

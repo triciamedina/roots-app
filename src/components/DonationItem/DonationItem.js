@@ -24,6 +24,7 @@ function DonationItem(props) {
             <div className='DonationItem__project-image'>
                 <img 
                     src={projectImage}
+                    alt=''
                 />
             </div>
         </li>

@@ -1,0 +1,38 @@
+.ConfirmationModal {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.ConfirmationModal__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 32px;
+    max-width: 450px;
+}
+
+.ConfirmationModal__title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0px 0px 42px 0px;
+    padding: 0px;
+}
+
+.ConfirmationModal__description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 0px;
+    margin: 0px 0px 75px 0px;
+}
+
+.ConfirmationModal__icon {
+    color: rgba(0, 0, 0, 12%);
+    font-size: 100px;
+    margin-bottom: 50px;
+}
