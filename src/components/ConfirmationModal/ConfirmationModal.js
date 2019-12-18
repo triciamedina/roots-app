@@ -12,7 +12,7 @@ class ConfirmationModal extends Component {
     }
     handleConfirm = () => {
         this.context.handleConfirmDonation()
-        this.props.history.push('/dashboard')
+        this.props.history.push('/dashboard/donations')
     }
     render() {
         if (!this.context.projects.showModal) {
