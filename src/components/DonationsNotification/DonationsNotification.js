@@ -2,14 +2,9 @@ import React, { Component } from 'react'
 import './DonationsNotification.css'
 import { Formatter } from '../Utils/Utils'
 import RootsContext from '../../contexts/RootsContext'
-import STORE from '../../store'
 
 class DonationsNotification extends Component {
     static contextType = RootsContext
-    componentDidMount() {
-        const { donationsTotal } = STORE
-        this.context.updateDonationsTotal(donationsTotal)
-    }
     render() {
         const { total } = this.context.donations
         return (

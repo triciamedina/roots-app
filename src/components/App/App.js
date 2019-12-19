@@ -19,6 +19,9 @@ class App extends Component {
       transactions: {
         items: [],
       },
+      autoRoundups: {
+        isOn: false,
+      },
       donations: {
         items: [],
         total: '',
@@ -91,7 +94,6 @@ class App extends Component {
       handleCheckTransaction: this.handleCheckTransaction,
       updateWallet: this.updateWallet,
       updateProjectResults: this.updateProjectResults,
-      updateDonationsTotal: this.updateDonationsTotal,
       updateDonations: this.updateDonations,
     }
   }
@@ -287,19 +289,12 @@ class App extends Component {
       }
     })
   }
-  updateDonationsTotal = (donationsTotal) => {
-    this.setState({
-      donations: {
-        ...this.state.donations,
-        total: donationsTotal,
-      }
-    })
-  }
-  updateDonations = (donations) => {
+  updateDonations = (donations, donationsTotal) => {
     this.setState({
       donations: {
         ...this.state.donations,
         items: donations,
+        total: donationsTotal,
       }
     })
   }

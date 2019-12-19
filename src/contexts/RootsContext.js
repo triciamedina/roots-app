@@ -6,10 +6,12 @@ const RootsContext = React.createContext({
         updateTransactions: () => {},
         handleCheckTransaction: () => {},
     },
+    autoRoundups: {
+        isOn: false,
+      },
     donations: {
         items: [],
         total: '',
-        updateDonationsTotal: () => {},
         updateDonations: () => {},
     },
     wallet: {

@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
 import './TransactionsList.css'
-import STORE from '../../store'
 import TransactionItem from '../TransactionItem/TransactionItem'
 import RootsContext from '../../contexts/RootsContext'
 
 class TransactionsList extends Component {
     static contextType = RootsContext
-    componentDidMount() {
-        const transactions = STORE.transactions
-        this.context.updateTransactions(transactions)
-    }
     render() {
         const items = this.context.transactions.items.map(item => 
             <TransactionItem 
