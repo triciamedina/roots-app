@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+import PrivateRoute from '../Utils/PrivateRoute'
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegisterPage from '../../routes/RegisterPage/RegisterPage'
@@ -306,33 +308,32 @@ class App extends Component {
       <RootsContext.Provider value={this.state}>
         <div className='App'>
             <Switch>
-              {/* Public only landing page */}
-              <Route 
+              <PublicOnlyRoute 
                 exact 
                 path={'/'}
                 component={LandingPage}
               />
-              <Route 
+              <PublicOnlyRoute 
                 exact 
                 path={'/login'}
                 component={LoginPage}
               />
-              <Route
+              <PublicOnlyRoute
                 exact 
                 path={'/register'}
                 component={RegisterPage}
               />
               {/* Private only dashboard page */}
-              <Route
+              <PrivateRoute
                 path={'/dashboard'} 
                 component={DashboardPage}
               />
-              <Route
+              <PrivateRoute
                 exact
                 path={'/projects'}
                 component={ProjectsPage}
               />
-              <Route
+              <PrivateRoute
                 path={'/projects/:project_id'} 
                 component={ProjectDetailPage}
               />
