@@ -8,6 +8,7 @@ const RootsContext = React.createContext({
     },
     autoRoundups: {
         isOn: false,
+        onAutoRoundupsChange: () => {},
       },
     donations: {
         items: [],

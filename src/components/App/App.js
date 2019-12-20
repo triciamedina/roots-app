@@ -119,6 +119,7 @@ class App extends Component {
       updateSelectedAccount: this.updateSelectedAccount,
       onAccountSetupConfirmed: this.onAccountSetupConfirmed,
       onAccountSetupCancel: this.onAccountSetupCancel,
+      onAutoRoundupsChange: this.onAutoRoundupsChange,
     }
   }
   onLoginEmailChanged = (loginEmail) => {
@@ -416,6 +417,14 @@ class App extends Component {
       accountSetup: {
         ...this.state.accountSetup,
         currentStep: 1,
+      }
+    })
+  }
+  onAutoRoundupsChange = () => {
+    this.setState({
+      autoRoundups: {
+        ...this.state.autoRoundups,
+        isOn: (this.state.autoRoundups.isOn ? false : true)
       }
     })
   }
