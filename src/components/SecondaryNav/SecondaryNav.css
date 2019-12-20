@@ -14,7 +14,8 @@
     flex: 2;
 }
 
-.left-arrow-icon {
+.left-arrow-icon,
+.skip-button {
     display: inline-block;
 }
 
@@ -36,10 +37,16 @@
     font-size: 20px;
 }
 
-.times-icon {
+.times-icon,
+.skip-button {
     float: right;
 }
 
 .times-icon img {
     width: 20px;
+}
+
+.skip-button button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;;
 }

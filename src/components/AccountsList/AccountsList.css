@@ -1,9 +1,9 @@
-.BanksList {
+.AccountsList {
     height: 100%;
     overflow: scroll;
 }
 
-.BanksList ul {
+.AccountsList ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;

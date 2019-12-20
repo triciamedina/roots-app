@@ -4,6 +4,7 @@ import { withRouter } from 'react-router'
 import Times from '../../img/times-solid.svg'
 import LeftArrow from '../../img/chevron-left-solid.svg'
 import RootsContext from '../../contexts/RootsContext'
+import { Button } from '../Utils/Utils'
 
 class SecondaryNav extends Component {
     static contextType = RootsContext
@@ -17,6 +18,11 @@ class SecondaryNav extends Component {
     handleClose = () => {
         const { history } = this.props
         this.context.handleClearSearch()
+        history.push('/dashboard')
+    }
+    handleSkip = () => {
+        const { history } = this.props
+        this.context.onAccountSetupCancel()
         history.push('/dashboard')
     }
     renderBackButton() {
@@ -37,6 +43,15 @@ class SecondaryNav extends Component {
             </div>
         )
     }
+    renderSkipButton() {
+        return (
+            <div className='skip-button'>
+                <Button className='Button--text-xsmall' onClick={this.handleSkip}>
+                    Skip
+                </Button>
+            </div>
+        )
+    }
     render() {
         if (this.context.projects.showModal) {
             return null
@@ -45,8 +60,10 @@ class SecondaryNav extends Component {
         return (
             <header className='SecondaryNav'>
                 <nav>
-                    {this.renderBackButton()}
+                    {!location.pathname.includes('/account-setup') && this.renderBackButton()}
                     {location.pathname.includes('/projects') && this.renderCloseButton()}
+                    {(location.pathname.includes('/account-setup') && this.context.accountSetup.currentStep !== 3) 
+                        && this.renderSkipButton()}
                 </nav>
             </header>
         ) 

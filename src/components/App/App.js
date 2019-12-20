@@ -77,6 +77,14 @@ class App extends Component {
           value: '',
           touched: false,
         },
+        selected: null,
+      },
+      accountSetup: {
+        currentStep: 1,
+      },
+      accounts: {
+        results: [],
+        selected: null,
       },
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
@@ -105,6 +113,12 @@ class App extends Component {
       updateDonations: this.updateDonations,
       updateBanks: this.updateBanks,
       onBankSearchChange: this.onBankSearchChange,
+      handleClearBankSearch: this.handleClearBankSearch,
+      updateSelectedBank: this.updateSelectedBank,
+      updateAccounts: this.updateAccounts,
+      updateSelectedAccount: this.updateSelectedAccount,
+      onAccountSetupConfirmed: this.onAccountSetupConfirmed,
+      onAccountSetupCancel: this.onAccountSetupCancel,
     }
   }
   onLoginEmailChanged = (loginEmail) => {
@@ -324,6 +338,84 @@ class App extends Component {
           value: input,
           touched: true,
         },
+      }
+    })
+  }
+  handleClearBankSearch = () => {
+    this.setState({
+      banks: {
+        ...this.state.banks,
+        searchInput: {
+          value: '',
+          touched: false,
+        },
+      },
+    })
+  }
+  updateSelectedBank = (bankId) => {
+    this.setState({
+      banks: {
+        ...this.state.banks,
+        searchInput: {
+          value: '',
+          touched: false,
+        },
+        selected: bankId,
+      },
+      accountSetup: {
+        ...this.state.accountSetup,
+        currentStep: 2,
+      },
+    })
+  }
+  updateAccounts = (items) => {
+    this.setState({
+      accounts: {
+        ...this.state.accounts,
+        results: items,
+      }
+    })
+  }
+  updateSelectedAccount = (accountId) => {
+    this.setState({
+      accounts: {
+        ...this.state.accounts,
+        selected: accountId,
+      },
+      accountSetup: {
+        ...this.state.accountSetup,
+        currentStep: 3,
+      }
+    })
+  }
+  onAccountSetupCancel = () => {
+    this.setState({
+      accountSetup: {
+        ...this.state.accountSetup,
+        currentStep: 1,
+      },
+      accounts: {
+        ...this.state.accounts,
+        results: [],
+        selected: null,
+      },
+      banks: {
+        ...this.state.banks,
+        results: [],
+        searchInput: {
+          ...this.state.banks.searchInput,
+          touched: false,
+          value: ''
+        },
+        selected: null,
+      },
+    })
+  }
+  onAccountSetupConfirmed = () => {
+    this.setState({
+      accountSetup: {
+        ...this.state.accountSetup,
+        currentStep: 1,
       }
     })
   }

@@ -24,7 +24,7 @@ class RegisterForm extends Component {
     handleStepThree = (event) => {
         event.preventDefault()
         this.context.handleRegisterSubmit()
-        this.props.history.push('/dashboard')
+        this.props.history.push('/account-setup')
     }
     renderStepOne() {
         return (

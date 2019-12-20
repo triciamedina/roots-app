@@ -89,8 +89,22 @@ const RootsContext = React.createContext({
             value: '',
             touched: false,
         },
+        selected: null,
         updateBanks: () => {},
         onBankSearchChange: () => {},
+        handleClearBankSearch: () => {},
+        updateSelectedBank: () => {},
+    },
+    accountSetup: {
+        currentStep: '',
+        onAccountSetupConfirmed: () => {},
+        onAccountSetupCancel: () => {},
+    },
+    accounts: {
+        results: [],
+        selected: null,
+        updateAccounts: () => {},
+        updateSelectedAccount: () => {},
     }
 })
 

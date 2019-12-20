@@ -193,6 +193,23 @@ const STORE = {
             title: 'HSBC',
             img: 'https://dummyimage.com/40x40/cccccc/909090.png&text=placeholder'
         },
+    ],
+    accounts: [
+        {
+            id: 1,
+            title: 'Checking 1',
+            number: 1234,
+        },
+        {
+            id: 2,
+            title: 'Checking 2',
+            number: 1234,
+        },
+        {
+            id: 3,
+            title: 'Savings',
+            number: 1234,
+        },
     ]
 }
 

@@ -8,7 +8,7 @@ class BankSearch extends Component {
         return (
             <div className='BankSearch__input'>
                 <label htmlFor='bankSearch'>
-                    <span className='setup-form__label'>
+                    <span className='BankSearch__title'>
                         Search
                     </span>
                 </label>
