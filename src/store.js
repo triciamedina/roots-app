@@ -152,6 +152,48 @@ const STORE = {
     ],
     walletBalance: 30.00,
     walletDailyTotal: 0.45,
+    banks: [
+        {
+            id: 1,
+            title: 'Wells Fargo',
+            img: 'https://dummyimage.com/40x40/cccccc/909090.png&text=placeholder'
+        },
+        {
+            id: 2,
+            title: 'Bank of America',
+            img: 'https://dummyimage.com/40x40/cccccc/909090.png&text=placeholder'
+        },
+        {
+            id: 3,
+            title: 'Chase',
+            img: 'https://dummyimage.com/40x40/cccccc/909090.png&text=placeholder'
+        },
+        {
+            id: 4,
+            title: 'Goldman Sachs',
+            img: 'https://dummyimage.com/40x40/cccccc/909090.png&text=placeholder'
+        },
+        {
+            id: 5,
+            title: 'Citi',
+            img: 'https://dummyimage.com/40x40/cccccc/909090.png&text=placeholder'
+        },
+        {
+            id: 6,
+            title: 'Capital One',
+            img: 'https://dummyimage.com/40x40/cccccc/909090.png&text=placeholder'
+        },
+        {
+            id: 7,
+            title: 'Discover',
+            img: 'https://dummyimage.com/40x40/cccccc/909090.png&text=placeholder'
+        },
+        {
+            id: 8,
+            title: 'HSBC',
+            img: 'https://dummyimage.com/40x40/cccccc/909090.png&text=placeholder'
+        },
+    ]
 }
 
 export default STORE

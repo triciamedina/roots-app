@@ -1,0 +1,37 @@
+.LinkBankForm {
+    padding-top: 130px;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.LinkBankForm__title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0px 0px 20px 0px;
+    padding: 0px;
+}
+
+.LinkBankForm__description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 0px 0px 15px 0px;  
+    margin: 0px;
+}
+
+.LinkBankForm__results-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 35px;
+    overflow: hidden;
+}

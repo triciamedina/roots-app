@@ -11,6 +11,7 @@ import ProjectDetailPage from '../../routes/ProjectDetailPage/ProjectDetailPage'
 import RootsContext from '../../contexts/RootsContext'
 import TokenService from '../../services/token-service'
 import STORE from '../../store'
+import AccountSetupPage from '../../routes/AccountSetupPage/AccountSetupPage'
 
 class App extends Component {
   constructor(props) {
@@ -70,6 +71,13 @@ class App extends Component {
         showResults: false,
         showModal: false,
       },
+      banks: {
+        results: [],
+        searchInput: {
+          value: '',
+          touched: false,
+        },
+      },
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
       handleSubmitBasicAuth: this.handleSubmitBasicAuth,
@@ -95,6 +103,8 @@ class App extends Component {
       updateWallet: this.updateWallet,
       updateProjectResults: this.updateProjectResults,
       updateDonations: this.updateDonations,
+      updateBanks: this.updateBanks,
+      onBankSearchChange: this.onBankSearchChange,
     }
   }
   onLoginEmailChanged = (loginEmail) => {
@@ -298,6 +308,25 @@ class App extends Component {
       }
     })
   }
+  updateBanks = (items) => {
+    this.setState({
+      banks: {
+        ...this.state.banks,
+        results: items,
+      }
+    })
+  }
+  onBankSearchChange = (input) => {
+    this.setState({
+      banks: {
+        ...this.state.banks,
+        searchInput: {
+          value: input,
+          touched: true,
+        },
+      }
+    })
+  }
   render() {
     return (
       <RootsContext.Provider value={this.state}>
@@ -318,7 +347,10 @@ class App extends Component {
                 path={'/register'}
                 component={RegisterPage}
               />
-              {/* Private only dashboard page */}
+              <PrivateRoute
+                path={'/account-setup'}
+                component={AccountSetupPage}
+              />
               <PrivateRoute
                 path={'/dashboard'} 
                 component={DashboardPage}

@@ -82,6 +82,15 @@ const RootsContext = React.createContext({
         onDonateAmountChange: () => {},
         handleConfirmDonation: () => {},
         updateProjectResults: () => {},
+    },
+    banks: {
+        results: [],
+        searchInput: {
+            value: '',
+            touched: false,
+        },
+        updateBanks: () => {},
+        onBankSearchChange: () => {},
     }
 })
 
