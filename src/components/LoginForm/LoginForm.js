@@ -4,6 +4,8 @@ import { Button } from '../../components/Utils/Utils'
 import './LoginForm.css'
 import RootsContext from '../../contexts/RootsContext'
 import { withRouter } from 'react-router'
+import ValidationService from '../../services/validation-service'
+import ValidationError from '../ValidationError/ValidationError'
 
 class LoginForm extends Component {
     static contextType = RootsContext
@@ -16,6 +18,7 @@ class LoginForm extends Component {
         this.props.history.push('/dashboard')
     }
     render() {
+        const { email, password } = this.context.login
         return (
             <form 
                 action='' 
@@ -40,6 +43,11 @@ class LoginForm extends Component {
                         aria-required
                         onChange={e => this.context.onLoginEmailChanged(e.target.value)}
                     />
+                    {email.touched &&
+                        (<ValidationError 
+                            message={ValidationService.validateLoginEmail(email.value)} 
+                        />)
+                    }
                 </div>
                 <div className='LoginForm__input'>
                     <label htmlFor='password'>
@@ -55,9 +63,21 @@ class LoginForm extends Component {
                         aria-required
                         onChange={e => this.context.onLoginPasswordChanged(e.target.value)}
                     />
+                    {password.touched &&
+                        (<ValidationError 
+                            message={ValidationService.validateLoginPassword(password.value)} 
+                        />)
+                    }
                 </div>
                 <div className='LoginForm__submit'>
-                    <Button className='Button--contained-large' type='submit'>
+                    <Button 
+                        className='Button--contained-large' 
+                        type='submit'
+                        disabled={
+                            ValidationService.validateLoginEmail(email.value)
+                            || ValidationService.validateLoginPassword(password.value)
+                        }
+                    >
                         Next
                     </Button>
                 </div>

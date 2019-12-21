@@ -34,9 +34,11 @@ class App extends Component {
       login: {
         email: {
           value: '',
+          touched: false,
         },
         password: {
           value: '',
+          touched: false,
         },
       },
       register: {
@@ -124,12 +126,24 @@ class App extends Component {
   }
   onLoginEmailChanged = (loginEmail) => {
     this.setState({
-      login: {...this.state.login, email: { value: loginEmail }}
+      login: {
+        ...this.state.login,
+        email: { 
+          value: loginEmail,
+          touched: true,
+        }
+      }
     })
   }
   onLoginPasswordChanged = (loginPassword) => {
     this.setState({
-      login: {...this.state.login, password: { value: loginPassword }}
+      login: {
+        ...this.state.login, 
+        password: {
+          value: loginPassword,
+          touched: true,
+        }
+      }
     })
   }
   handleSubmitBasicAuth = () => {
