@@ -23,21 +23,27 @@ const RootsContext = React.createContext({
     register: {
         email: {
             value: '',
+            touched: false,
         },
         confirmedEmail: {
             value: '',
+            touched: false,
         },
         firstName: {
             value: '',
+            touched: false,
         },
         lastName: {
             value: '',
+            touched: false,
         },
         password: {
             value: '',
+            touched: false,
         },
         confirmedPassword: {
             value: '',
+            touched: false,
         },
         currentStep: '',
         onRegisterEmailChanged: () => {},

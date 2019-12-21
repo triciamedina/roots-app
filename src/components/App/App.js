@@ -44,21 +44,27 @@ class App extends Component {
       register: {
         email: {
           value: '',
+          touched: false,
         },
         confirmedEmail: {
           value: '',
+          touched: false,
         },
         firstName: {
           value: '',
+          touched: false,
         },
         lastName: {
           value: '',
+          touched: false,
         },
         password: {
           value: '',
+          touched: false,
         },
         confirmedPassword: {
           value: '',
+          touched: false,
         },
         currentStep: 1,
       },
@@ -160,45 +166,87 @@ class App extends Component {
   }
   onRegisterEmailChanged = (registerEmail) => {
     this.setState({
-      register: {...this.state.register, email: { value: registerEmail }}
+      register: {
+        ...this.state.register, 
+        email: { 
+          value: registerEmail,
+          touched: true,
+        }
+      }
     })
   }
   onRegisterConfirmedEmailChanged = (registerConfirmedEmail) => {
     this.setState({
-      register: {...this.state.register, confirmedEmail: { value: registerConfirmedEmail }}
+      register: {
+        ...this.state.register, 
+        confirmedEmail: { 
+          value: registerConfirmedEmail,
+          touched: true,
+        }
+      }
     })
   }
   handleRegisterStepOne = () => {
     const { email, confirmedEmail } = this.state.register
     if (email.value === confirmedEmail.value) {
       this.setState({
-        register: {...this.state.register, currentStep: 2 }
+        register: {
+          ...this.state.register, 
+          currentStep: 2 
+        }
       })
     }
   }
   onRegisterFirstNameChanged = (firstNameInput) => {
     this.setState({
-      register: {...this.state.register, firstName: { value: firstNameInput }}
+      register: {
+        ...this.state.register, 
+        firstName: { 
+          value: firstNameInput,
+          touched: true,
+        }
+      }
     })
   }
   onRegisterLastNameChanged = (lastNameInput) => {
     this.setState({
-      register: {...this.state.register, lastName: { value: lastNameInput }}
+      register: {
+        ...this.state.register, 
+        lastName: { 
+          value: lastNameInput,
+          touched: true,
+        }
+      }
     })
   }
   handleRegisterStepTwo = () => {
     this.setState({
-      register: {...this.state.register, currentStep: 3 }
+      register: {
+        ...this.state.register, 
+        currentStep: 3,
+      }
     })
   }
   onRegisterPasswordChanged = (passwordInput) => {
     this.setState({
-      register: {...this.state.register, password: { value: passwordInput }}
+      register: {
+        ...this.state.register, 
+        password: { 
+          value: passwordInput,
+          touched: true,
+        }
+      }
     })
   }
   onRegisterConfirmedPasswordChanged = (confirmedPasswordInput) => {
     this.setState({
-      register: {...this.state.register, confirmedPassword: { value: confirmedPasswordInput }}
+      register: {
+        ...this.state.register, 
+        confirmedPassword: { 
+          value: confirmedPasswordInput,
+          touched: true,
+        }
+      }
     })
   }
   handleRegisterSubmit = () => {

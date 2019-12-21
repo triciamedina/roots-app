@@ -4,6 +4,8 @@ import './RegisterForm.css'
 import { Button } from '../Utils/Utils'
 import RootsContext from '../../contexts/RootsContext'
 import { withRouter } from 'react-router'
+import ValidationService from '../../services/validation-service'
+import ValidationError from '../ValidationError/ValidationError'
 
 class RegisterForm extends Component {
     static contextType = RootsContext
@@ -27,6 +29,7 @@ class RegisterForm extends Component {
         this.props.history.push('/account-setup')
     }
     renderStepOne() {
+        const { email, confirmedEmail } = this.context.register
         return (
             <form 
                 action=''
@@ -50,6 +53,11 @@ class RegisterForm extends Component {
                             aria-required 
                             onChange={e => this.context.onRegisterEmailChanged(e.target.value)}
                         />
+                        {email.touched &&
+                            <ValidationError 
+                                message={ValidationService.validateRegisterEmail(email.value)}
+                            />
+                        }
                     </div>
                     <div className='RegisterForm__input'>
                         <label htmlFor='emailConfirmInput'>
@@ -64,14 +72,31 @@ class RegisterForm extends Component {
                             aria-required
                             onChange={e => this.context.onRegisterConfirmedEmailChanged(e.target.value)}
                         />
+                        {confirmedEmail.touched &&
+                            <ValidationError 
+                                message={ValidationService.validateRegisterEmailMatch(email.value, confirmedEmail.value)}
+                            />
+                        }
                     </div>
-                    {this.renderSubmitButton()}
+                    <div className='RegisterForm__submit'>
+                        <Button 
+                            className='Button--contained-large'
+                            type='submit'
+                            disabled={
+                                ValidationService.validateRegisterEmail(email.value)
+                                || ValidationService.validateRegisterEmailMatch(email.value, confirmedEmail.value)
+                            }
+                        >
+                                Next
+                        </Button>
+                    </div>
                 </section>
                 {this.renderLoginLink()}
             </form>
         )
     }
     renderStepTwo() {
+        const { firstName, lastName } = this.context.register
         return (
             <form 
                 action=''
@@ -95,6 +120,11 @@ class RegisterForm extends Component {
                             aria-required 
                             onChange={e => this.context.onRegisterFirstNameChanged(e.target.value)}
                         />
+                        {firstName.touched &&
+                            <ValidationError 
+                                message={ValidationService.validateRegisterFirstName(firstName.value)}
+                            />
+                        }
                     </div>
                     <div className='RegisterForm__input'>
                         <label htmlFor='lastName'>
@@ -109,14 +139,31 @@ class RegisterForm extends Component {
                             aria-required
                             onChange={e => this.context.onRegisterLastNameChanged(e.target.value)}
                         />
+                        {lastName.touched &&
+                            <ValidationError 
+                                message={ValidationService.validateRegisterLastName(lastName.value)}
+                            />
+                        }
                     </div>
-                    {this.renderSubmitButton()}
+                    <div className='RegisterForm__submit'>
+                        <Button 
+                            className='Button--contained-large'
+                            type='submit'
+                            disabled={
+                                ValidationService.validateRegisterFirstName(firstName.value)
+                                || ValidationService.validateRegisterLastName(lastName.value)
+                            }
+                        >
+                                Next
+                        </Button>
+                    </div>
                 </section>
                 {this.renderLoginLink()}
             </form>
         )
     }
     renderStepThree() {
+        const { password, confirmedPassword } = this.context.register
         return (
             <form 
                 action=''
@@ -140,6 +187,11 @@ class RegisterForm extends Component {
                             aria-required
                             onChange={e => this.context.onRegisterPasswordChanged(e.target.value)}
                         />
+                        {password.touched &&
+                            <ValidationError 
+                                message={ValidationService.validateRegisterPassword(password.value)}
+                            />
+                        }
                     </div>
                     <div className='RegisterForm__input'>
                         <label htmlFor='passwordConfirmInput'>
@@ -154,20 +206,27 @@ class RegisterForm extends Component {
                             aria-required
                             onChange={e => this.context.onRegisterConfirmedPasswordChanged(e.target.value)}
                         />
+                        {confirmedPassword.touched &&
+                            <ValidationError 
+                                message={ValidationService.validateRegisterPasswordMatch(password.value, confirmedPassword.value)}
+                            />
+                        }
                     </div>
-                    {this.renderSubmitButton()}
+                    <div className='RegisterForm__submit'>
+                        <Button 
+                            className='Button--contained-large'
+                            type='submit'
+                            disabled={
+                                ValidationService.validateRegisterPassword(password.value)
+                                || ValidationService.validateRegisterPasswordMatch(password.value, confirmedPassword.value)
+                            }
+                        >
+                                Next
+                        </Button>
+                    </div>
                 </section>
                 {this.renderLoginLink()}
             </form>
-        )
-    }
-    renderSubmitButton() {
-        return (
-            <div className='RegisterForm__submit'>
-                <Button className='Button--contained-large' type='submit'>
-                        Next
-                </Button>
-            </div>
         )
     }
     renderLoginLink() {
