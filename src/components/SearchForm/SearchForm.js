@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './SearchForm.css'
 import { Button } from '../Utils/Utils'
 import RootsContext from '../../contexts/RootsContext'
+import ValidationError from '../ValidationError/ValidationError'
+import ValidationService from '../../services/validation-service'
 
 class SearchForm extends Component {
     static contextType = RootsContext
@@ -10,15 +12,21 @@ class SearchForm extends Component {
         this.context.handleSearchSubmit()
     }
     renderSubmitButton() {
+        const { searchInput } = this.context.projects
         return (
             <div className='search-form__submit'>
-                <Button className='Button--contained-large' type='submit'>
+                <Button 
+                    className='Button--contained-large'
+                    type='submit'
+                    disabled={ValidationService.validateProjectSearch(searchInput.value)}
+                >
                     Search
                 </Button>
             </div>
         )
     }
     render() {
+        const { searchInput } = this.context.projects
         return (
             <form 
                 action=''
@@ -42,6 +50,11 @@ class SearchForm extends Component {
                             aria-required
                             onChange={e => this.context.onSearchInputChange(e.target.value)}
                         />
+                        {searchInput.touched &&
+                        (<ValidationError 
+                            message={ValidationService.validateProjectSearch(searchInput.value)} 
+                        />)
+                    }
                     </div>
                     {!this.context.projects.showResults && this.renderSubmitButton()}
                 </div>

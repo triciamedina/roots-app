@@ -75,6 +75,7 @@ const RootsContext = React.createContext({
         results: [],
         searchInput: {
             value: '',
+            touched: false,
         },
         donateAmount: {
             value: '',

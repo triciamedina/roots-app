@@ -8,10 +8,10 @@ import RegisterPage from '../../routes/RegisterPage/RegisterPage'
 import DashboardPage from '../../routes/DashboardPage/DashboardPage'
 import ProjectsPage from '../../routes/ProjectsPage/ProjectsPage'
 import ProjectDetailPage from '../../routes/ProjectDetailPage/ProjectDetailPage'
+import AccountSetupPage from '../../routes/AccountSetupPage/AccountSetupPage'
 import RootsContext from '../../contexts/RootsContext'
 import TokenService from '../../services/token-service'
 import STORE from '../../store'
-import AccountSetupPage from '../../routes/AccountSetupPage/AccountSetupPage'
 
 class App extends Component {
   constructor(props) {
@@ -72,6 +72,7 @@ class App extends Component {
         results: [],
         searchInput: {
             value: '',
+            touched: false,
         },
         donateAmount: {
           value: STORE.walletBalance,
@@ -264,12 +265,21 @@ class App extends Component {
   }
   onSearchInputChange = (searchInput) => {
     this.setState({
-      projects: {...this.state.projects, searchInput: { value: searchInput }}
+      projects: {
+        ...this.state.projects,
+        searchInput: { 
+          value: searchInput,
+          touched: true,
+        }
+      }
     })
   }
   handleSearchSubmit = () => {
     this.setState({
-      projects: {...this.state.projects, showResults: true }
+      projects: {
+        ...this.state.projects,
+        showResults: true 
+      }
     })
   }
   handleClearSearch = () => {
