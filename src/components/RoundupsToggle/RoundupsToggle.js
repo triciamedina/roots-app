@@ -6,6 +6,7 @@ import ReactTooltip from 'react-tooltip'
 class RoundupsToggle extends Component {
     static contextType = RootsContext
     render() {
+        const { autoRoundups } = this.context
         return (
             <div className='roundups__toggle-container'>
                 <label htmlFor='roundups-toggle' className='toggle'>
@@ -20,7 +21,7 @@ class RoundupsToggle extends Component {
                         required 
                     />
                     <span className='slider--round'
-                        data-tip='Turn on'
+                        data-tip={autoRoundups.isOn ? 'Turn off' : 'Turn on'}
                     >
                     </span>
                 </label>
