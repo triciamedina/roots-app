@@ -4,9 +4,9 @@
     padding-right: 24px;
     width: 100%;
     max-width: 600px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
 .search-form__container {

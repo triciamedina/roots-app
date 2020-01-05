@@ -3,8 +3,12 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 18px 13px;
-    margin: 10px 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
     min-height: 75px;
+    height: 100%;
     width: 100%;
     max-width: 600px;
     border-radius: 4px;
@@ -13,6 +17,7 @@
 
 .DonationItem__container {
     flex: 2;
+    height: 100%;
 }
 
 .DonationItem__date {
@@ -68,6 +73,7 @@
     justify-content: flex-start;
     align-items: flex-end;
     flex: 1;
+    height: 100%;
 }
 
 .DonationItem__project-image img {
