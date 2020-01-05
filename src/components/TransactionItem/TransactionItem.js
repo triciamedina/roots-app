@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './TransactionItem.css'
 import { Formatter } from '../Utils/Utils'
 import RootsContext from '../../contexts/RootsContext'
+import ReactToolTip from 'react-tooltip'
 
 class TransactionItem extends Component {
     static contextType = RootsContext
@@ -13,7 +14,10 @@ class TransactionItem extends Component {
                     <p className='TransactionItem__title'>
                         {vendorName}
                     </p>
-                    <p className='TransactionItem__amount'>
+                    <p 
+                        className='TransactionItem__amount'
+                        data-tip='Transaction amount'
+                    >
                         {Formatter.format(transactionAmount)}
                     </p>
                 </div>
@@ -21,9 +25,13 @@ class TransactionItem extends Component {
                         htmlFor={id} 
                         className='TransactionItem__toggle'
                     >
-                        <span className='TransactionItem__roundup'>
+                        <span 
+                            className='TransactionItem__roundup'
+                            data-tip='Round up amount'
+                        >
                             {Formatter.format(roundupAmount)}
                         </span>
+                        
                         <input 
                             type='checkbox' 
                             id={id}
@@ -31,8 +39,13 @@ class TransactionItem extends Component {
                             defaultChecked={isChecked}
                             onChange={e => this.context.handleCheckTransaction(e.target.id)}
                         />
-                        <span className='circle'></span>
+                        <span 
+                            className='circle'
+                            data-tip={isChecked ? '' : 'Add'}
+                        >
+                        </span>
                     </label>
+                    <ReactToolTip />
             </li>
         )
     }
