@@ -80,20 +80,9 @@ class App extends Component {
         showResults: false,
         showModal: false,
       },
-      banks: {
-        results: [],
-        searchInput: {
-          value: '',
-          touched: false,
-        },
-        selected: null,
-      },
       accountSetup: {
-        currentStep: 1,
-      },
-      accounts: {
-        results: [],
-        selected: null,
+        isSuccessful: false,
+        institution: '',
       },
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
@@ -120,13 +109,7 @@ class App extends Component {
       updateWallet: this.updateWallet,
       updateProjectResults: this.updateProjectResults,
       updateDonations: this.updateDonations,
-      updateBanks: this.updateBanks,
-      onBankSearchChange: this.onBankSearchChange,
-      handleClearBankSearch: this.handleClearBankSearch,
-      updateSelectedBank: this.updateSelectedBank,
-      updateAccounts: this.updateAccounts,
-      updateSelectedAccount: this.updateSelectedAccount,
-      onAccountSetupConfirmed: this.onAccountSetupConfirmed,
+      onAccountSetupSuccess: this.onAccountSetupSuccess,
       onAccountSetupCancel: this.onAccountSetupCancel,
       onAutoRoundupsChange: this.onAutoRoundupsChange,
     }
@@ -395,72 +378,6 @@ class App extends Component {
       }
     })
   }
-  updateBanks = (items) => {
-    this.setState({
-      banks: {
-        ...this.state.banks,
-        results: items,
-      }
-    })
-  }
-  onBankSearchChange = (input) => {
-    this.setState({
-      banks: {
-        ...this.state.banks,
-        searchInput: {
-          value: input,
-          touched: true,
-        },
-      }
-    })
-  }
-  handleClearBankSearch = () => {
-    this.setState({
-      banks: {
-        ...this.state.banks,
-        searchInput: {
-          value: '',
-          touched: false,
-        },
-      },
-    })
-  }
-  updateSelectedBank = (bankId) => {
-    this.setState({
-      banks: {
-        ...this.state.banks,
-        searchInput: {
-          value: '',
-          touched: false,
-        },
-        selected: bankId,
-      },
-      accountSetup: {
-        ...this.state.accountSetup,
-        currentStep: 2,
-      },
-    })
-  }
-  updateAccounts = (items) => {
-    this.setState({
-      accounts: {
-        ...this.state.accounts,
-        results: items,
-      }
-    })
-  }
-  updateSelectedAccount = (accountId) => {
-    this.setState({
-      accounts: {
-        ...this.state.accounts,
-        selected: accountId,
-      },
-      accountSetup: {
-        ...this.state.accountSetup,
-        currentStep: 3,
-      }
-    })
-  }
   onAccountSetupCancel = () => {
     this.setState({
       accountSetup: {
@@ -484,11 +401,13 @@ class App extends Component {
       },
     })
   }
-  onAccountSetupConfirmed = () => {
+  onAccountSetupSuccess = (token, metadata) => {
+    console.log(token, metadata)
     this.setState({
       accountSetup: {
         ...this.state.accountSetup,
-        currentStep: 1,
+        isSuccessful: true,
+        institution: metadata.institution
       }
     })
   }

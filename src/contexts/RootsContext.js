@@ -91,29 +91,12 @@ const RootsContext = React.createContext({
         handleConfirmDonation: () => {},
         updateProjectResults: () => {},
     },
-    banks: {
-        results: [],
-        searchInput: {
-            value: '',
-            touched: false,
-        },
-        selected: null,
-        updateBanks: () => {},
-        onBankSearchChange: () => {},
-        handleClearBankSearch: () => {},
-        updateSelectedBank: () => {},
-    },
     accountSetup: {
-        currentStep: '',
-        onAccountSetupConfirmed: () => {},
+        isSuccessful: false,
+        institution: '',
+        onAccountSetupSuccess: () => {},
         onAccountSetupCancel: () => {},
     },
-    accounts: {
-        results: [],
-        selected: null,
-        updateAccounts: () => {},
-        updateSelectedAccount: () => {},
-    }
 })
 
 export default RootsContext

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './AccountsList.css'
 import STORE from '../../store'
 import RootsContext from '../../contexts/RootsContext'
-import AccountItem from '../AccountItem/AccountItem'
+import AccountItem from '../DELETE_AccountItem/AccountItem'
 
 class AccountsList extends Component {
     static contextType = RootsContext
