@@ -12,12 +12,12 @@ class LoginForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const { email, password } = event.target
-        this.context.handleSubmitBasicAuth()
+        this.context.handleSubmitJwtAuth()
         email.value = ''
         password.value = ''
-        this.props.history.push('/dashboard')
+        // this.props.history.push('/dashboard')
     }
-    render() {
+    renderLoginForm() {
         const { email, password } = this.context.login
         return (
             <form 
@@ -91,6 +91,16 @@ class LoginForm extends Component {
                 </p>
             </section>
         </form>
+        )
+    }
+    render() {
+        return (
+            <>
+                {this.context.login.isSuccessful 
+                    ? this.props.history.push('/dashboard')
+                    : this.renderLoginForm()
+                }
+            </>
         )
     }
 }

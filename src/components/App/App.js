@@ -11,6 +11,7 @@ import ProjectDetailPage from '../../routes/ProjectDetailPage/ProjectDetailPage'
 import AccountSetupPage from '../../routes/AccountSetupPage/AccountSetupPage'
 import RootsContext from '../../contexts/RootsContext'
 import TokenService from '../../services/token-service'
+import AuthApiService from '../../services/auth-api-service'
 import STORE from '../../store'
 
 class App extends Component {
@@ -40,6 +41,8 @@ class App extends Component {
           value: '',
           touched: false,
         },
+        error: null,
+        isSuccessful: false,
       },
       register: {
         email: {
@@ -87,6 +90,7 @@ class App extends Component {
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
       handleSubmitBasicAuth: this.handleSubmitBasicAuth,
+      handleSubmitJwtAuth: this.handleSubmitJwtAuth,
       handleLogout: this.handleLogout,
       onRegisterEmailChanged: this.onRegisterEmailChanged,
       onRegisterConfirmedEmailChanged: this.onRegisterConfirmedEmailChanged,
@@ -141,6 +145,37 @@ class App extends Component {
     TokenService.saveAuthToken(
       TokenService.makeBasicAuthToken(email.value, password.value)
     )
+  }
+  handleSubmitJwtAuth = () => {
+    const { email, password } = this.state.login
+    this.setState({
+      login: {
+        ...this.state.login,
+        error: null,
+      }
+    })
+    AuthApiService.postLogin({
+      email: email.value,
+      password: password.value,
+    })
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken)
+        this.setState({
+          login: {
+            ...this.state.login,
+            isSuccessful: true,
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          login: {
+            ...this.state.login,
+            error: res.error,
+            isSuccessful: false,
+          }
+        })
+      })
   }
   handleLogout = () => {
     TokenService.clearAuthToken()
@@ -281,6 +316,8 @@ class App extends Component {
         ...this.state.login, 
         email: { value: '' },
         password: { value: '' },
+        error: null,
+        isSuccessful: false,
       },
     })
   }

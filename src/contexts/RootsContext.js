@@ -63,10 +63,12 @@ const RootsContext = React.createContext({
         password: {
             value: '',
         },
+        error: null,
+        isSuccessful: false,
         onLoginEmailChanged: () => {},
         onLoginPasswordChanged: () => {},
-        // TODO: replace basic auth with JWT auth
         handleSubmitBasicAuth: () => {},
+        handleSubmitJwtAuth: () => {},
     },
     logout: {
         handleLogout: () => {},
