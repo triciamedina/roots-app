@@ -12,6 +12,7 @@ import AccountSetupPage from '../../routes/AccountSetupPage/AccountSetupPage'
 import RootsContext from '../../contexts/RootsContext'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
+import UserApiService from '../../services/user-api-service'
 import STORE from '../../store'
 
 class App extends Component {
@@ -70,6 +71,8 @@ class App extends Component {
           touched: false,
         },
         currentStep: 1,
+        error: null,
+        isSuccessful: false,
       },
       projects: {
         results: [],
@@ -269,17 +272,38 @@ class App extends Component {
     })
   }
   handleRegisterSubmit = () => {
-    const { password, confirmedPassword, confirmedEmail } = this.state.register
-    if (password.value === confirmedPassword.value) {
-      this.setState({
-        login: {
-          ...this.state.login, 
-          email: { value: confirmedEmail },
-          password: { value: confirmedPassword }
-        }
-      })
-      this.handleSubmitBasicAuth()
+    const { confirmedEmail, firstName, lastName, confirmedPassword } = this.state.register
+    const newUser = {
+      email: confirmedEmail.value,
+      first_name: firstName.value,
+      last_name: lastName.value,
+      password: confirmedPassword.value,
     }
+    UserApiService.postRegistration(newUser)
+      .then(res => {
+        this.setState({
+          login: {
+            ...this.state.login, 
+            email: { value: confirmedEmail.value },
+            password: { value: confirmedPassword.value }
+          },
+          register: {
+            ...this.state.register,
+            isSuccessful: true,
+            error: false,
+          }
+        })
+        this.handleSubmitJwtAuth()
+      })
+      .catch(res => {
+        this.setState({
+          register: {
+            ...this.state.register,
+            error: res.error,
+            isSuccessful: false,
+          }
+        })
+      })
   }
   onSearchInputChange = (searchInput) => {
     this.setState({
@@ -415,29 +439,29 @@ class App extends Component {
       }
     })
   }
-  onAccountSetupCancel = () => {
-    this.setState({
-      accountSetup: {
-        ...this.state.accountSetup,
-        currentStep: 1,
-      },
-      accounts: {
-        ...this.state.accounts,
-        results: [],
-        selected: null,
-      },
-      banks: {
-        ...this.state.banks,
-        results: [],
-        searchInput: {
-          ...this.state.banks.searchInput,
-          touched: false,
-          value: ''
-        },
-        selected: null,
-      },
-    })
-  }
+  // onAccountSetupCancel = () => {
+  //   this.setState({
+  //     accountSetup: {
+  //       ...this.state.accountSetup,
+  //       currentStep: 1,
+  //     },
+  //     accounts: {
+  //       ...this.state.accounts,
+  //       results: [],
+  //       selected: null,
+  //     },
+  //     banks: {
+  //       ...this.state.banks,
+  //       results: [],
+  //       searchInput: {
+  //         ...this.state.banks.searchInput,
+  //         touched: false,
+  //         value: ''
+  //       },
+  //       selected: null,
+  //     },
+  //   })
+  // }
   onAccountSetupSuccess = (token, metadata) => {
     console.log(token, metadata)
     this.setState({

@@ -46,6 +46,8 @@ const RootsContext = React.createContext({
             touched: false,
         },
         currentStep: '',
+        error: null,
+        isSuccessful: false,
         onRegisterEmailChanged: () => {},
         onRegisterConfirmedEmailChanged: () => {},
         handleRegisterStepOne: () => {},

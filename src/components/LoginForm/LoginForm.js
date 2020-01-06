@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Button } from '../../components/Utils/Utils'
 import './LoginForm.css'
 import RootsContext from '../../contexts/RootsContext'
@@ -15,7 +15,6 @@ class LoginForm extends Component {
         this.context.handleSubmitJwtAuth()
         email.value = ''
         password.value = ''
-        // this.props.history.push('/dashboard')
     }
     renderLoginForm() {
         const { email, password } = this.context.login
@@ -97,7 +96,7 @@ class LoginForm extends Component {
         return (
             <>
                 {this.context.login.isSuccessful 
-                    ? this.props.history.push('/dashboard')
+                    ? <Redirect to={'/dashboard'} />
                     : this.renderLoginForm()
                 }
             </>
