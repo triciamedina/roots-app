@@ -37,7 +37,8 @@ class LoginForm extends Component {
                     <input 
                         type='text' 
                         id='email' 
-                        name='email' 
+                        name='email'
+                        autoComplete='email'
                         aria-label='Login email'
                         aria-required
                         onChange={e => this.context.onLoginEmailChanged(e.target.value)}
@@ -55,9 +56,10 @@ class LoginForm extends Component {
                         </span>
                     </label>
                     <input 
-                        type='text'
+                        type='password'
                         id='password'
                         name='password' 
+                        autoComplete='password'
                         aria-label='Login password'
                         aria-required
                         onChange={e => this.context.onLoginPasswordChanged(e.target.value)}
@@ -79,6 +81,9 @@ class LoginForm extends Component {
                     >
                         Next
                     </Button>
+                    {!this.context.login.isSuccessful && 
+                        <p>{this.context.login.error}</p>
+                    }
                 </div>
             </section>
             <section className='LoginForm__secondary'>

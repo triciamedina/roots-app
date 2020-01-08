@@ -180,7 +180,7 @@ class RegisterForm extends Component {
                             </span>
                         </label>
                         <input 
-                            type='text'
+                            type='password'
                             id='passwordInput'
                             name='passwordInput' 
                             aria-required
@@ -199,7 +199,7 @@ class RegisterForm extends Component {
                             </span>
                         </label>
                         <input 
-                            type='text' 
+                            type='password' 
                             id='passwordConfirmInput' 
                             name='passwordConfirmInput' 
                             aria-required
@@ -222,6 +222,9 @@ class RegisterForm extends Component {
                         >
                                 Next
                         </Button>
+                        {!this.context.register.isSuccessful &&
+                            <p>{this.context.register.error}</p>
+                        }
                     </div>
                 </section>
                 {this.renderLoginLink()}

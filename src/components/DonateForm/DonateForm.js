@@ -7,32 +7,33 @@ import RootsContext from '../../contexts/RootsContext'
 class DonateForm extends Component {
     static contextType = RootsContext
     handleSubmit = (event) => {
+        const project = this.context.projects.results.proposals.filter(project => project.id === this.props.match.params.project_id)
         event.preventDefault()
-        this.context.handleOpenModal()
+        this.context.handleOpenModal(project)
     }
     render() {
         if (this.context.projects.showModal) {
             return null
         }
-        const project = this.context.projects.results.filter(project => project.id === parseInt(this.props.match.params.project_id))
-        const { funding } = project[0]
+        const project = this.context.projects.results.proposals.filter(project => project.id === this.props.match.params.project_id)
+        const { costToComplete, totalPrice } = project[0]
         const { balance } = this.context.wallet
         return (
             <section className='DonateForm'>
                 <div className='DonateForm__slide-container'>
                     <div className='DonateForm__slide-caption-container'>
                         <p className='DonateForm__funding-balance'>
-                            {Formatter.format(funding.stillNeeded)} still needed
+                            {Formatter.format(costToComplete)} still needed
                         </p>
                         <p className='DonateForm__funding-goal'>
-                            {Formatter.format(funding.goal)} goal
+                            {Formatter.format(totalPrice)} goal
                         </p>
                     </div>
                     <input 
                         type='range' 
                         min='1' 
-                        max={funding.goal} // Pull from context
-                        value={funding.balance} // Pull from context
+                        max={totalPrice} 
+                        value={totalPrice - costToComplete} 
                         className='DonateForm__slider' 
                         disabled='disabled' 
                     />
@@ -49,7 +50,7 @@ class DonateForm extends Component {
                                 step='0.01'
                                 id='donateAmount'
                                 name='donateAmount' 
-                                defaultValue={balance.toFixed(2)} // Pull from context
+                                defaultValue={balance.toFixed(2)}
                                 onChange={e => this.context.onDonateAmountChange(e.target.value)}
                             />
                         </div>

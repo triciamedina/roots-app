@@ -86,6 +86,7 @@ const RootsContext = React.createContext({
         },
         showResults: false,
         showModal: false,
+        selected: null,
         onSearchInputChange: () => {},
         handleSearchSubmit: () => {},
         handleClearSearch: () => {},

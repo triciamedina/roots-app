@@ -13,6 +13,7 @@ import RootsContext from '../../contexts/RootsContext'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 import UserApiService from '../../services/user-api-service'
+import CharityApiService from '../../services/charity-api-service'
 import STORE from '../../store'
 
 class App extends Component {
@@ -85,6 +86,7 @@ class App extends Component {
         },
         showResults: false,
         showModal: false,
+        selected: null,
       },
       accountSetup: {
         isSuccessful: false,
@@ -317,12 +319,32 @@ class App extends Component {
     })
   }
   handleSearchSubmit = () => {
+    const { searchInput } = this.state.projects
+    const authToken = TokenService.getAuthToken()
     this.setState({
       projects: {
         ...this.state.projects,
-        showResults: true 
+        error: null,
       }
     })
+    CharityApiService.getCharities(searchInput.value, authToken)
+      .then(res => {
+        this.setState({
+          projects: {
+            ...this.state.projects,
+            showResults: true,
+            results: res.data[0]
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          projects: {
+            ...this.state.projects,
+            error: res.error,
+          }
+        })
+      })
   }
   handleClearSearch = () => {
     this.setState({
@@ -359,11 +381,12 @@ class App extends Component {
       },
     })
   }
-  handleOpenModal = () => {
+  handleOpenModal = (selected) => {
     this.setState({
       projects: {
         ...this.state.projects, 
-        showModal: true
+        showModal: true,
+        selected: selected,
       },
     })
   }
@@ -371,7 +394,8 @@ class App extends Component {
     this.setState({
       projects: {
         ...this.state.projects,
-        showModal: false
+        showModal: false,
+        selected: null,
       },
     })
   }
@@ -387,12 +411,43 @@ class App extends Component {
     this.setState({
       projects: {
         ...this.state.projects,
-        donateAmount: { value: STORE.walletBalance },
-        searchInput: { value: '' },
-        showModal: false,
-        showResults: false,
-      },
+        error: null,
+      }
     })
+    const { title, fulfillmentTrailer, proposalURL, schoolName, thumbImageURL } = this.state.projects.selected[0]
+    const newDonation = {
+      amount: this.state.projects.donateAmount.value,
+      project_name: title,
+      project_description: fulfillmentTrailer,
+      project_url: proposalURL,
+      school_name: schoolName,
+      image_url: thumbImageURL
+    }
+    const authToken = TokenService.getAuthToken()
+    UserApiService.postDonation(newDonation, authToken)
+      .then(res => {
+        this.setState({
+          projects: {
+            ...this.state.projects,
+            donateAmount: { value: STORE.walletBalance }, // TODO: update this with wallet balance from db
+            searchInput: { value: '' },
+            showModal: false,
+            showResults: false,
+          },
+          donations: {
+            ...this.state.donations,
+            items: [...this.state.donations.items, res]
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          projects: {
+            ...this.state.projects,
+            error: res.error,
+          }
+        })
+      })
   }
   updateTransactions = (transactions) => {
     this.setState({
@@ -422,14 +477,14 @@ class App extends Component {
       }
     })
   }
-  updateProjectResults = (items) => {
-    this.setState({
-      projects: {
-        ...this.state.projects,
-        results: items,
-      }
-    })
-  }
+  // updateProjectResults = (items) => {
+  //   this.setState({
+  //     projects: {
+  //       ...this.state.projects,
+  //       results: items,
+  //     }
+  //   })
+  // }
   updateDonations = (donations, donationsTotal) => {
     this.setState({
       donations: {
