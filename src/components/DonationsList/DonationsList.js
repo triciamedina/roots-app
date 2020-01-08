@@ -5,20 +5,22 @@ import RootsContext from '../../contexts/RootsContext'
 
 class DonationsList extends Component {
     static contextType = RootsContext
+    // TODO: sort array by date
     render() {
         const items = this.context.donations.items.map(item => 
             <DonationItem
                 key={item.id}
-                donationDate={item.donationDate}
-                projectName={item.projectName}
-                projectSchoolName={item.projectSchoolName}
-                donationAmount={item.donationAmount}
-                projectImage ={item.projectImage}
+                donationDate={item.donated_on}
+                projectName={item.project_name}
+                projectSchoolName={item.school_name}
+                donationAmount={item.amount}
+                projectImage ={item.image_url}
             />
         )
         return (
             <ul className='DonationsList'>
-                {items}
+                {items} 
+                {/* TODO: Display message if array is empty */}
             </ul>
         )
     }

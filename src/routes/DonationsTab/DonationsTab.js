@@ -9,8 +9,8 @@ import STORE from '../../store'
 class DonationsTab extends Component {
     static contextType = RootsContext
     componentDidMount() {
-        const { donations, donationsTotal } = STORE
-        this.context.updateDonations(donations, donationsTotal)
+        const { donationsTotal } = STORE
+        this.context.updateDonations(donationsTotal)
     }
     render() {
         return (

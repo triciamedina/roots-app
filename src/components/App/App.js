@@ -414,6 +414,7 @@ class App extends Component {
         error: null,
       }
     })
+
     const { title, fulfillmentTrailer, proposalURL, schoolName, thumbImageURL } = this.state.projects.selected[0]
     const newDonation = {
       amount: this.state.projects.donateAmount.value,
@@ -424,6 +425,7 @@ class App extends Component {
       image_url: thumbImageURL
     }
     const authToken = TokenService.getAuthToken()
+    
     UserApiService.postDonation(newDonation, authToken)
       .then(res => {
         this.setState({
@@ -461,6 +463,7 @@ class App extends Component {
       ? item = {...item, isChecked: (item.isChecked ? false : true)}
       : item
       )
+
     this.setState({
       transactions: {
         ...this.state.transactions,
@@ -485,14 +488,34 @@ class App extends Component {
   //     }
   //   })
   // }
-  updateDonations = (donations, donationsTotal) => {
+  updateDonations = (donationsTotal) => {
     this.setState({
       donations: {
         ...this.state.donations,
-        items: donations,
-        total: donationsTotal,
+        error: null,
       }
     })
+
+    const authToken = TokenService.getAuthToken()
+
+    UserApiService.getAllDonations(authToken)
+      .then(res => {
+        this.setState({
+          donations: {
+            ...this.state.donations,
+            items: res,
+            total: donationsTotal,
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          donations: {
+            ...this.state.donations,
+            error: res.error,
+          }
+        })
+      })
   }
   // onAccountSetupCancel = () => {
   //   this.setState({

@@ -5,7 +5,7 @@ const UserApiService = {
         return fetch(`${config.API_BASE_URL}/user`, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(newUser),
         })
@@ -23,6 +23,19 @@ const UserApiService = {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(donation),
+        })
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+    getAllDonations(authToken) {
+        return fetch(`${config.API_BASE_URL}/user/donation`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${authToken}`,
+            }
         })
             .then(res => 
                 (!res.ok)
