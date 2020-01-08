@@ -436,10 +436,6 @@ class App extends Component {
             showModal: false,
             showResults: false,
           },
-          donations: {
-            ...this.state.donations,
-            items: [...this.state.donations.items, res]
-          }
         })
       })
       .catch(res => {

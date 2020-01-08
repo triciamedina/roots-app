@@ -5,9 +5,9 @@ import RootsContext from '../../contexts/RootsContext'
 
 class DonationsList extends Component {
     static contextType = RootsContext
-    // TODO: sort array by date
     render() {
-        const items = this.context.donations.items.map(item => 
+        const sortedItems = this.context.donations.items.slice().sort((a, b) => new Date(b.donated_on) - new Date(a.donated_on))
+        const items = sortedItems.map(item => 
             <DonationItem
                 key={item.id}
                 donationDate={item.donated_on}

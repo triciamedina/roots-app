@@ -7,15 +7,24 @@ import RootsContext from '../../contexts/RootsContext'
 class DonateForm extends Component {
     static contextType = RootsContext
     handleSubmit = (event) => {
-        const project = this.context.projects.results.proposals.filter(project => project.id === this.props.match.params.project_id)
+        const project = this.context.projects.results.proposals.filter(project => 
+            project.id === this.props.match.params.project_id
+        )
+
         event.preventDefault()
+
+        setTimeout(() => {
+            window.open(project[0].proposalURL)}, 2000)
+            
         this.context.handleOpenModal(project)
     }
     render() {
         if (this.context.projects.showModal) {
             return null
         }
-        const project = this.context.projects.results.proposals.filter(project => project.id === this.props.match.params.project_id)
+        const project = this.context.projects.results.proposals.filter(project => 
+            project.id === this.props.match.params.project_id
+        )
         const { costToComplete, totalPrice } = project[0]
         const { balance } = this.context.wallet
         return (
