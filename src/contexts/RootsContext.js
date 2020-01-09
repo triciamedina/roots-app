@@ -46,6 +46,8 @@ const RootsContext = React.createContext({
             touched: false,
         },
         currentStep: '',
+        error: null,
+        isSuccessful: false,
         onRegisterEmailChanged: () => {},
         onRegisterConfirmedEmailChanged: () => {},
         handleRegisterStepOne: () => {},
@@ -63,10 +65,12 @@ const RootsContext = React.createContext({
         password: {
             value: '',
         },
+        error: null,
+        isSuccessful: false,
         onLoginEmailChanged: () => {},
         onLoginPasswordChanged: () => {},
-        // TODO: replace basic auth with JWT auth
         handleSubmitBasicAuth: () => {},
+        handleSubmitJwtAuth: () => {},
     },
     logout: {
         handleLogout: () => {},
@@ -82,6 +86,7 @@ const RootsContext = React.createContext({
         },
         showResults: false,
         showModal: false,
+        selected: null,
         onSearchInputChange: () => {},
         handleSearchSubmit: () => {},
         handleClearSearch: () => {},
@@ -91,29 +96,12 @@ const RootsContext = React.createContext({
         handleConfirmDonation: () => {},
         updateProjectResults: () => {},
     },
-    banks: {
-        results: [],
-        searchInput: {
-            value: '',
-            touched: false,
-        },
-        selected: null,
-        updateBanks: () => {},
-        onBankSearchChange: () => {},
-        handleClearBankSearch: () => {},
-        updateSelectedBank: () => {},
-    },
     accountSetup: {
-        currentStep: '',
-        onAccountSetupConfirmed: () => {},
+        isSuccessful: false,
+        institution: '',
+        onAccountSetupSuccess: () => {},
         onAccountSetupCancel: () => {},
     },
-    accounts: {
-        results: [],
-        selected: null,
-        updateAccounts: () => {},
-        updateSelectedAccount: () => {},
-    }
 })
 
 export default RootsContext

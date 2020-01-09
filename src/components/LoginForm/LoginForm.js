@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Button } from '../../components/Utils/Utils'
 import './LoginForm.css'
 import RootsContext from '../../contexts/RootsContext'
@@ -12,12 +12,11 @@ class LoginForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const { email, password } = event.target
-        this.context.handleSubmitBasicAuth()
+        this.context.handleSubmitJwtAuth()
         email.value = ''
         password.value = ''
-        this.props.history.push('/dashboard')
     }
-    render() {
+    renderLoginForm() {
         const { email, password } = this.context.login
         return (
             <form 
@@ -38,7 +37,8 @@ class LoginForm extends Component {
                     <input 
                         type='text' 
                         id='email' 
-                        name='email' 
+                        name='email'
+                        autoComplete='email'
                         aria-label='Login email'
                         aria-required
                         onChange={e => this.context.onLoginEmailChanged(e.target.value)}
@@ -56,9 +56,10 @@ class LoginForm extends Component {
                         </span>
                     </label>
                     <input 
-                        type='text'
+                        type='password'
                         id='password'
                         name='password' 
+                        autoComplete='password'
                         aria-label='Login password'
                         aria-required
                         onChange={e => this.context.onLoginPasswordChanged(e.target.value)}
@@ -80,6 +81,9 @@ class LoginForm extends Component {
                     >
                         Next
                     </Button>
+                    {!this.context.login.isSuccessful && 
+                        <p>{this.context.login.error}</p>
+                    }
                 </div>
             </section>
             <section className='LoginForm__secondary'>
@@ -91,6 +95,16 @@ class LoginForm extends Component {
                 </p>
             </section>
         </form>
+        )
+    }
+    render() {
+        return (
+            <>
+                {this.context.login.isSuccessful 
+                    ? <Redirect to={'/dashboard'} />
+                    : this.renderLoginForm()
+                }
+            </>
         )
     }
 }

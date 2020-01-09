@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './BanksList.css'
-import BankItem from '../BankItem/BankItem'
+import BankItem from '../DELETE_BankItem/BankItem'
 import RootsContext from '../../contexts/RootsContext'
 import STORE from '../../store'
 

@@ -26,7 +26,6 @@ class RegisterForm extends Component {
     handleStepThree = (event) => {
         event.preventDefault()
         this.context.handleRegisterSubmit()
-        this.props.history.push('/account-setup')
     }
     renderStepOne() {
         const { email, confirmedEmail } = this.context.register
@@ -181,7 +180,7 @@ class RegisterForm extends Component {
                             </span>
                         </label>
                         <input 
-                            type='text'
+                            type='password'
                             id='passwordInput'
                             name='passwordInput' 
                             aria-required
@@ -200,7 +199,7 @@ class RegisterForm extends Component {
                             </span>
                         </label>
                         <input 
-                            type='text' 
+                            type='password' 
                             id='passwordConfirmInput' 
                             name='passwordConfirmInput' 
                             aria-required
@@ -223,6 +222,9 @@ class RegisterForm extends Component {
                         >
                                 Next
                         </Button>
+                        {!this.context.register.isSuccessful &&
+                            <p>{this.context.register.error}</p>
+                        }
                     </div>
                 </section>
                 {this.renderLoginLink()}

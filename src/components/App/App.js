@@ -11,6 +11,9 @@ import ProjectDetailPage from '../../routes/ProjectDetailPage/ProjectDetailPage'
 import AccountSetupPage from '../../routes/AccountSetupPage/AccountSetupPage'
 import RootsContext from '../../contexts/RootsContext'
 import TokenService from '../../services/token-service'
+import AuthApiService from '../../services/auth-api-service'
+import UserApiService from '../../services/user-api-service'
+import CharityApiService from '../../services/charity-api-service'
 import STORE from '../../store'
 
 class App extends Component {
@@ -40,6 +43,8 @@ class App extends Component {
           value: '',
           touched: false,
         },
+        error: null,
+        isSuccessful: false,
       },
       register: {
         email: {
@@ -67,6 +72,8 @@ class App extends Component {
           touched: false,
         },
         currentStep: 1,
+        error: null,
+        isSuccessful: false,
       },
       projects: {
         results: [],
@@ -79,25 +86,16 @@ class App extends Component {
         },
         showResults: false,
         showModal: false,
-      },
-      banks: {
-        results: [],
-        searchInput: {
-          value: '',
-          touched: false,
-        },
         selected: null,
       },
       accountSetup: {
-        currentStep: 1,
-      },
-      accounts: {
-        results: [],
-        selected: null,
+        isSuccessful: false,
+        institution: '',
       },
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
       handleSubmitBasicAuth: this.handleSubmitBasicAuth,
+      handleSubmitJwtAuth: this.handleSubmitJwtAuth,
       handleLogout: this.handleLogout,
       onRegisterEmailChanged: this.onRegisterEmailChanged,
       onRegisterConfirmedEmailChanged: this.onRegisterConfirmedEmailChanged,
@@ -120,13 +118,7 @@ class App extends Component {
       updateWallet: this.updateWallet,
       updateProjectResults: this.updateProjectResults,
       updateDonations: this.updateDonations,
-      updateBanks: this.updateBanks,
-      onBankSearchChange: this.onBankSearchChange,
-      handleClearBankSearch: this.handleClearBankSearch,
-      updateSelectedBank: this.updateSelectedBank,
-      updateAccounts: this.updateAccounts,
-      updateSelectedAccount: this.updateSelectedAccount,
-      onAccountSetupConfirmed: this.onAccountSetupConfirmed,
+      onAccountSetupSuccess: this.onAccountSetupSuccess,
       onAccountSetupCancel: this.onAccountSetupCancel,
       onAutoRoundupsChange: this.onAutoRoundupsChange,
     }
@@ -158,6 +150,37 @@ class App extends Component {
     TokenService.saveAuthToken(
       TokenService.makeBasicAuthToken(email.value, password.value)
     )
+  }
+  handleSubmitJwtAuth = () => {
+    const { email, password } = this.state.login
+    this.setState({
+      login: {
+        ...this.state.login,
+        error: null,
+      }
+    })
+    AuthApiService.postLogin({
+      email: email.value,
+      password: password.value,
+    })
+      .then(res => {
+        TokenService.saveAuthToken(res.authToken)
+        this.setState({
+          login: {
+            ...this.state.login,
+            isSuccessful: true,
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          login: {
+            ...this.state.login,
+            error: res.error,
+            isSuccessful: false,
+          }
+        })
+      })
   }
   handleLogout = () => {
     TokenService.clearAuthToken()
@@ -251,17 +274,38 @@ class App extends Component {
     })
   }
   handleRegisterSubmit = () => {
-    const { password, confirmedPassword, confirmedEmail } = this.state.register
-    if (password.value === confirmedPassword.value) {
-      this.setState({
-        login: {
-          ...this.state.login, 
-          email: { value: confirmedEmail },
-          password: { value: confirmedPassword }
-        }
-      })
-      this.handleSubmitBasicAuth()
+    const { confirmedEmail, firstName, lastName, confirmedPassword } = this.state.register
+    const newUser = {
+      email: confirmedEmail.value,
+      first_name: firstName.value,
+      last_name: lastName.value,
+      password: confirmedPassword.value,
     }
+    UserApiService.postRegistration(newUser)
+      .then(res => {
+        this.setState({
+          login: {
+            ...this.state.login, 
+            email: { value: confirmedEmail.value },
+            password: { value: confirmedPassword.value }
+          },
+          register: {
+            ...this.state.register,
+            isSuccessful: true,
+            error: false,
+          }
+        })
+        this.handleSubmitJwtAuth()
+      })
+      .catch(res => {
+        this.setState({
+          register: {
+            ...this.state.register,
+            error: res.error,
+            isSuccessful: false,
+          }
+        })
+      })
   }
   onSearchInputChange = (searchInput) => {
     this.setState({
@@ -275,12 +319,32 @@ class App extends Component {
     })
   }
   handleSearchSubmit = () => {
+    const { searchInput } = this.state.projects
+    const authToken = TokenService.getAuthToken()
     this.setState({
       projects: {
         ...this.state.projects,
-        showResults: true 
+        error: null,
       }
     })
+    CharityApiService.getCharities(searchInput.value, authToken)
+      .then(res => {
+        this.setState({
+          projects: {
+            ...this.state.projects,
+            showResults: true,
+            results: res.data[0]
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          projects: {
+            ...this.state.projects,
+            error: res.error,
+          }
+        })
+      })
   }
   handleClearSearch = () => {
     this.setState({
@@ -298,6 +362,8 @@ class App extends Component {
         ...this.state.login, 
         email: { value: '' },
         password: { value: '' },
+        error: null,
+        isSuccessful: false,
       },
     })
   }
@@ -315,11 +381,12 @@ class App extends Component {
       },
     })
   }
-  handleOpenModal = () => {
+  handleOpenModal = (selected) => {
     this.setState({
       projects: {
         ...this.state.projects, 
-        showModal: true
+        showModal: true,
+        selected: selected,
       },
     })
   }
@@ -327,7 +394,8 @@ class App extends Component {
     this.setState({
       projects: {
         ...this.state.projects,
-        showModal: false
+        showModal: false,
+        selected: null,
       },
     })
   }
@@ -343,12 +411,41 @@ class App extends Component {
     this.setState({
       projects: {
         ...this.state.projects,
-        donateAmount: { value: STORE.walletBalance },
-        searchInput: { value: '' },
-        showModal: false,
-        showResults: false,
-      },
+        error: null,
+      }
     })
+
+    const { title, fulfillmentTrailer, proposalURL, schoolName, thumbImageURL } = this.state.projects.selected[0]
+    const newDonation = {
+      amount: this.state.projects.donateAmount.value,
+      project_name: title,
+      project_description: fulfillmentTrailer,
+      project_url: proposalURL,
+      school_name: schoolName,
+      image_url: thumbImageURL
+    }
+    const authToken = TokenService.getAuthToken()
+    
+    UserApiService.postDonation(newDonation, authToken)
+      .then(res => {
+        this.setState({
+          projects: {
+            ...this.state.projects,
+            donateAmount: { value: STORE.walletBalance }, // TODO: update this with wallet balance from db
+            searchInput: { value: '' },
+            showModal: false,
+            showResults: false,
+          },
+        })
+      })
+      .catch(res => {
+        this.setState({
+          projects: {
+            ...this.state.projects,
+            error: res.error,
+          }
+        })
+      })
   }
   updateTransactions = (transactions) => {
     this.setState({
@@ -362,6 +459,7 @@ class App extends Component {
       ? item = {...item, isChecked: (item.isChecked ? false : true)}
       : item
       )
+
     this.setState({
       transactions: {
         ...this.state.transactions,
@@ -378,117 +476,73 @@ class App extends Component {
       }
     })
   }
-  updateProjectResults = (items) => {
-    this.setState({
-      projects: {
-        ...this.state.projects,
-        results: items,
-      }
-    })
-  }
-  updateDonations = (donations, donationsTotal) => {
+  // updateProjectResults = (items) => {
+  //   this.setState({
+  //     projects: {
+  //       ...this.state.projects,
+  //       results: items,
+  //     }
+  //   })
+  // }
+  updateDonations = (donationsTotal) => {
     this.setState({
       donations: {
         ...this.state.donations,
-        items: donations,
-        total: donationsTotal,
+        error: null,
       }
     })
+
+    const authToken = TokenService.getAuthToken()
+
+    UserApiService.getAllDonations(authToken)
+      .then(res => {
+        this.setState({
+          donations: {
+            ...this.state.donations,
+            items: res,
+            total: donationsTotal,
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          donations: {
+            ...this.state.donations,
+            error: res.error,
+          }
+        })
+      })
   }
-  updateBanks = (items) => {
-    this.setState({
-      banks: {
-        ...this.state.banks,
-        results: items,
-      }
-    })
-  }
-  onBankSearchChange = (input) => {
-    this.setState({
-      banks: {
-        ...this.state.banks,
-        searchInput: {
-          value: input,
-          touched: true,
-        },
-      }
-    })
-  }
-  handleClearBankSearch = () => {
-    this.setState({
-      banks: {
-        ...this.state.banks,
-        searchInput: {
-          value: '',
-          touched: false,
-        },
-      },
-    })
-  }
-  updateSelectedBank = (bankId) => {
-    this.setState({
-      banks: {
-        ...this.state.banks,
-        searchInput: {
-          value: '',
-          touched: false,
-        },
-        selected: bankId,
-      },
-      accountSetup: {
-        ...this.state.accountSetup,
-        currentStep: 2,
-      },
-    })
-  }
-  updateAccounts = (items) => {
-    this.setState({
-      accounts: {
-        ...this.state.accounts,
-        results: items,
-      }
-    })
-  }
-  updateSelectedAccount = (accountId) => {
-    this.setState({
-      accounts: {
-        ...this.state.accounts,
-        selected: accountId,
-      },
-      accountSetup: {
-        ...this.state.accountSetup,
-        currentStep: 3,
-      }
-    })
-  }
-  onAccountSetupCancel = () => {
+  // onAccountSetupCancel = () => {
+  //   this.setState({
+  //     accountSetup: {
+  //       ...this.state.accountSetup,
+  //       currentStep: 1,
+  //     },
+  //     accounts: {
+  //       ...this.state.accounts,
+  //       results: [],
+  //       selected: null,
+  //     },
+  //     banks: {
+  //       ...this.state.banks,
+  //       results: [],
+  //       searchInput: {
+  //         ...this.state.banks.searchInput,
+  //         touched: false,
+  //         value: ''
+  //       },
+  //       selected: null,
+  //     },
+  //   })
+  // }
+  onAccountSetupSuccess = (token, metadata) => {
+    console.log(token, metadata)
     this.setState({
       accountSetup: {
         ...this.state.accountSetup,
-        currentStep: 1,
-      },
-      accounts: {
-        ...this.state.accounts,
-        results: [],
-        selected: null,
-      },
-      banks: {
-        ...this.state.banks,
-        results: [],
-        searchInput: {
-          ...this.state.banks.searchInput,
-          touched: false,
-          value: ''
-        },
-        selected: null,
-      },
-    })
-  }
-  onAccountSetupConfirmed = () => {
-    this.setState({
-      accountSetup: {
-        ...this.state.accountSetup,
-        currentStep: 1,
+        isSuccessful: true,
+        institution: metadata.institution
       }
     })
   }
