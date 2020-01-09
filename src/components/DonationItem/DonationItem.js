@@ -11,7 +11,6 @@ function DonationItem(props) {
         <li className='DonationItem'>
             <div className='DonationItem__container'>
                 <p className='DonationItem__date'>
-                    {/* {new Date(donationDate).toLocaleString()} */}
                     {moment(donationDate).format('MMMM Do, YYYY')}
                 </p>
                 <p className='DonationItem__project-name'>

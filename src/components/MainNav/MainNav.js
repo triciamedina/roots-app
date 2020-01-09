@@ -5,7 +5,6 @@ import './MainNav.css'
 import TokenService from '../../services/token-service'
 
 class MainNav extends Component {
-    // TODO: refactor out repetitive code
     renderPublicMenu() {
         return (
             <header className='MainNav--public'>
