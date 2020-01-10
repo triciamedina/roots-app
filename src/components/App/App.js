@@ -116,10 +116,8 @@ class App extends Component {
       updateTransactions: this.updateTransactions,
       handleCheckTransaction: this.handleCheckTransaction,
       updateWallet: this.updateWallet,
-      updateProjectResults: this.updateProjectResults,
       updateDonations: this.updateDonations,
       onAccountSetupSuccess: this.onAccountSetupSuccess,
-      onAccountSetupCancel: this.onAccountSetupCancel,
       onAutoRoundupsChange: this.onAutoRoundupsChange,
     }
   }
@@ -476,14 +474,6 @@ class App extends Component {
       }
     })
   }
-  // updateProjectResults = (items) => {
-  //   this.setState({
-  //     projects: {
-  //       ...this.state.projects,
-  //       results: items,
-  //     }
-  //   })
-  // }
   updateDonations = (donationsTotal) => {
     this.setState({
       donations: {
@@ -513,29 +503,6 @@ class App extends Component {
         })
       })
   }
-  // onAccountSetupCancel = () => {
-  //   this.setState({
-  //     accountSetup: {
-  //       ...this.state.accountSetup,
-  //       currentStep: 1,
-  //     },
-  //     accounts: {
-  //       ...this.state.accounts,
-  //       results: [],
-  //       selected: null,
-  //     },
-  //     banks: {
-  //       ...this.state.banks,
-  //       results: [],
-  //       searchInput: {
-  //         ...this.state.banks.searchInput,
-  //         touched: false,
-  //         value: ''
-  //       },
-  //       selected: null,
-  //     },
-  //   })
-  // }
   onAccountSetupSuccess = (token, metadata) => {
     console.log(token, metadata)
     this.setState({
