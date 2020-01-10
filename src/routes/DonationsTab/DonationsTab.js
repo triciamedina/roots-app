@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import './DonationsTab.css'
 import Tabs from '../../components/Tabs/Tabs'
-import DonationsList from '../../components/DonationsList/DonationsList'
 import DonationsNotification from '../../components/DonationsNotification/DonationsNotification'
 import RootsContext from '../../contexts/RootsContext'
 import DonationService from '../../services/donation-service'
+import DonationItem from '../../components/DonationItem/DonationItem'
+import DateList from '../../components/DateList/DateList'
 
 class DonationsTab extends Component {
     static contextType = RootsContext
@@ -14,11 +15,17 @@ class DonationsTab extends Component {
         const keys = Object.keys(donations)
         for (const key of keys) {
             let title = key
-            let things = donations[key]
+            let donationsByYear = donations[key]
             return (
                 <>
-                    <h2 className='DonationsTab__title'>{title}</h2>
-                    <DonationsList items={things} />
+                    <h2 className='DonationsTab__title'>
+                        {title}
+                    </h2>
+                    <DateList 
+                        items={donationsByYear} 
+                        listItemType={DonationItem}
+                        className='DonationsList'
+                    />
                 </>
             )
         }
