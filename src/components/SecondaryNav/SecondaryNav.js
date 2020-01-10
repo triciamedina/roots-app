@@ -22,7 +22,7 @@ class SecondaryNav extends Component {
     }
     handleSkip = () => {
         const { history } = this.props
-        this.context.onAccountSetupCancel()
+        // this.context.onAccountSetupCancel()
         history.push('/dashboard')
     }
     renderBackButton() {
