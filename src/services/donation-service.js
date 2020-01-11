@@ -4,7 +4,7 @@ const DonationService = {
     groupDonationsByYear(items) {        
         // create an array 'years' with unique years
         const years = [...new Set(items.map(item => 
-            moment(item.donated_on).format('YYYY')))]
+            item.year))]
 
         // create object with each year as an empty array
         let donationsByYear = {}
@@ -16,7 +16,7 @@ const DonationService = {
         // compare each donation to a unique year - if they match then push donation to array
         for (let i = 0; i < items.length; i++) {
             for (let j = 0; j < years.length; j++) {
-                if (moment(items[i].donated_on).format('YYYY') === years[j]) {
+                if (item.year === years[j]) {
                     donationsByYear[years[j]].push(items[i])
                 }
             }

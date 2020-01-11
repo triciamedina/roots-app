@@ -11,11 +11,12 @@ class DonationsTab extends Component {
     static contextType = RootsContext
     renderList() {
         const { items } = this.context.donations
+        console.log(items)
         const donations = DonationService.groupDonationsByYear(items)
         const keys = Object.keys(donations)
         for (const key of keys) {
             let title = key
-            let donationsByYear = donations[key]
+            let donationsByYear = items[key]
             return (
                 <>
                     <h2 className='DonationsTab__title'>
