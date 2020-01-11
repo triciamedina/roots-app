@@ -16,7 +16,7 @@ const DonationService = {
         // compare each donation to a unique year - if they match then push donation to array
         for (let i = 0; i < items.length; i++) {
             for (let j = 0; j < years.length; j++) {
-                if (item.year === years[j]) {
+                if (items[i].year === years[j]) {
                     donationsByYear[years[j]].push(items[i])
                 }
             }
