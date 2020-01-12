@@ -47,7 +47,8 @@ const UserApiService = {
         return fetch(`${config.API_BASE_URL}/user/account`, {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${authToken},`
+                'Authorization': `Bearer ${authToken}`,
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(publicToken)
         })
