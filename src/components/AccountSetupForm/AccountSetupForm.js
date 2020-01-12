@@ -8,8 +8,8 @@ import config from '../../config'
 
 class AccountSetupForm extends Component {
     static contextType = RootsContext
-    handleOnSuccess = (token, metadata) => {
-        this.context.onAccountSetupSuccess(token, metadata)
+    handleOnSuccess = (publicToken, metadata) => {
+        this.context.onAccountSetupSuccess(publicToken, metadata)
     }
     handleConfirm = () => {
         this.props.history.push('/dashboard')

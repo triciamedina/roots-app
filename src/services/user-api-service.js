@@ -42,6 +42,20 @@ const UserApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
+    },
+    postAccount(publicToken, authToken) {
+        return fetch(`${config.API_BASE_URL}/user/account`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${authToken},`
+            },
+            body: JSON.stringify(publicToken)
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     }
 }
 

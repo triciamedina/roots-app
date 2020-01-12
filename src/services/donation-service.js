@@ -1,5 +1,3 @@
-import moment from 'moment'
-
 const DonationService = {
     groupDonationsByYear(items) {        
         // create an array 'years' with unique years

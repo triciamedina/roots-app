@@ -13,6 +13,7 @@ class DonationsTab extends Component {
         const { items } = this.context.donations
         const donations = DonationService.groupDonationsByYear(items)
         const keys = Object.keys(donations)
+        
         for (const key of keys) {
             let title = key
             let donationsByYear = donations[key]

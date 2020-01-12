@@ -503,15 +503,36 @@ class App extends Component {
         })
       })
   }
-  onAccountSetupSuccess = (token, metadata) => {
-    console.log(token, metadata)
+  onAccountSetupSuccess = (publicToken, metadata) => {
+    console.log(publicToken, metadata)
     this.setState({
       accountSetup: {
         ...this.state.accountSetup,
-        isSuccessful: true,
-        institution: metadata.institution
+        institution: metadata.institution,
+        error: null
       }
     })
+    const authToken = TokenService.getAuthToken()
+    const newAccount = {
+      publicToken: publicToken
+    }
+    UserApiService.postAccount(newAccount, authToken)
+      .then(res => {
+        this.setState({
+          accountSetup: {
+            ...this.state.accountSetup,
+            isSuccessful: true,
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          accountSetup: {
+            ...this.state.accountSetup,
+            error: res.error
+          }
+        })
+      })
   }
   onAutoRoundupsChange = () => {
     this.setState({
