@@ -22,14 +22,22 @@ const TransactionService = {
 
         return transactionsByDay
     },
-    calculateDonationsTotal(items) {
+    calculateWalletTotal(roundUps) {
         let total = 0
-        const currentYear = new Date().getFullYear()
-        for (let i = 0; i < items.length; i ++) {
-            if (new Date(items[i].donated_on).getFullYear() === currentYear) {
-                total = total + parseFloat(items[i].amount)
+        roundUps.forEach(roundup => {
+            const roundupAmount = Math.ceil(roundup.amount) - roundup.amount
+            total = total + roundupAmount
+        })
+       return total
+    },
+    calculateDailyTotal(roundUps) {
+        let total = 0
+        roundUps.forEach(roundup => {
+            if (roundup.created_at.slice(0, 10) === new Date().toISOString().slice(0, 10)) {
+                const roundupAmount = Math.ceil(roundup.amount) - roundup.amount
+                total = total + roundupAmount
             }
-        }
+        })
         return total
     }
 }

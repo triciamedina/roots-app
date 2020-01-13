@@ -28,11 +28,13 @@ class App extends Component {
       },
       donations: {
         items: [],
-        total: '',
       },
       wallet: {
         balance: '',
         dailyTotal: '',
+      },
+      roundUps: {
+        items: []
       },
       login: {
         email: {
@@ -119,6 +121,7 @@ class App extends Component {
       updateDonations: this.updateDonations,
       onAccountSetupSuccess: this.onAccountSetupSuccess,
       onAutoRoundupsChange: this.onAutoRoundupsChange,
+      updateRoundups: this.updateRoundups,
     }
   }
   onLoginEmailChanged = (loginEmail) => {
@@ -474,15 +477,48 @@ class App extends Component {
   }
   handleCheckTransaction = (id) => {
     const newItems = this.state.transactions.items.map(item => item.transaction_id === id 
-      ? item = {...item, isChecked: (item.isChecked ? false : true)}
+      // ? item = {...item, isChecked: (item.isChecked ? false : true)}
+      ? item = {...item, isChecked: true}
       : item
       )
     this.setState({
       transactions: {
         ...this.state.transactions,
         items: newItems
+      },
+      roundUps: {
+        ...this.state.roundUps,
+        error: null
       }
     })
+
+    const authToken = TokenService.getAuthToken()
+    const selected = this.state.transactions.items.filter(item => item.transaction_id === id)
+    const newRoundup = {
+      account_id: selected[0].account_id,
+      amount: selected[0].amount,
+      date: selected[0].date,
+      name: selected[0].name,
+      transaction_id: selected[0].transaction_id
+    }
+    // send authtoken and transaction object to POST /user/roundup endpoint
+    UserApiService.postRoundup(newRoundup, authToken)
+      .then(res => {
+        this.setState({
+          roundUps: {
+            ...this.state.roundUps,
+            items: [...this.state.roundUps.items, res]
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          roundUps: {
+            ...this.state.roundUps,
+            error: res.error
+          }
+        })
+      })
   }
   updateWallet = (walletBalance, walletDailyTotal) => {
     this.setState({
@@ -493,7 +529,7 @@ class App extends Component {
       }
     })
   }
-  updateDonations = (donationsTotal) => {
+  updateDonations = () => {
     this.setState({
       donations: {
         ...this.state.donations,
@@ -508,8 +544,7 @@ class App extends Component {
         this.setState({
           donations: {
             ...this.state.donations,
-            items: res,
-            total: donationsTotal,
+            items: res
           }
         })
       })
@@ -560,6 +595,33 @@ class App extends Component {
         isOn: (this.state.autoRoundups.isOn ? false : true)
       }
     })
+  }
+  updateRoundups = () => {
+    this.setState({
+      roundUps: {
+        ...this.state.roundUps,
+        error: null
+      }
+    })
+    const authToken = TokenService.getAuthToken()
+    UserApiService.getRoundups(authToken)
+      .then(res => {
+        this.setState({
+          roundUps: {
+            ...this.state.roundUps,
+            items: res,
+            error: null
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          roundUps: {
+            ...this.state.roundUps,
+            error: res.error
+          }
+        })
+      })
   }
   render() {
     return (

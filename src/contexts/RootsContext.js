@@ -12,7 +12,6 @@ const RootsContext = React.createContext({
       },
     donations: {
         items: [],
-        total: '',
         updateDonations: () => {},
     },
     wallet: {
@@ -20,6 +19,10 @@ const RootsContext = React.createContext({
         dailyTotal: '',
         updateWallet: () => {},
       },
+    roundUps: {
+        items: [],
+        updateRoundups: () => {},
+    },
     register: {
         email: {
             value: '',

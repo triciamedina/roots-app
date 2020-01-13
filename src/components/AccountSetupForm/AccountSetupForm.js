@@ -10,7 +10,6 @@ class AccountSetupForm extends Component {
     static contextType = RootsContext
     handleOnSuccess = (publicToken, metadata) => {
         this.context.onAccountSetupSuccess(publicToken, metadata)
-        console.log(metadata)
     }
     handleConfirm = () => {
         this.props.history.push('/dashboard')

@@ -6,14 +6,13 @@ import RoundupsTab from '../RoundupsTab/RoundupsTab'
 import DonationsTab from '../DonationsTab/DonationsTab'
 import MainNav from '../../components/MainNav/MainNav'
 import RootsContext from '../../contexts/RootsContext'
-import STORE from '../../store'
 
 class DashboardPage extends Component {
     static contextType = RootsContext
     componentDidMount() {
-        const { donationsTotal } = STORE
-        this.context.updateDonations(donationsTotal)
+        this.context.updateDonations()
         this.context.updateTransactions()
+        this.context.updateRoundups()
     }
     render() {
         return (

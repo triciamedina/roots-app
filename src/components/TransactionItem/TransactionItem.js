@@ -9,7 +9,8 @@ class TransactionItem extends Component {
     render() {
         const { name, amount, transaction_id } = this.props
         const roundupAmount = Math.ceil(amount) - amount
-        const isChecked = false
+        const checked = (roundup) => roundup.transaction_id === transaction_id
+        const isChecked = this.context.roundUps.items.some(checked)
         return (
             <li key={transaction_id} className='TransactionItem'>
                 <div className='TransactionItem__container'>
@@ -39,6 +40,7 @@ class TransactionItem extends Component {
                             id={transaction_id}
                             name='transactions' 
                             defaultChecked={isChecked}
+                            disabled={isChecked}
                             onChange={e => this.context.handleCheckTransaction(e.target.id)}
                         />
                         <span 
