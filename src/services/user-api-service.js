@@ -43,16 +43,29 @@ const UserApiService = {
                     : res.json()
             )
     },
-    postAccount(publicToken, authToken) {
+    postAccount(newAccount, authToken) {
         return fetch(`${config.API_BASE_URL}/user/account`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${authToken}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(publicToken)
+            body: JSON.stringify(newAccount)
         })
             .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+    getTransactions(authToken) {
+        return fetch(`${config.API_BASE_URL}/user/transaction`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${authToken}`
+            }
+        })
+            .then(res => 
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()

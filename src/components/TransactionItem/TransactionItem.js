@@ -7,22 +7,24 @@ import ReactToolTip from 'react-tooltip'
 class TransactionItem extends Component {
     static contextType = RootsContext
     render() {
-        const { vendorName, transactionAmount, roundupAmount, id, isChecked } = this.props
+        const { name, amount, transaction_id } = this.props
+        const roundupAmount = Math.ceil(amount) - amount
+        const isChecked = false
         return (
-            <li className='TransactionItem'>
+            <li key={transaction_id} className='TransactionItem'>
                 <div className='TransactionItem__container'>
                     <p className='TransactionItem__title'>
-                        {vendorName}
+                        {name}
                     </p>
                     <p 
                         className='TransactionItem__amount'
                         data-tip='Transaction amount'
                     >
-                        {Formatter.format(transactionAmount)}
+                        {Formatter.format(amount)}
                     </p>
                 </div>
                     <label 
-                        htmlFor={id} 
+                        htmlFor={transaction_id} 
                         className='TransactionItem__toggle'
                     >
                         <span 
@@ -34,7 +36,7 @@ class TransactionItem extends Component {
                         
                         <input 
                             type='checkbox' 
-                            id={id}
+                            id={transaction_id}
                             name='transactions' 
                             defaultChecked={isChecked}
                             onChange={e => this.context.handleCheckTransaction(e.target.id)}

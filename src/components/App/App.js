@@ -445,19 +445,38 @@ class App extends Component {
         })
       })
   }
-  updateTransactions = (transactions) => {
+  updateTransactions = () => {
     this.setState({
       transactions: {
-        items: [...transactions]
+        ...this.state.transactions,
+        error: null
       }
     })
+    const authToken = TokenService.getAuthToken()
+    UserApiService.getTransactions(authToken)
+      .then(res => {
+        this.setState({
+          transactions: {
+            ...this.state.transactions,
+            items: res.transactions,
+            error: null
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          transactions: {
+            ...this.state.transactions,
+            error: res.error
+          }
+        })
+      })
   }
   handleCheckTransaction = (id) => {
-    const newItems = this.state.transactions.items.map(item => item.id === id 
+    const newItems = this.state.transactions.items.map(item => item.transaction_id === id 
       ? item = {...item, isChecked: (item.isChecked ? false : true)}
       : item
       )
-
     this.setState({
       transactions: {
         ...this.state.transactions,
@@ -513,7 +532,8 @@ class App extends Component {
     })
     const authToken = TokenService.getAuthToken()
     const newAccount = {
-      publicToken: publicToken
+      publicToken: publicToken,
+      accountId: metadata.account_id
     }
     UserApiService.postAccount(newAccount, authToken)
       .then(res => {

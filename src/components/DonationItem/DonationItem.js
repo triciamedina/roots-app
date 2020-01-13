@@ -5,10 +5,10 @@ import './DonationItem.css'
 import { Formatter } from '../Utils/Utils'
 
 function DonationItem(props) {
-    const { donated_on, project_name, school_name, amount, image_url, id } = props
+    const { donated_on, project_name, school_name, amount, image_url } = props
     // TODO: add link to view project in donorschoose.org
     return (
-        <li key={id} className='DonationItem'>
+        <li className='DonationItem'>
             <div className='DonationItem__container'>
                 <p className='DonationItem__date'>
                     {moment(donated_on).format('MMMM Do, YYYY')}

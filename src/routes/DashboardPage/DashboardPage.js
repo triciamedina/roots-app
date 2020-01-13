@@ -11,9 +11,9 @@ import STORE from '../../store'
 class DashboardPage extends Component {
     static contextType = RootsContext
     componentDidMount() {
-        const { donationsTotal, transactions } = STORE
+        const { donationsTotal } = STORE
         this.context.updateDonations(donationsTotal)
-        this.context.updateTransactions(transactions)
+        this.context.updateTransactions()
     }
     render() {
         return (
