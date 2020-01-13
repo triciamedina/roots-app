@@ -504,7 +504,6 @@ class App extends Component {
       })
   }
   onAccountSetupSuccess = (publicToken, metadata) => {
-    console.log(publicToken, metadata)
     this.setState({
       accountSetup: {
         ...this.state.accountSetup,

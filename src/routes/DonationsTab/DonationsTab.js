@@ -12,25 +12,28 @@ class DonationsTab extends Component {
     renderList() {
         const { items } = this.context.donations
         const donations = DonationService.groupDonationsByYear(items)
-        const keys = Object.keys(donations)
-        
-        for (const key of keys) {
+        const keys = Object.keys(donations).sort((a, b) => {
+            return b - a
+        })
+        return keys.map((key, index) => {
             let title = key
             let donationsByYear = donations[key]
-            
             return (
-                <>
+                <React.Fragment key={title}>
                     <h2 className='DonationsTab__title'>
                         {title}
                     </h2>
                     <DateList 
+                        key={index}
+                        id={index}
                         items={donationsByYear} 
                         listItemType={DonationItem}
                         className='DonationsList'
                     />
-                </>
+                </React.Fragment>
             )
-        }
+        })
+
     }
     render() {
         return (
