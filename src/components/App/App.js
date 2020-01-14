@@ -450,7 +450,7 @@ class App extends Component {
         this.setState({
           projects: {
             ...this.state.projects,
-            donateAmount: { value: null }, // TODO: update this with wallet balance from db
+            donateAmount: { value: null }, 
             searchInput: { value: '' },
             showModal: false,
             showResults: false,
@@ -477,7 +477,9 @@ class App extends Component {
         error: null
       }
     })
+
     const authToken = TokenService.getAuthToken()
+
     UserApiService.getTransactions(authToken)
       .then(res => {
         this.setState({
@@ -545,9 +547,8 @@ class App extends Component {
   }
   updateWallet = () => {
     const { roundUps, donations }= this.state
-    const total = TransactionService.calculateWalletTotal(roundUps.items, donations.items)
-    const balance = total.toFixed(2)
-    const dailyTotal = TransactionService.calculateDailyTotal(roundUps.items).toFixed(2)
+    const balance = TransactionService.calculateWalletTotal(roundUps.items, donations.items)
+    const dailyTotal = TransactionService.calculateDailyTotal(roundUps.items)
     this.setState({
       wallet: {
         ...this.state.wallet,

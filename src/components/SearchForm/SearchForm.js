@@ -43,7 +43,7 @@ class SearchForm extends Component {
                     <div className='search-form__input'>
                         <label htmlFor='search'>
                             <span className='search-form__label'>
-                                City, State, or Zip
+                                Zip
                             </span>
                         </label>
                         <input 

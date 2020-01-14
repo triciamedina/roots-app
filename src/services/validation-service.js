@@ -58,6 +58,9 @@ const ValidationService = {
         if (input.trim().length === 0) {
             return 'Search input is required'
         }
+        if (input.trim().length !== 5) {
+            return 'Zip code must be 5 digits'
+        }
     }
 }
 

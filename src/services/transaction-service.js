@@ -1,3 +1,6 @@
+import Dinero from 'dinero.js'
+Dinero.globalLocale = 'us-EN'
+
 const TransactionService = {
     groupTransactionsByDay(items) {        
         // create an array 'years' with unique years
@@ -22,17 +25,24 @@ const TransactionService = {
 
         return transactionsByDay
     },
+    calculateRoundup(amount) {
+        const transaction = Dinero({ amount: (amount * 100) }).getAmount()
+        const roundedUp = Dinero({ amount: (Math.ceil(amount) * 100)}).getAmount()
+
+        return (roundedUp - transaction)/100
+    },
     calculateWalletTotal(roundUps, donations) {
         let total = 0
         roundUps.forEach(roundup => {
-            const roundupAmount = Math.ceil(roundup.amount) - roundup.amount
+            const roundupAmount = TransactionService.calculateRoundup(roundup.amount)*100
             total = total + roundupAmount
         })
         donations.forEach(donation => {
-            const donateAmount = donation.amount
+            const donateAmount = Dinero({ amount: (donation.amount * 100)}).getAmount()
             total = total - donateAmount
         })
-       return total
+
+       return (Dinero({ amount: total}).getAmount())/100
     },
     calculateDailyTotal(roundUps) {
         const isToday = (someDate) => {
@@ -43,9 +53,11 @@ const TransactionService = {
           }
         const total = roundUps.filter(roundup => isToday(new Date(roundup.created_at)))
                 .reduce((total, roundup) => { 
-                    return total + (Math.ceil(roundup.amount) - roundup.amount) 
+                    const roundupAmount = TransactionService.calculateRoundup(roundup.amount)
+                    return total + roundupAmount
                 }, 0)
-        return total
+                
+        return (Dinero({ amount: total}).getAmount())/100
     }
 }
 

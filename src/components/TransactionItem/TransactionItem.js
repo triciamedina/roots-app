@@ -3,6 +3,7 @@ import './TransactionItem.css'
 import { Formatter } from '../Utils/Utils'
 import RootsContext from '../../contexts/RootsContext'
 import ReactToolTip from 'react-tooltip'
+import TransactionService from '../../services/transaction-service'
 
 class TransactionItem extends Component {
     static contextType = RootsContext
@@ -11,7 +12,7 @@ class TransactionItem extends Component {
     }
     render() {
         const { name, amount, transaction_id } = this.props
-        const roundupAmount = Math.ceil(amount) - amount
+        const roundupAmount = TransactionService.calculateRoundup(amount)
         const checked = (roundup) => roundup.transaction_id === transaction_id
         const isChecked = this.context.roundUps.items.some(checked)
         return (
