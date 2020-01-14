@@ -25,6 +25,9 @@ class SearchForm extends Component {
             </div>
         )
     }
+    componentDidMount() {
+        this.context.updateDonateAmount()
+    }
     render() {
         const { searchInput } = this.context.projects
         return (

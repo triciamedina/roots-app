@@ -59,7 +59,7 @@ class DonateForm extends Component {
                                 step='0.01'
                                 id='donateAmount'
                                 name='donateAmount' 
-                                defaultValue={balance.toFixed(2)}
+                                defaultValue={balance}
                                 onChange={e => this.context.onDonateAmountChange(e.target.value)}
                             />
                         </div>

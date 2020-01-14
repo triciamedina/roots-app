@@ -14,86 +14,92 @@ import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 import UserApiService from '../../services/user-api-service'
 import CharityApiService from '../../services/charity-api-service'
-import STORE from '../../store'
+import TransactionService from '../../services/transaction-service'
+
+const generateEmptyState = () => {
+  return {
+    transactions: {
+      items: [],
+    },
+    autoRoundups: {
+      isOn: false,
+    },
+    donations: {
+      items: [],
+    },
+    wallet: {
+      balance: '',
+      dailyTotal: '',
+    },
+    roundUps: {
+      items: []
+    },
+    login: {
+      email: {
+        value: '',
+        touched: false,
+      },
+      password: {
+        value: '',
+        touched: false,
+      },
+      error: null,
+      isSuccessful: false,
+    },
+    register: {
+      email: {
+        value: '',
+        touched: false,
+      },
+      confirmedEmail: {
+        value: '',
+        touched: false,
+      },
+      firstName: {
+        value: '',
+        touched: false,
+      },
+      lastName: {
+        value: '',
+        touched: false,
+      },
+      password: {
+        value: '',
+        touched: false,
+      },
+      confirmedPassword: {
+        value: '',
+        touched: false,
+      },
+      currentStep: 1,
+      error: null,
+      isSuccessful: false,
+    },
+    projects: {
+      results: [],
+      searchInput: {
+          value: '',
+          touched: false,
+      },
+      donateAmount: {
+        value: null,
+      },
+      showResults: false,
+      showModal: false,
+      selected: null,
+    },
+    accountSetup: {
+      isSuccessful: false,
+      institution: '',
+    },
+  }
+}
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      transactions: {
-        items: [],
-      },
-      autoRoundups: {
-        isOn: false,
-      },
-      donations: {
-        items: [],
-      },
-      wallet: {
-        balance: '',
-        dailyTotal: '',
-      },
-      roundUps: {
-        items: []
-      },
-      login: {
-        email: {
-          value: '',
-          touched: false,
-        },
-        password: {
-          value: '',
-          touched: false,
-        },
-        error: null,
-        isSuccessful: false,
-      },
-      register: {
-        email: {
-          value: '',
-          touched: false,
-        },
-        confirmedEmail: {
-          value: '',
-          touched: false,
-        },
-        firstName: {
-          value: '',
-          touched: false,
-        },
-        lastName: {
-          value: '',
-          touched: false,
-        },
-        password: {
-          value: '',
-          touched: false,
-        },
-        confirmedPassword: {
-          value: '',
-          touched: false,
-        },
-        currentStep: 1,
-        error: null,
-        isSuccessful: false,
-      },
-      projects: {
-        results: [],
-        searchInput: {
-            value: '',
-            touched: false,
-        },
-        donateAmount: {
-          value: STORE.walletBalance,
-        },
-        showResults: false,
-        showModal: false,
-        selected: null,
-      },
-      accountSetup: {
-        isSuccessful: false,
-        institution: '',
-      },
+      ...generateEmptyState(),
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
       handleSubmitBasicAuth: this.handleSubmitBasicAuth,
@@ -113,6 +119,7 @@ class App extends Component {
       handleClearSearch: this.handleClearSearch,
       handleOpenModal: this.handleOpenModal,
       handleCloseModal: this.handleCloseModal,
+      updateDonateAmount: this.updateDonateAmount,
       onDonateAmountChange: this.onDonateAmountChange,
       handleConfirmDonation: this.handleConfirmDonation,
       updateTransactions: this.updateTransactions,
@@ -185,9 +192,11 @@ class App extends Component {
   }
   handleLogout = () => {
     TokenService.clearAuthToken()
-    this.handleClearSearch()
-    this.handleClearLogin()
-    this.handleClearRegister()
+
+    this.setState({
+      ...this.state,
+      ...generateEmptyState()
+    })
   }
   onRegisterEmailChanged = (registerEmail) => {
     this.setState({
@@ -352,7 +361,7 @@ class App extends Component {
       projects: {
         ...this.state.projects,
         searchInput: { value: '' },
-        donateAmount: { value: STORE.walletBalance },
+        donateAmount: { value: null },
         showResults: false,
       }
     })
@@ -400,6 +409,15 @@ class App extends Component {
       },
     })
   }
+  updateDonateAmount = () => {
+    const amount = this.state.wallet.balance
+    this.setState({
+      projects: {
+        ...this.state.projects,
+        donateAmount: { value: amount }
+      }
+    })
+  }
   onDonateAmountChange = (donateAmount) => {
     this.setState({
       projects: {
@@ -426,17 +444,21 @@ class App extends Component {
       image_url: thumbImageURL
     }
     const authToken = TokenService.getAuthToken()
-    
+    const newWalletBalance = this.state.wallet.balance - newDonation.amount
     UserApiService.postDonation(newDonation, authToken)
       .then(res => {
         this.setState({
           projects: {
             ...this.state.projects,
-            donateAmount: { value: STORE.walletBalance }, // TODO: update this with wallet balance from db
+            donateAmount: { value: null }, // TODO: update this with wallet balance from db
             searchInput: { value: '' },
             showModal: false,
             showResults: false,
           },
+          wallet: {
+            ...this.state.wallet,
+            balance: newWalletBalance
+          }
         })
       })
       .catch(res => {
@@ -477,7 +499,6 @@ class App extends Component {
   }
   handleCheckTransaction = (id) => {
     const newItems = this.state.transactions.items.map(item => item.transaction_id === id 
-      // ? item = {...item, isChecked: (item.isChecked ? false : true)}
       ? item = {...item, isChecked: true}
       : item
       )
@@ -510,6 +531,7 @@ class App extends Component {
             items: [...this.state.roundUps.items, res]
           }
         })
+        this.updateWallet()
       })
       .catch(res => {
         this.setState({
@@ -519,13 +541,18 @@ class App extends Component {
           }
         })
       })
+    
   }
-  updateWallet = (walletBalance, walletDailyTotal) => {
+  updateWallet = () => {
+    const { roundUps, donations }= this.state
+    const total = TransactionService.calculateWalletTotal(roundUps.items, donations.items)
+    const balance = total.toFixed(2)
+    const dailyTotal = TransactionService.calculateDailyTotal(roundUps.items).toFixed(2)
     this.setState({
       wallet: {
         ...this.state.wallet,
-        balance: walletBalance,
-        dailyTotal: walletDailyTotal,
+        balance: balance,
+        dailyTotal: dailyTotal,
       }
     })
   }

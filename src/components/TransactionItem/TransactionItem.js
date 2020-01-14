@@ -6,6 +6,9 @@ import ReactToolTip from 'react-tooltip'
 
 class TransactionItem extends Component {
     static contextType = RootsContext
+    componentDidMount() {
+        this.context.updateWallet()
+    }
     render() {
         const { name, amount, transaction_id } = this.props
         const roundupAmount = Math.ceil(amount) - amount

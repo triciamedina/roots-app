@@ -95,6 +95,7 @@ const RootsContext = React.createContext({
         handleClearSearch: () => {},
         handleOpenModal: () => {},
         handleCloseModal: () => {},
+        updateDonateAmount: () => {},
         onDonateAmountChange: () => {},
         handleConfirmDonation: () => {},
     },

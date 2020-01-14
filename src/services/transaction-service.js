@@ -22,22 +22,29 @@ const TransactionService = {
 
         return transactionsByDay
     },
-    calculateWalletTotal(roundUps) {
+    calculateWalletTotal(roundUps, donations) {
         let total = 0
         roundUps.forEach(roundup => {
             const roundupAmount = Math.ceil(roundup.amount) - roundup.amount
             total = total + roundupAmount
         })
+        donations.forEach(donation => {
+            const donateAmount = donation.amount
+            total = total - donateAmount
+        })
        return total
     },
     calculateDailyTotal(roundUps) {
-        let total = 0
-        roundUps.forEach(roundup => {
-            if (roundup.created_at.slice(0, 10) === new Date().toISOString().slice(0, 10)) {
-                const roundupAmount = Math.ceil(roundup.amount) - roundup.amount
-                total = total + roundupAmount
-            }
-        })
+        const isToday = (someDate) => {
+            const today = new Date()
+            return someDate.getDate() === today.getDate() &&
+              someDate.getMonth() === today.getMonth() &&
+              someDate.getFullYear() === today.getFullYear()
+          }
+        const total = roundUps.filter(roundup => isToday(new Date(roundup.created_at)))
+                .reduce((total, roundup) => { 
+                    return total + (Math.ceil(roundup.amount) - roundup.amount) 
+                }, 0)
         return total
     }
 }
