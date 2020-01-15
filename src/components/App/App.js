@@ -187,6 +187,12 @@ class App extends Component {
   }
   checkAccountExists = () => {
     const authToken = TokenService.getAuthToken()
+    this.setState({
+      accountSetup: {
+        ...this.state.accountSetup,
+        error: null
+      }
+    })
     UserApiService.getAccount(authToken)
       .then(res => {
           TokenService.saveAccountToken(res.id)
@@ -202,6 +208,7 @@ class App extends Component {
           accountSetup: {
             ...this.state.accountSetup,
             isSuccessful: false,
+            error: res.error
           }
         })
       })

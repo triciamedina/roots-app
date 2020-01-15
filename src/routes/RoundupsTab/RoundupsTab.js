@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import moment from 'moment'
 import './RoundupsTab.css'
 import Tabs from '../../components/Tabs/Tabs'
@@ -7,6 +8,7 @@ import DateList from '../../components/DateList/DateList'
 import RoundupsToggle from '../../components/RoundupsToggle/RoundupsToggle'
 import RootsContext from '../../contexts/RootsContext'
 import TransactionService from '../../services/transaction-service'
+import { Button } from '../../components/Utils/Utils'
 
 class RoundupsTab extends Component {
     static contextType = RootsContext
@@ -37,14 +39,30 @@ class RoundupsTab extends Component {
             )
         })
     }
+    renderSetupButton() {
+        return (
+            <>
+                <p className='TransactionsList__setup-subtitle'>Link your bank account to start using Roots</p>
+                <Link className='TransactionsList__setup-link' to='/account-setup'>
+                    <Button className='Button--contained-small'>Setup your account</Button>
+                </Link>
+            </>
+        )
+    }
     render() {
         return (
             <>
                 <Tabs active='roundups'/>
                 <section className='RoundupsTab'>
-                    <RoundupsToggle />
+                    {this.context.accountSetup.isSuccessful 
+                        ? <RoundupsToggle />
+                        : ''
+                    }
                     <div className='TransactionsList__container'>
-                        {this.renderList()}
+                        {this.context.accountSetup.isSuccessful 
+                            ? this.renderList()
+                            : this.renderSetupButton()
+                        }
                     </div>
                 </section>
             </>
