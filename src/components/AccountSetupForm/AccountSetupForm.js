@@ -17,7 +17,7 @@ class AccountSetupForm extends Component {
     handleOnExit = () => {
         console.log('Exit')
     }
-    renderLink() {
+    renderSetup() {
         return (
             <div className='LinkBankForm'>
                 <div>
@@ -67,7 +67,7 @@ class AccountSetupForm extends Component {
         const { isSuccessful } = this.context.accountSetup
         let form
         if (isSuccessful === false) {
-            form = this.renderLink()
+            form = this.renderSetup()
         }
         if (isSuccessful === true) {
             form = this.renderConfirmation()

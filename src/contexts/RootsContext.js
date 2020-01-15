@@ -73,6 +73,7 @@ const RootsContext = React.createContext({
         onLoginEmailChanged: () => {},
         onLoginPasswordChanged: () => {},
         handleSubmitJwtAuth: () => {},
+        checkAccountExists: () => {},
     },
     logout: {
         handleLogout: () => {},

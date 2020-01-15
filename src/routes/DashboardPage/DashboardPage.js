@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './DashboardPage.css'
 import Wallet from '../../components/Wallet/Wallet'
 import RoundupsTab from '../RoundupsTab/RoundupsTab'
 import DonationsTab from '../DonationsTab/DonationsTab'
 import MainNav from '../../components/MainNav/MainNav'
 import RootsContext from '../../contexts/RootsContext'
-import TokenService from '../../services/token-service'
 
 class DashboardPage extends Component {
     static contextType = RootsContext
@@ -14,6 +13,7 @@ class DashboardPage extends Component {
         this.context.updateDonations()
         this.context.updateTransactions()
         this.context.updateRoundups()
+        this.context.checkAccountExists()
     }
     renderDashboard() {
         return (
@@ -36,10 +36,7 @@ class DashboardPage extends Component {
     render() {
         return (
             <>
-                {TokenService.hasAccountToken()
-                    ? this.renderDashboard()
-                    : <Redirect to='/account-setup' />
-                }
+                {this.renderDashboard()}
             </>
         )
     }

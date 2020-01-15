@@ -103,6 +103,7 @@ class App extends Component {
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
       handleSubmitJwtAuth: this.handleSubmitJwtAuth,
+      checkAccountExists: this.checkAccountExists,
       handleLogout: this.handleLogout,
       onRegisterEmailChanged: this.onRegisterEmailChanged,
       onRegisterConfirmedEmailChanged: this.onRegisterConfirmedEmailChanged,
@@ -172,7 +173,7 @@ class App extends Component {
             isSuccessful: true,
           }
         })
-        this.checkIfAccountExists()
+        this.checkAccountExists()
       })
       .catch(res => {
         this.setState({
@@ -184,11 +185,17 @@ class App extends Component {
         })
       })
   }
-  checkIfAccountExists = () => {
+  checkAccountExists = () => {
     const authToken = TokenService.getAuthToken()
     UserApiService.getAccount(authToken)
       .then(res => {
           TokenService.saveAccountToken(res.id)
+          this.setState({
+            accountSetup: {
+              ...this.state.accountSetup,
+              isSuccessful: true
+            }
+          })
       })
       .catch(res => {
         this.setState({
@@ -609,7 +616,7 @@ class App extends Component {
     }
     UserApiService.postAccount(newAccount, authToken)
       .then(res => {
-        TokenService.saveAccountToken(res.id)
+        // TokenService.saveAccountToken(res.id)
         this.setState({
           accountSetup: {
             ...this.state.accountSetup,
