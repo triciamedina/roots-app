@@ -72,7 +72,6 @@ const RootsContext = React.createContext({
         isSuccessful: false,
         onLoginEmailChanged: () => {},
         onLoginPasswordChanged: () => {},
-        handleSubmitBasicAuth: () => {},
         handleSubmitJwtAuth: () => {},
     },
     logout: {

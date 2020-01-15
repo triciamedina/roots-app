@@ -102,7 +102,6 @@ class App extends Component {
       ...generateEmptyState(),
       onLoginEmailChanged: this.onLoginEmailChanged,
       onLoginPasswordChanged: this.onLoginPasswordChanged,
-      handleSubmitBasicAuth: this.handleSubmitBasicAuth,
       handleSubmitJwtAuth: this.handleSubmitJwtAuth,
       handleLogout: this.handleLogout,
       onRegisterEmailChanged: this.onRegisterEmailChanged,
@@ -153,12 +152,6 @@ class App extends Component {
       }
     })
   }
-  handleSubmitBasicAuth = () => {
-    const { email, password } = this.state.login
-    TokenService.saveAuthToken(
-      TokenService.makeBasicAuthToken(email.value, password.value)
-    )
-  }
   handleSubmitJwtAuth = () => {
     const { email, password } = this.state.login
     this.setState({
@@ -179,6 +172,7 @@ class App extends Component {
             isSuccessful: true,
           }
         })
+        this.checkIfAccountExists()
       })
       .catch(res => {
         this.setState({
@@ -190,9 +184,24 @@ class App extends Component {
         })
       })
   }
+  checkIfAccountExists = () => {
+    const authToken = TokenService.getAuthToken()
+    UserApiService.getAccount(authToken)
+      .then(res => {
+          TokenService.saveAccountToken(res.id)
+      })
+      .catch(res => {
+        this.setState({
+          accountSetup: {
+            ...this.state.accountSetup,
+            isSuccessful: false,
+          }
+        })
+      })
+  }
   handleLogout = () => {
     TokenService.clearAuthToken()
-
+    TokenService.clearAccountToken()
     this.setState({
       ...this.state,
       ...generateEmptyState()
@@ -600,6 +609,7 @@ class App extends Component {
     }
     UserApiService.postAccount(newAccount, authToken)
       .then(res => {
+        TokenService.saveAccountToken(res.id)
         this.setState({
           accountSetup: {
             ...this.state.accountSetup,

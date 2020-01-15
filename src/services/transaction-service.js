@@ -57,7 +57,7 @@ const TransactionService = {
                     return total + roundupAmount
                 }, 0)
                 
-        return (Dinero({ amount: total}).getAmount())/100
+        return (Dinero({ amount: (total*100)}).getAmount())/100
     }
 }
 
