@@ -2,14 +2,15 @@ const DonationService = {
     groupDonationsByYear(items) {        
         // create an array 'years' with unique years
         const years = [...new Set(items.map(item => 
-            item.year))]
+            item.year))];
 
         // create object with each year as an empty array
-        let donationsByYear = {}
+        let donationsByYear = {};
+
         for (const key of years) {
             let year = key
             donationsByYear[year] = []
-        }
+        };
 
         // compare each donation to a unique year - if they match then push donation to array
         for (let i = 0; i < items.length; i++) {
@@ -18,20 +19,23 @@ const DonationService = {
                     donationsByYear[years[j]].push(items[i])
                 }
             }
-        }
+        };
 
-        return donationsByYear
+        return donationsByYear;
     },
     calculateDonationsTotal(items) {
-        let total = 0
-        const currentYear = new Date().getFullYear()
+        let total = 0;
+        
+        const currentYear = new Date().getFullYear();
+
         for (let i = 0; i < items.length; i ++) {
             if (new Date(items[i].donated_on).getFullYear() === currentYear) {
                 total = total + parseFloat(items[i].amount)
             }
-        }
-        return total
-    }
-}
+        };
 
-export default DonationService
+        return total;
+    }
+};
+
+export default DonationService;

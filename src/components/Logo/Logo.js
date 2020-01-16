@@ -1,5 +1,5 @@
-import React from 'react'
-import './Logo.css'
+import React from 'react';
+import './Logo.css';
 
 function Logo() {
     return (
@@ -8,6 +8,6 @@ function Logo() {
             <p className='Logo__text'>roots</p>
         </div>
     )
-}
+};
 
-export default Logo
+export default Logo;

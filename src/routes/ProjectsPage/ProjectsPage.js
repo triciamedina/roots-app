@@ -1,8 +1,8 @@
-import React from 'react'
-import './ProjectsPage.css' 
-import SecondaryNav from '../../components/SecondaryNav/SecondaryNav'
-import SearchForm from '../../components/SearchForm/SearchForm'
-import SearchResults from '../../components/SearchResults/SearchResults'
+import React from 'react';
+import './ProjectsPage.css';
+import SecondaryNav from '../../components/SecondaryNav/SecondaryNav';
+import SearchForm from '../../components/SearchForm/SearchForm';
+import SearchResults from '../../components/SearchResults/SearchResults';
 
 function ProjectsPage() {
     return (
@@ -14,6 +14,6 @@ function ProjectsPage() {
             </main>
         </>
     )
-}
+};
 
-export default ProjectsPage
+export default ProjectsPage;

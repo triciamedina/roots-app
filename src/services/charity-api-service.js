@@ -1,9 +1,10 @@
-import config from '../config'
+import config from '../config';
 
 const CharityApiService = {
     formatQueryParams(params) {
         const queryItems = Object.keys(params)
-            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
+
         return queryItems.join('&');
     },
     getCharities(zip, authToken) {
@@ -11,8 +12,10 @@ const CharityApiService = {
             zip,
             max: 10,
             index: 0
-        }
-        const queryString = CharityApiService.formatQueryParams(params)
+        };
+        
+        const queryString = CharityApiService.formatQueryParams(params);
+
         return fetch(`${config.API_BASE_URL}/charity?` + queryString, {
             method: 'GET',
             headers: {
@@ -25,6 +28,6 @@ const CharityApiService = {
                     : res.json()
             )
     }
-}
+};
 
-export default CharityApiService
+export default CharityApiService;

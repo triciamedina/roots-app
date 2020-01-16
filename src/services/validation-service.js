@@ -62,6 +62,6 @@ const ValidationService = {
             return 'Zip code must be 5 digits'
         }
     }
-}
+};
 
-export default ValidationService
+export default ValidationService;

@@ -1,34 +1,48 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import './RegisterForm.css'
-import { Button } from '../Utils/Utils'
-import RootsContext from '../../contexts/RootsContext'
-import { withRouter } from 'react-router'
-import ValidationService from '../../services/validation-service'
-import ValidationError from '../ValidationError/ValidationError'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './RegisterForm.css';
+import { Button } from '../Utils/Utils';
+import RootsContext from '../../contexts/RootsContext';
+import { withRouter } from 'react-router';
+import ValidationService from '../../services/validation-service';
+import ValidationError from '../ValidationError/ValidationError';
 
 class RegisterForm extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     handleStepOne = (event) => {
-        event.preventDefault()
-        const { emailInput, emailConfirmInput } = event.target
-        this.context.handleRegisterStepOne()
-        emailInput.value = ''
-        emailConfirmInput.value = ''
-    }
+        event.preventDefault();
+
+        const { emailInput, emailConfirmInput } = event.target;
+
+        this.context.handleRegisterStepOne();
+
+        emailInput.value = '';
+
+        emailConfirmInput.value = '';
+    };
+
     handleStepTwo = (event) => {
-        event.preventDefault()
-        const { firstName, lastName } = event.target
-        this.context.handleRegisterStepTwo()
-        firstName.value = ''
-        lastName.value = ''
-    }
+        event.preventDefault();
+
+        const { firstName, lastName } = event.target;
+
+        this.context.handleRegisterStepTwo();
+
+        firstName.value = '';
+
+        lastName.value = '';
+    };
+
     handleStepThree = (event) => {
-        event.preventDefault()
-        this.context.handleRegisterSubmit()
-    }
+        event.preventDefault();
+
+        this.context.handleRegisterSubmit();
+    };
+
     renderStepOne() {
-        const { email, confirmedEmail } = this.context.register
+        const { email, confirmedEmail } = this.context.register;
+
         return (
             <form 
                 action=''
@@ -93,9 +107,11 @@ class RegisterForm extends Component {
                 {this.renderLoginLink()}
             </form>
         )
-    }
+    };
+
     renderStepTwo() {
-        const { firstName, lastName } = this.context.register
+        const { firstName, lastName } = this.context.register;
+
         return (
             <form 
                 action=''
@@ -160,9 +176,11 @@ class RegisterForm extends Component {
                 {this.renderLoginLink()}
             </form>
         )
-    }
+    };
+
     renderStepThree() {
-        const { password, confirmedPassword } = this.context.register
+        const { password, confirmedPassword } = this.context.register;
+
         return (
             <form 
                 action=''
@@ -230,7 +248,8 @@ class RegisterForm extends Component {
                 {this.renderLoginLink()}
             </form>
         )
-    }
+    };
+
     renderLoginLink() {
         return (
             <section className='register-form__secondary'>
@@ -242,24 +261,29 @@ class RegisterForm extends Component {
                 </p>
             </section>
         )
-    }
+    };
+
     render() {
-        let form
+        let form;
+
         if (this.context.register.currentStep === 1) {
             form = this.renderStepOne()
-        } 
+        };
+
         if (this.context.register.currentStep === 2) {
             form = this.renderStepTwo()
-        }
+        };
+
         if (this.context.register.currentStep === 3) {
             form = this.renderStepThree()
-        }
+        };
+
         return (
             <>
                 {form}
             </>
         )
-    }
-}
+    };
+};
 
-export default withRouter(RegisterForm)
+export default withRouter(RegisterForm);

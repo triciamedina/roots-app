@@ -1,18 +1,21 @@
-import React, { Component } from 'react'
-import './SearchForm.css'
-import { Button } from '../Utils/Utils'
-import RootsContext from '../../contexts/RootsContext'
-import ValidationError from '../ValidationError/ValidationError'
-import ValidationService from '../../services/validation-service'
+import React, { Component } from 'react';
+import './SearchForm.css';
+import { Button } from '../Utils/Utils';
+import RootsContext from '../../contexts/RootsContext';
+import ValidationError from '../ValidationError/ValidationError';
+import ValidationService from '../../services/validation-service';
 
 class SearchForm extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     handleSubmit = (event) => {
-        event.preventDefault()
-        this.context.handleSearchSubmit()
-    }
+        event.preventDefault();
+
+        this.context.handleSearchSubmit();
+    };
     renderSubmitButton() {
-        const { searchInput } = this.context.projects
+        const { searchInput } = this.context.projects;
+
         return (
             <div className='search-form__submit'>
                 <Button 
@@ -24,12 +27,15 @@ class SearchForm extends Component {
                 </Button>
             </div>
         )
-    }
+    };
+
     componentDidMount() {
-        this.context.updateDonateAmount()
-    }
+        this.context.updateDonateAmount();
+    };
+
     render() {
-        const { searchInput } = this.context.projects
+        const { searchInput } = this.context.projects;
+
         return (
             <form 
                 action=''
@@ -63,7 +69,7 @@ class SearchForm extends Component {
                 </div>
             </form>
         )
-    }
-}
+    };
+};
 
-export default SearchForm
+export default SearchForm;

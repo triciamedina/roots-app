@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import './Utils.css'
-import RootsContext from '../../contexts/RootsContext'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './Utils.css';
+import RootsContext from '../../contexts/RootsContext';
 
 export const Formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
     minimumFractionDigits: 2
-})
+});
 
 export function Button(props) {
     return <button className={props.className} {...props}>{props.children}</button>
-}
+};
 
 export function LoginButton(props) {
     return (
@@ -19,7 +19,7 @@ export function LoginButton(props) {
             <button className={props.className} {...props}>Sign in</button>
         </Link>
     )
-}
+};
 
 export function RegisterButton(props) {
     return (
@@ -27,13 +27,15 @@ export function RegisterButton(props) {
             <button className={props.className} {...props}>Get started</button>
         </Link>
     )
-}
+};
 
 export class LogoutButton extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     handleLogout = () => {
         this.context.handleLogout()
-    }
+    };
+
     render() {
         return (
             <Link to={`/`}>
@@ -47,4 +49,4 @@ export class LogoutButton extends Component {
             </Link>
         )
     }
-}
+};

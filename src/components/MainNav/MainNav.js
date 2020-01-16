@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import Logo from '../Logo/Logo'
-import { LoginButton, LogoutButton, RegisterButton } from '../Utils/Utils'
-import './MainNav.css'
-import TokenService from '../../services/token-service'
+import React, { Component } from 'react';
+import Logo from '../Logo/Logo';
+import { LoginButton, LogoutButton, RegisterButton } from '../Utils/Utils';
+import './MainNav.css';
+import TokenService from '../../services/token-service';
 
 class MainNav extends Component {
     renderPublicMenu() {
@@ -35,7 +35,8 @@ class MainNav extends Component {
                 </nav>
             </header>
         )
-    }
+    };
+
     renderPrivateMenu() {
         return (
             <header className='MainNav--private'>
@@ -59,7 +60,8 @@ class MainNav extends Component {
                 </nav>
             </header>
         )
-    }
+    };
+
     render() {
         return (
             <>
@@ -69,7 +71,7 @@ class MainNav extends Component {
                         } 
             </>
         ) 
-    }
-}
+    };
+};
 
-export default MainNav
+export default MainNav;

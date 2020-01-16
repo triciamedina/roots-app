@@ -1,4 +1,4 @@
-import config from '../config'
+import config from '../config';
 
 const UserApiService = {
     postRegistration(newUser) {
@@ -112,6 +112,6 @@ const UserApiService = {
                     : res.json()
             )
     }
-}
+};
 
-export default UserApiService
+export default UserApiService;

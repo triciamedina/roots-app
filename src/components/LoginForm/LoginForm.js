@@ -1,23 +1,26 @@
-import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { Button } from '../../components/Utils/Utils'
-import './LoginForm.css'
-import RootsContext from '../../contexts/RootsContext'
-import { withRouter } from 'react-router'
-import ValidationService from '../../services/validation-service'
-import ValidationError from '../ValidationError/ValidationError'
+import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { Button } from '../../components/Utils/Utils';
+import './LoginForm.css';
+import RootsContext from '../../contexts/RootsContext';
+import { withRouter } from 'react-router';
+import ValidationService from '../../services/validation-service';
+import ValidationError from '../ValidationError/ValidationError';
 
 class LoginForm extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     handleSubmit = (event) => {
         event.preventDefault()
         const { email, password } = event.target
         this.context.handleSubmitJwtAuth()
         email.value = ''
         password.value = ''
-    }
+    };
+
     renderLoginForm() {
-        const { email, password } = this.context.login
+        const { email, password } = this.context.login;
+
         return (
             <form 
                 action='' 
@@ -96,7 +99,8 @@ class LoginForm extends Component {
             </section>
         </form>
         )
-    }
+    };
+    
     render() {
         return (
             <>
@@ -106,7 +110,7 @@ class LoginForm extends Component {
                 }
             </>
         )
-    }
-}
+    };
+};
 
-export default withRouter(LoginForm)
+export default withRouter(LoginForm);

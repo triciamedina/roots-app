@@ -1,7 +1,7 @@
-import React from 'react'
-import './RegisterPage.css'
-import RegisterForm from '../../components/RegisterForm/RegisterForm'
-import SecondaryNav from '../../components/SecondaryNav/SecondaryNav'
+import React from 'react';
+import './RegisterPage.css';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import SecondaryNav from '../../components/SecondaryNav/SecondaryNav';
 
 function RegisterPage() {
     return (
@@ -12,6 +12,6 @@ function RegisterPage() {
             </main>
         </>
     )
-}
+};
 
-export default RegisterPage
+export default RegisterPage;

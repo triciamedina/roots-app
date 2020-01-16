@@ -1,9 +1,9 @@
-import React from 'react'
-import './ProjectDetailPage.css'
-import SecondaryNav from '../../components/SecondaryNav/SecondaryNav'
-import ProjectContent from '../../components/ProjectContent/ProjectContent'
-import DonateForm from '../../components/DonateForm/DonateForm'
-import ConfirmationModal from '../../components/ConfirmationModal/ConfirmationModal'
+import React from 'react';
+import './ProjectDetailPage.css';
+import SecondaryNav from '../../components/SecondaryNav/SecondaryNav';
+import ProjectContent from '../../components/ProjectContent/ProjectContent';
+import DonateForm from '../../components/DonateForm/DonateForm';
+import ConfirmationModal from '../../components/ConfirmationModal/ConfirmationModal';
 
 function ProjectDetailPage() {
     return (
@@ -16,6 +16,6 @@ function ProjectDetailPage() {
             </main>
         </>
     )
-}
+};
 
-export default ProjectDetailPage
+export default ProjectDetailPage;

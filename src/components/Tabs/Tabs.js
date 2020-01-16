@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Button } from '../Utils/Utils'
-import './Tabs.css'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '../Utils/Utils';
+import './Tabs.css';
 
 class Tabs extends Component {
     render() {
-        const { active } = this.props
+        const { active } = this.props;
+
         return (
             <section className='tabs'>
                     <Link to={'/dashboard/roundups'}>
@@ -20,7 +21,7 @@ class Tabs extends Component {
                     </Link>
             </section>
         )
-    }
-}
+    };
+};
 
-export default Tabs
+export default Tabs;

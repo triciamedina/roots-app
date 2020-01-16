@@ -1,30 +1,38 @@
 import React, { Component } from 'react'
 import './SecondaryNav.css'
 import { withRouter } from 'react-router'
-import Times from '../../img/times-solid.svg'
-import LeftArrow from '../../img/chevron-left-solid.svg'
-import RootsContext from '../../contexts/RootsContext'
-import { Button } from '../Utils/Utils'
+import Times from '../../img/times-solid.svg';
+import LeftArrow from '../../img/chevron-left-solid.svg';
+import RootsContext from '../../contexts/RootsContext';
+import { Button } from '../Utils/Utils';
 
 class SecondaryNav extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     handleGoback = () => {
-        const { history, location } = this.props
+        const { history, location } = this.props;
+
         if (location.pathname === '/projects') {
             this.context.handleClearSearch()
-        }
-        history.goBack()
-    }
+        };
+
+        history.goBack();
+    };
+
     handleClose = () => {
-        const { history } = this.props
-        this.context.handleClearSearch()
-        history.push('/dashboard')
-    }
+        const { history } = this.props;
+
+        this.context.handleClearSearch();
+
+        history.push('/dashboard');
+    };
+
     handleSkip = () => {
-        const { history } = this.props
-        // this.context.onAccountSetupCancel()
-        history.push('/dashboard')
-    }
+        const { history } = this.props;
+
+        history.push('/dashboard');
+    };
+
     renderBackButton() {
         return (
             <div className='left-arrow-icon'>
@@ -33,7 +41,8 @@ class SecondaryNav extends Component {
                 </button>
             </div>
         )
-    }
+    };
+
     renderCloseButton() {
         return (
             <div className='times-icon'>
@@ -42,7 +51,8 @@ class SecondaryNav extends Component {
                 </button>
             </div>
         )
-    }
+    };
+
     renderSkipButton() {
         return (
             <div className='skip-button'>
@@ -51,12 +61,15 @@ class SecondaryNav extends Component {
                 </Button>
             </div>
         )
-    }
+    };
+
     render() {
         if (this.context.projects.showModal) {
             return null
-        }
-        const { location } = this.props
+        };
+
+        const { location } = this.props;
+
         return (
             <header className='SecondaryNav'>
                 <nav>
@@ -67,7 +80,7 @@ class SecondaryNav extends Component {
                 </nav>
             </header>
         ) 
-    }
-}
+    };
+};
 
-export default withRouter(SecondaryNav)
+export default withRouter(SecondaryNav);

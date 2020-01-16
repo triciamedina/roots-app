@@ -1,24 +1,31 @@
-import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-import './ConfirmationModal.css'
-import { Button, Formatter } from '../Utils/Utils'
-import RootsContext from '../../contexts/RootsContext'
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import './ConfirmationModal.css';
+import { Button, Formatter } from '../Utils/Utils';
+import RootsContext from '../../contexts/RootsContext';
 
 class ConfirmationModal extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     handleCancel = () => {
-        this.context.handleCloseModal()
-        this.props.history.goBack()
-    }
+        this.context.handleCloseModal();
+
+        this.props.history.goBack();
+    };
+
     handleConfirm = () => {
-        this.context.handleConfirmDonation()
-        this.props.history.push('/dashboard/donations')
-    }
+        this.context.handleConfirmDonation();
+
+        this.props.history.push('/dashboard/donations');
+    };
+
     render() {
         if (!this.context.projects.showModal) {
             return null
-        }
-        const { donateAmount } = this.context.projects
+        };
+
+        const { donateAmount } = this.context.projects;
+
          return (
             <section className='ConfirmationModal__container'>
                 <i className='fas fa-check-circle ConfirmationModal__icon'></i>
@@ -42,7 +49,7 @@ class ConfirmationModal extends Component {
                 </Button>
             </section>
         )
-    }
-}
+    };
+};
 
-export default withRouter(ConfirmationModal)
+export default withRouter(ConfirmationModal);

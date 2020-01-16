@@ -1,20 +1,26 @@
-import React, { Component } from 'react'
-import './TransactionItem.css'
-import { Formatter } from '../Utils/Utils'
-import RootsContext from '../../contexts/RootsContext'
-import ReactToolTip from 'react-tooltip'
-import TransactionService from '../../services/transaction-service'
+import React, { Component } from 'react';
+import './TransactionItem.css';
+import { Formatter } from '../Utils/Utils';
+import RootsContext from '../../contexts/RootsContext';
+import ReactToolTip from 'react-tooltip';
+import TransactionService from '../../services/transaction-service';
 
 class TransactionItem extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     componentDidMount() {
-        this.context.updateWallet()
-    }
+        this.context.updateWallet();
+    };
+
     render() {
-        const { name, amount, transaction_id } = this.props
-        const roundupAmount = TransactionService.calculateRoundup(amount)
-        const checked = (roundup) => roundup.transaction_id === transaction_id
-        const isChecked = this.context.roundUps.items.some(checked)
+        const { name, amount, transaction_id } = this.props;
+
+        const roundupAmount = TransactionService.calculateRoundup(amount);
+
+        const checked = (roundup) => roundup.transaction_id === transaction_id;
+
+        const isChecked = this.context.roundUps.items.some(checked);
+
         return (
             <li key={transaction_id} className='TransactionItem'>
                 <div className='TransactionItem__container'>
@@ -56,7 +62,7 @@ class TransactionItem extends Component {
                     <ReactToolTip />
             </li>
         )
-    }
-}
+    };
+};
 
-export default TransactionItem
+export default TransactionItem;

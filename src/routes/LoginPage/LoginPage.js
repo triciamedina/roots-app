@@ -1,7 +1,7 @@
-import React from 'react'
-import './LoginPage.css'
-import LoginForm from '../../components/LoginForm/LoginForm'
-import SecondaryNav from '../../components/SecondaryNav/SecondaryNav'
+import React from 'react';
+import './LoginPage.css';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import SecondaryNav from '../../components/SecondaryNav/SecondaryNav';
 
 function LoginPage() {
     return (
@@ -12,6 +12,6 @@ function LoginPage() {
             </main>
         </>
     )
-}
+};
 
-export default LoginPage
+export default LoginPage;

@@ -1,12 +1,12 @@
-import React from 'react'
-import ReactHtmlParser from 'react-html-parser'
-import moment from 'moment'
-import './DonationItem.css'
-import { Formatter } from '../Utils/Utils'
+import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import moment from 'moment';
+import './DonationItem.css';
+import { Formatter } from '../Utils/Utils';
 
 function DonationItem(props) {
-    const { donated_on, project_name, school_name, amount, image_url } = props
-    // TODO: add link to view project in donorschoose.org
+    const { donated_on, project_name, school_name, amount, image_url } = props;
+    // TODO: add link to view project in donorschoose.org ?
     return (
         <li className='DonationItem'>
             <div className='DonationItem__container'>
@@ -32,6 +32,6 @@ function DonationItem(props) {
             </div>
         </li>
     )
-}
+};
 
-export default DonationItem
+export default DonationItem;

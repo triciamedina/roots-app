@@ -1,22 +1,28 @@
-import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-import './AccountSetupForm.css'
-import RootsContext from '../../contexts/RootsContext'
-import { Button } from '../Utils/Utils'
-import PlaidLink from 'react-plaid-link'
-import config from '../../config'
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import './AccountSetupForm.css';
+import RootsContext from '../../contexts/RootsContext';
+import { Button } from '../Utils/Utils';
+import PlaidLink from 'react-plaid-link';
+import config from '../../config';
 
 class AccountSetupForm extends Component {
-    static contextType = RootsContext
+    __isMounted = false; 
+
+    static contextType = RootsContext;
+
     handleOnSuccess = (publicToken, metadata) => {
         this.context.onAccountSetupSuccess(publicToken, metadata)
-    }
+    };
+
     handleConfirm = () => {
         this.props.history.push('/dashboard')
-    }
+    };
+
     handleOnExit = () => {
         console.log('Exit')
-    }
+    };
+
     renderSetup() {
         return (
             <div className='LinkBankForm'>
@@ -29,20 +35,23 @@ class AccountSetupForm extends Component {
                     </p>
                 </div>
                 <section className='LinkBankForm__results-container'>
-                    <PlaidLink
-                        className='Button--contained-large'
-                        clientName='Roots'
-                        env='sandbox'
-                        product={['transactions']}
-                        publicKey={config.PLAID_PUBLIC_KEY}
-                        onExit={this.handleOnExit}
-                        onSuccess={this.handleOnSuccess}>
-                            Connect your account
-                    </PlaidLink>
+                    {this.__isMounted &&
+                        <PlaidLink
+                            className='Button--contained-large'
+                            clientName='Roots'
+                            env='sandbox'
+                            product={['transactions']}
+                            publicKey={config.PLAID_PUBLIC_KEY}
+                            onExit={this.handleOnExit}
+                            onSuccess={this.handleOnSuccess}>
+                                Connect your account
+                        </PlaidLink>
+                    }
                 </section>
             </div>
         )
-    }
+    };
+
     renderConfirmation() {
         const { institution } = this.context.accountSetup
         return (
@@ -62,22 +71,26 @@ class AccountSetupForm extends Component {
                 </Button>
             </section>
         )
+    };
+
+    componentDidMount() {
+        this.__isMounted = true;
     }
     render() {
-        const { isSuccessful } = this.context.accountSetup
-        let form
+        const { isSuccessful } = this.context.accountSetup;
+        let form;
         if (isSuccessful === false) {
             form = this.renderSetup()
-        }
+        };
         if (isSuccessful === true) {
             form = this.renderConfirmation()
-        }
+        };
         return (
             <>
                 {form}
             </>
-        )
-    }
-}
+        );
+    };
+};
 
-export default withRouter(AccountSetupForm)
+export default withRouter(AccountSetupForm);

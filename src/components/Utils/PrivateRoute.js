@@ -1,9 +1,10 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import TokenService from '../../services/token-service'
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import TokenService from '../../services/token-service';
 
 function PrivateRoute({ component, ...props }) {
-    const Component = component
+    const Component = component;
+
     return (
         <Route 
             {...props}
@@ -19,6 +20,6 @@ function PrivateRoute({ component, ...props }) {
             )}
         />
     )
-}
+};
 
-export default PrivateRoute
+export default PrivateRoute;

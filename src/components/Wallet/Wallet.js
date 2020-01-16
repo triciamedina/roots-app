@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import './Wallet.css'
-import { Button, Formatter } from '../Utils/Utils'
-import RootsContext from '../../contexts/RootsContext'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './Wallet.css';
+import { Button, Formatter } from '../Utils/Utils';
+import RootsContext from '../../contexts/RootsContext';
 
 class Wallet extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     render() {
-        const { balance , dailyTotal } = this.context.wallet
+        const { balance , dailyTotal } = this.context.wallet;
+
         return (
             <section className='Wallet__container'>
                 <p className='Wallet__title'>
@@ -26,7 +28,7 @@ class Wallet extends Component {
                 </Link>
             </section>
         )
-    }
-}
+    };
+};
 
-export default Wallet
+export default Wallet;

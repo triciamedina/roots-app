@@ -1,32 +1,38 @@
-import React, { Component } from 'react'
-import './DonateForm.css'
-import { Button, Formatter } from '../Utils/Utils'
-import { withRouter } from 'react-router-dom'
-import RootsContext from '../../contexts/RootsContext'
+import React, { Component } from 'react';
+import './DonateForm.css';
+import { Button, Formatter } from '../Utils/Utils';
+import { withRouter } from 'react-router-dom';
+import RootsContext from '../../contexts/RootsContext';
 
 class DonateForm extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+    
     handleSubmit = (event) => {
         const project = this.context.projects.results.proposals.filter(project => 
             project.id === this.props.match.params.project_id
-        )
+        );
 
-        event.preventDefault()
+        event.preventDefault();
 
         setTimeout(() => {
-            window.open(project[0].proposalURL)}, 2000)
+            window.open(project[0].proposalURL)}, 2000);
             
-        this.context.handleOpenModal(project)
-    }
+        this.context.handleOpenModal(project);
+    };
+
     render() {
         if (this.context.projects.showModal) {
             return null
-        }
+        };
+
         const project = this.context.projects.results.proposals.filter(project => 
             project.id === this.props.match.params.project_id
-        )
-        const { costToComplete, totalPrice } = project[0]
-        const { balance } = this.context.wallet
+        );
+
+        const { costToComplete, totalPrice } = project[0];
+
+        const { balance } = this.context.wallet;
+
         return (
             <section className='DonateForm'>
                 <div className='DonateForm__slide-container'>
@@ -72,7 +78,7 @@ class DonateForm extends Component {
                 </form>
             </section>
         )
-    }
-}
+    };
+};
 
-export default withRouter(DonateForm)
+export default withRouter(DonateForm);

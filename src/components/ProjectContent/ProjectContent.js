@@ -1,21 +1,22 @@
-import React, { Component } from 'react'
-import './ProjectContent.css'
-import { withRouter } from 'react-router-dom'
-import ReactHtmlParser from 'react-html-parser'
-import RootsContext from '../../contexts/RootsContext'
+import React, { Component } from 'react';
+import './ProjectContent.css';
+import { withRouter } from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
+import RootsContext from '../../contexts/RootsContext';
 
 class ProjectContent extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     render() {
         if (this.context.projects.showModal) {
             return null
-        }
+        };
 
-        const { proposals } = this.context.projects.results
+        const { proposals } = this.context.projects.results;
 
         const project = proposals.filter(project => 
             project.id === this.props.match.params.project_id
-            )
+            );
             
         const { 
             imageURL,
@@ -26,7 +27,7 @@ class ProjectContent extends Component {
             schoolName, 
             city, 
             state 
-        } = project[0]
+        } = project[0];
 
         return (
             <section className='ProjectContent'>
@@ -55,7 +56,7 @@ class ProjectContent extends Component {
                 </p>
             </section>
         )
-    }
-}
+    };
+};
 
-export default withRouter(ProjectContent)
+export default withRouter(ProjectContent);

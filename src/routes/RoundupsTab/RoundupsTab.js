@@ -1,28 +1,32 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import moment from 'moment'
-import './RoundupsTab.css'
-import Tabs from '../../components/Tabs/Tabs'
-import TransactionItem from '../../components/TransactionItem/TransactionItem'
-import DateList from '../../components/DateList/DateList'
-import RoundupsToggle from '../../components/RoundupsToggle/RoundupsToggle'
-import RootsContext from '../../contexts/RootsContext'
-import TransactionService from '../../services/transaction-service'
-import { Button } from '../../components/Utils/Utils'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
+import './RoundupsTab.css';
+import Tabs from '../../components/Tabs/Tabs';
+import TransactionItem from '../../components/TransactionItem/TransactionItem';
+import DateList from '../../components/DateList/DateList';
+import RoundupsToggle from '../../components/RoundupsToggle/RoundupsToggle';
+import RootsContext from '../../contexts/RootsContext';
+import TransactionService from '../../services/transaction-service';
+import { Button } from '../../components/Utils/Utils';
 
 class RoundupsTab extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     renderList() {
-        const { transactions } = this.context
-        const roundups = TransactionService.groupTransactionsByDay(transactions.items)
+        const { transactions } = this.context;
+
+        const roundups = TransactionService.groupTransactionsByDay(transactions.items);
         
         const keys = Object.keys(roundups).sort((a, b) => {
             return b - a
-        })
+        });
 
         return keys.map((key, index) => {
-            let title = key
-            let transactionsByDay = roundups[key]
+            let title = key;
+
+            let transactionsByDay = roundups[key];
+
             return (
                 <React.Fragment key={title}>
                     <h2 className='TransactionsList__title'>
@@ -37,8 +41,9 @@ class RoundupsTab extends Component {
                     />
                 </React.Fragment>
             )
-        })
-    }
+        });
+    };
+
     renderSetupButton() {
         return (
             <>
@@ -48,7 +53,8 @@ class RoundupsTab extends Component {
                 </Link>
             </>
         )
-    }
+    };
+
     render() {
         return (
             <>
@@ -67,7 +73,7 @@ class RoundupsTab extends Component {
                 </section>
             </>
         )
-    }
-}
+    };
+};
 
-export default RoundupsTab
+export default RoundupsTab;

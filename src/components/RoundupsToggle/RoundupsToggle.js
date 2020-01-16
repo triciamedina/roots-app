@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
-import './RoundupsToggle.css'
-import RootsContext from '../../contexts/RootsContext'
-import ReactTooltip from 'react-tooltip'
+import React, { Component } from 'react';
+import './RoundupsToggle.css';
+import RootsContext from '../../contexts/RootsContext';
+import ReactTooltip from 'react-tooltip';
 
 class RoundupsToggle extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     render() {
-        const { autoRoundups } = this.context
+        const { autoRoundups } = this.context;
+
         return (
             <div className='roundups__toggle-container'>
                 <label htmlFor='roundups-toggle' className='toggle'>
@@ -28,7 +30,7 @@ class RoundupsToggle extends Component {
                 <ReactTooltip />
             </div>
         )
-    }
-}
+    };
+};
 
-export default RoundupsToggle
+export default RoundupsToggle;

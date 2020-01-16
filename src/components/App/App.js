@@ -1,20 +1,20 @@
-import React, {Component} from 'react'
-import { Switch } from 'react-router-dom'
-import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
-import PrivateRoute from '../Utils/PrivateRoute'
-import LandingPage from '../../routes/LandingPage/LandingPage'
-import LoginPage from '../../routes/LoginPage/LoginPage'
-import RegisterPage from '../../routes/RegisterPage/RegisterPage'
-import DashboardPage from '../../routes/DashboardPage/DashboardPage'
-import ProjectsPage from '../../routes/ProjectsPage/ProjectsPage'
-import ProjectDetailPage from '../../routes/ProjectDetailPage/ProjectDetailPage'
-import AccountSetupPage from '../../routes/AccountSetupPage/AccountSetupPage'
-import RootsContext from '../../contexts/RootsContext'
-import TokenService from '../../services/token-service'
-import AuthApiService from '../../services/auth-api-service'
-import UserApiService from '../../services/user-api-service'
-import CharityApiService from '../../services/charity-api-service'
-import TransactionService from '../../services/transaction-service'
+import React, {Component} from 'react';
+import { Switch } from 'react-router-dom';
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
+import PrivateRoute from '../Utils/PrivateRoute';
+import LandingPage from '../../routes/LandingPage/LandingPage';
+import LoginPage from '../../routes/LoginPage/LoginPage';
+import RegisterPage from '../../routes/RegisterPage/RegisterPage';
+import DashboardPage from '../../routes/DashboardPage/DashboardPage';
+import ProjectsPage from '../../routes/ProjectsPage/ProjectsPage';
+import ProjectDetailPage from '../../routes/ProjectDetailPage/ProjectDetailPage';
+import AccountSetupPage from '../../routes/AccountSetupPage/AccountSetupPage';
+import RootsContext from '../../contexts/RootsContext';
+import TokenService from '../../services/token-service';
+import AuthApiService from '../../services/auth-api-service';
+import UserApiService from '../../services/user-api-service';
+import CharityApiService from '../../services/charity-api-service';
+import TransactionService from '../../services/transaction-service';
 
 const generateEmptyState = () => {
   return {
@@ -92,8 +92,8 @@ const generateEmptyState = () => {
       isSuccessful: false,
       institution: '',
     },
-  }
-}
+  };
+};
 
 class App extends Component {
   constructor(props) {
@@ -129,8 +129,9 @@ class App extends Component {
       onAccountSetupSuccess: this.onAccountSetupSuccess,
       onAutoRoundupsChange: this.onAutoRoundupsChange,
       updateRoundups: this.updateRoundups,
-    }
-  }
+    };
+  };
+
   onLoginEmailChanged = (loginEmail) => {
     this.setState({
       login: {
@@ -141,7 +142,8 @@ class App extends Component {
         }
       }
     })
-  }
+  };
+
   onLoginPasswordChanged = (loginPassword) => {
     this.setState({
       login: {
@@ -152,15 +154,18 @@ class App extends Component {
         }
       }
     })
-  }
+  };
+
   handleSubmitJwtAuth = () => {
-    const { email, password } = this.state.login
+    const { email, password } = this.state.login;
+
     this.setState({
       login: {
         ...this.state.login,
         error: null,
       }
     })
+
     AuthApiService.postLogin({
       email: email.value,
       password: password.value,
@@ -184,15 +189,18 @@ class App extends Component {
           }
         })
       })
-  }
+  };
+
   checkAccountExists = () => {
-    const authToken = TokenService.getAuthToken()
+    const authToken = TokenService.getAuthToken();
+
     this.setState({
       accountSetup: {
         ...this.state.accountSetup,
         error: null
       }
     })
+
     UserApiService.getAccount(authToken)
       .then(res => {
           TokenService.saveAccountToken(res.id)
@@ -212,15 +220,19 @@ class App extends Component {
           }
         })
       })
-  }
+  };
+
   handleLogout = () => {
-    TokenService.clearAuthToken()
-    TokenService.clearAccountToken()
+    TokenService.clearAuthToken();
+
+    TokenService.clearAccountToken();
+
     this.setState({
       ...this.state,
       ...generateEmptyState()
     })
-  }
+  };
+
   onRegisterEmailChanged = (registerEmail) => {
     this.setState({
       register: {
@@ -231,7 +243,8 @@ class App extends Component {
         }
       }
     })
-  }
+  };
+
   onRegisterConfirmedEmailChanged = (registerConfirmedEmail) => {
     this.setState({
       register: {
@@ -242,9 +255,11 @@ class App extends Component {
         }
       }
     })
-  }
+  };
+
   handleRegisterStepOne = () => {
-    const { email, confirmedEmail } = this.state.register
+    const { email, confirmedEmail } = this.state.register;
+
     if (email.value === confirmedEmail.value) {
       this.setState({
         register: {
@@ -252,8 +267,9 @@ class App extends Component {
           currentStep: 2 
         }
       })
-    }
-  }
+    };
+  };
+
   onRegisterFirstNameChanged = (firstNameInput) => {
     this.setState({
       register: {
@@ -264,7 +280,8 @@ class App extends Component {
         }
       }
     })
-  }
+  };
+
   onRegisterLastNameChanged = (lastNameInput) => {
     this.setState({
       register: {
@@ -275,7 +292,8 @@ class App extends Component {
         }
       }
     })
-  }
+  };
+
   handleRegisterStepTwo = () => {
     this.setState({
       register: {
@@ -283,7 +301,8 @@ class App extends Component {
         currentStep: 3,
       }
     })
-  }
+  };
+
   onRegisterPasswordChanged = (passwordInput) => {
     this.setState({
       register: {
@@ -294,7 +313,8 @@ class App extends Component {
         }
       }
     })
-  }
+  };
+
   onRegisterConfirmedPasswordChanged = (confirmedPasswordInput) => {
     this.setState({
       register: {
@@ -305,15 +325,18 @@ class App extends Component {
         }
       }
     })
-  }
+  };
+
   handleRegisterSubmit = () => {
-    const { confirmedEmail, firstName, lastName, confirmedPassword } = this.state.register
+    const { confirmedEmail, firstName, lastName, confirmedPassword } = this.state.register;
+
     const newUser = {
       email: confirmedEmail.value,
       first_name: firstName.value,
       last_name: lastName.value,
       password: confirmedPassword.value,
-    }
+    };
+
     UserApiService.postRegistration(newUser)
       .then(res => {
         this.setState({
@@ -328,7 +351,7 @@ class App extends Component {
             error: false,
           }
         })
-        this.handleSubmitJwtAuth()
+        this.handleSubmitJwtAuth();
       })
       .catch(res => {
         this.setState({
@@ -339,7 +362,8 @@ class App extends Component {
           }
         })
       })
-  }
+  };
+
   onSearchInputChange = (searchInput) => {
     this.setState({
       projects: {
@@ -350,16 +374,20 @@ class App extends Component {
         }
       }
     })
-  }
+  };
+
   handleSearchSubmit = () => {
-    const { searchInput } = this.state.projects
-    const authToken = TokenService.getAuthToken()
+    const { searchInput } = this.state.projects;
+
+    const authToken = TokenService.getAuthToken();
+
     this.setState({
       projects: {
         ...this.state.projects,
         error: null,
       }
     })
+
     CharityApiService.getCharities(searchInput.value, authToken)
       .then(res => {
         this.setState({
@@ -378,7 +406,8 @@ class App extends Component {
           }
         })
       })
-  }
+  };
+
   handleClearSearch = () => {
     this.setState({
       projects: {
@@ -388,7 +417,8 @@ class App extends Component {
         showResults: false,
       }
     })
-  }
+  };
+
   handleClearLogin = () => {
     this.setState({
       login: {
@@ -399,7 +429,8 @@ class App extends Component {
         isSuccessful: false,
       },
     })
-  }
+  };
+
   handleClearRegister = () => {
     this.setState({
       register: {
@@ -413,7 +444,8 @@ class App extends Component {
         currentStep: 1,
       },
     })
-  }
+  };
+
   handleOpenModal = (selected) => {
     this.setState({
       projects: {
@@ -422,7 +454,8 @@ class App extends Component {
         selected: selected,
       },
     })
-  }
+  };
+
   handleCloseModal = () => {
     this.setState({
       projects: {
@@ -431,16 +464,19 @@ class App extends Component {
         selected: null,
       },
     })
-  }
+  };
+
   updateDonateAmount = () => {
-    const amount = this.state.wallet.balance
+    const amount = this.state.wallet.balance;
+
     this.setState({
       projects: {
         ...this.state.projects,
         donateAmount: { value: amount }
       }
     })
-  }
+  };
+
   onDonateAmountChange = (donateAmount) => {
     this.setState({
       projects: {
@@ -448,7 +484,8 @@ class App extends Component {
         donateAmount: { value: parseFloat(donateAmount) },
       },
     })
-  }
+  };
+
   handleConfirmDonation = () => {
     this.setState({
       projects: {
@@ -457,7 +494,14 @@ class App extends Component {
       }
     })
 
-    const { title, fulfillmentTrailer, proposalURL, schoolName, thumbImageURL } = this.state.projects.selected[0]
+    const { 
+      title, 
+      fulfillmentTrailer, 
+      proposalURL, 
+      schoolName, 
+      thumbImageURL 
+    } = this.state.projects.selected[0];
+
     const newDonation = {
       amount: this.state.projects.donateAmount.value,
       project_name: title,
@@ -465,9 +509,12 @@ class App extends Component {
       project_url: proposalURL,
       school_name: schoolName,
       image_url: thumbImageURL
-    }
-    const authToken = TokenService.getAuthToken()
-    const newWalletBalance = this.state.wallet.balance - newDonation.amount
+    };
+
+    const authToken = TokenService.getAuthToken();
+
+    const newWalletBalance = this.state.wallet.balance - newDonation.amount;
+
     UserApiService.postDonation(newDonation, authToken)
       .then(res => {
         this.setState({
@@ -492,7 +539,8 @@ class App extends Component {
           }
         })
       })
-  }
+  };
+
   updateTransactions = () => {
     this.setState({
       transactions: {
@@ -501,7 +549,7 @@ class App extends Component {
       }
     })
 
-    const authToken = TokenService.getAuthToken()
+    const authToken = TokenService.getAuthToken();
 
     UserApiService.getTransactions(authToken)
       .then(res => {
@@ -521,12 +569,14 @@ class App extends Component {
           }
         })
       })
-  }
+  };
+
   handleCheckTransaction = (id) => {
     const newItems = this.state.transactions.items.map(item => item.transaction_id === id 
       ? item = {...item, isChecked: true}
       : item
-      )
+      );
+
     this.setState({
       transactions: {
         ...this.state.transactions,
@@ -538,15 +588,18 @@ class App extends Component {
       }
     })
 
-    const authToken = TokenService.getAuthToken()
-    const selected = this.state.transactions.items.filter(item => item.transaction_id === id)
+    const authToken = TokenService.getAuthToken();
+
+    const selected = this.state.transactions.items.filter(item => item.transaction_id === id);
+
     const newRoundup = {
       account_id: selected[0].account_id,
       amount: selected[0].amount,
       date: selected[0].date,
       name: selected[0].name,
       transaction_id: selected[0].transaction_id
-    }
+    };
+
     // send authtoken and transaction object to POST /user/roundup endpoint
     UserApiService.postRoundup(newRoundup, authToken)
       .then(res => {
@@ -556,7 +609,7 @@ class App extends Component {
             items: [...this.state.roundUps.items, res]
           }
         })
-        this.updateWallet()
+        this.updateWallet();
       })
       .catch(res => {
         this.setState({
@@ -566,12 +619,15 @@ class App extends Component {
           }
         })
       })
-    
-  }
+  };
+
   updateWallet = () => {
-    const { roundUps, donations }= this.state
-    const balance = TransactionService.calculateWalletTotal(roundUps.items, donations.items)
-    const dailyTotal = TransactionService.calculateDailyTotal(roundUps.items)
+    const { roundUps, donations }= this.state;
+
+    const balance = TransactionService.calculateWalletTotal(roundUps.items, donations.items);
+
+    const dailyTotal = TransactionService.calculateDailyTotal(roundUps.items);
+
     this.setState({
       wallet: {
         ...this.state.wallet,
@@ -579,7 +635,8 @@ class App extends Component {
         dailyTotal: dailyTotal,
       }
     })
-  }
+  };
+
   updateDonations = () => {
     this.setState({
       donations: {
@@ -588,7 +645,7 @@ class App extends Component {
       }
     })
 
-    const authToken = TokenService.getAuthToken()
+    const authToken = TokenService.getAuthToken();
 
     UserApiService.getAllDonations(authToken)
       .then(res => {
@@ -607,7 +664,8 @@ class App extends Component {
           }
         })
       })
-  }
+  };
+
   onAccountSetupSuccess = (publicToken, metadata) => {
     this.setState({
       accountSetup: {
@@ -616,11 +674,14 @@ class App extends Component {
         error: null
       }
     })
-    const authToken = TokenService.getAuthToken()
+
+    const authToken = TokenService.getAuthToken();
+
     const newAccount = {
       publicToken: publicToken,
       accountId: metadata.account_id
-    }
+    };
+
     UserApiService.postAccount(newAccount, authToken)
       .then(res => {
         // TokenService.saveAccountToken(res.id)
@@ -639,7 +700,8 @@ class App extends Component {
           }
         })
       })
-  }
+  };
+
   onAutoRoundupsChange = () => {
     this.setState({
       autoRoundups: {
@@ -647,7 +709,8 @@ class App extends Component {
         isOn: (this.state.autoRoundups.isOn ? false : true)
       }
     })
-  }
+  };
+
   updateRoundups = () => {
     this.setState({
       roundUps: {
@@ -655,7 +718,9 @@ class App extends Component {
         error: null
       }
     })
-    const authToken = TokenService.getAuthToken()
+
+    const authToken = TokenService.getAuthToken();
+
     UserApiService.getRoundups(authToken)
       .then(res => {
         this.setState({
@@ -674,7 +739,8 @@ class App extends Component {
           }
         })
       })
-  }
+  };
+
   render() {
     return (
       <RootsContext.Provider value={this.state}>
@@ -717,6 +783,6 @@ class App extends Component {
       </RootsContext.Provider>
     )
   }
-}
+};
 
 export default App;

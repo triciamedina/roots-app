@@ -1,11 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import ReactHtmlParser from 'react-html-parser'
-import './ProjectItem.css'
-import { Formatter } from '../Utils/Utils'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ReactHtmlParser from 'react-html-parser';
+import './ProjectItem.css';
+import { Formatter } from '../Utils/Utils';
 
 function ProjectItem(props) {
-    const { projectName, projectDescription, fundingNeeded, id } = props
+    const { projectName, projectDescription, fundingNeeded, id } = props;
+
     return (
         <Link to={`/projects/${id}`} className='ProjectLink'>
             <li className='ProjectItem'>
@@ -25,6 +26,6 @@ function ProjectItem(props) {
             </li>
         </Link>
     )
-}
+};
 
-export default ProjectItem
+export default ProjectItem;

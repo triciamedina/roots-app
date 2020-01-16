@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import './AccountSetupPage.css'
-import SecondaryNav from '../../components/SecondaryNav/SecondaryNav'
-import AccountSetupForm from '../../components/AccountSetupForm/AccountSetupForm'
-import RootsContext from '../../contexts/RootsContext'
-import TokenService from '../../services/token-service'
-import { Redirect } from 'react-router-dom'
+import React, { Component } from 'react';
+import './AccountSetupPage.css';
+import SecondaryNav from '../../components/SecondaryNav/SecondaryNav';
+import AccountSetupForm from '../../components/AccountSetupForm/AccountSetupForm';
+import RootsContext from '../../contexts/RootsContext';
+import TokenService from '../../services/token-service';
+import { Redirect } from 'react-router-dom';
 
 class AccountSetupPage extends Component {
-    static contextType = RootsContext
+    static contextType = RootsContext;
+
     renderAccountSetup() {
         return (
             <>
@@ -17,7 +18,8 @@ class AccountSetupPage extends Component {
                 </main>
             </>
         )
-    }
+    };
+
     render() {
         return (
             <>
@@ -27,8 +29,7 @@ class AccountSetupPage extends Component {
                 }
             </>
         )
-    }
+    };
+};
 
-}
-
-export default AccountSetupPage
+export default AccountSetupPage;

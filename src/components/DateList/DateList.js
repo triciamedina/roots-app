@@ -1,9 +1,11 @@
-import React from 'react'
-import './DateList.css'
+import React from 'react';
+import './DateList.css';
 
 function DateList(props) {
-    const { listItemType, items, className } = props
-    const ListItemType = listItemType
+    const { listItemType, items, className } = props;
+
+    const ListItemType = listItemType;
+
     return (
         <ul className={className}>
             {items.map(item => 
@@ -11,6 +13,6 @@ function DateList(props) {
             )}
         </ul>
     )
-}
+};
 
-export default DateList
+export default DateList;

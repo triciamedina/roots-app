@@ -1,7 +1,7 @@
-import React from 'react'
-import { RegisterButton } from '../../components/Utils/Utils'
-import MainNav from '../../components/MainNav/MainNav'
-import './LandingPage.css'
+import React from 'react';
+import { RegisterButton } from '../../components/Utils/Utils';
+import MainNav from '../../components/MainNav/MainNav';
+import './LandingPage.css';
 
 function LandingPage() {
     return (
@@ -48,6 +48,6 @@ function LandingPage() {
             </main>
         </>
     )
-}
+};
 
-export default LandingPage
+export default LandingPage;

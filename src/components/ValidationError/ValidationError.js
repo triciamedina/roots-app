@@ -5,9 +5,10 @@ function ValidationError(props) {
     if (props.message) {
         return (
             <div className='ValidationError'>{props.message}</div>
-        );
-    }
-    return <></>
-}
+        )
+    };
 
-export default ValidationError
+    return <></>
+};
+
+export default ValidationError;

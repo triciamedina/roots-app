@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const RootsContext = React.createContext({
     transactions: {
@@ -105,6 +105,6 @@ const RootsContext = React.createContext({
         onAccountSetupSuccess: () => {},
         onAccountSetupCancel: () => {},
     },
-})
+});
 
-export default RootsContext
+export default RootsContext;
