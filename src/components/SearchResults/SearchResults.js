@@ -15,9 +15,10 @@ class SearchResults extends Component {
     };
 
     render() {
+        const { showResults } = this.context.projects
         return (
             <section className='SearchResults'>
-                {this.context.projects.showResults && this.renderResults()}
+                {showResults && this.renderResults()}
             </section>
         )
     };

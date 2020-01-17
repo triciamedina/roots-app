@@ -111,6 +111,19 @@ const UserApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
+    },
+    postAutoRoundups(authToken) {
+        return fetch(`${config.API_BASE_URL}/user/autoroundup`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${authToken}`
+            }
+        })
+        .then(res => 
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+        )
     }
 };
 

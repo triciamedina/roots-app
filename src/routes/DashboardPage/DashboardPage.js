@@ -11,13 +11,20 @@ class DashboardPage extends Component {
     static contextType = RootsContext;
 
     componentDidMount() {
-        this.context.updateDonations();
-        this.context.updateTransactions();
-        this.context.updateRoundups();
-        this.context.checkAccountExists();
+        this.context.checkAccountExists().then(() => {
+            const { accountSetup: { isSuccessful } } = this.context;
+            
+            if (isSuccessful) {
+                this.context.updateTransactions();
+                this.context.updateRoundups();
+                this.context.updateDonations();
+            }
+        })
+
+        this.context.institutionFormRemoved();
     };
 
-    renderDashboard() {
+    render() {
         return (
             <>
                 <MainNav />
@@ -33,14 +40,6 @@ class DashboardPage extends Component {
                     </Switch>
                 </main>
              </>
-        )
-    };
-
-    render() {
-        return (
-            <>
-                {this.renderDashboard()}
-            </>
         )
     };
 };

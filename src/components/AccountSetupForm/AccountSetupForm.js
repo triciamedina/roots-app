@@ -7,10 +7,8 @@ import PlaidLink from 'react-plaid-link';
 import config from '../../config';
 
 class AccountSetupForm extends Component {
-    __isMounted = false; 
-
     static contextType = RootsContext;
-
+    
     handleOnSuccess = (publicToken, metadata) => {
         this.context.onAccountSetupSuccess(publicToken, metadata)
     };
@@ -23,7 +21,23 @@ class AccountSetupForm extends Component {
         console.log('Exit')
     };
 
+    initializeLink() {
+        return (
+            <PlaidLink
+                className='Button--contained-large'
+                clientName='Roots'
+                env='sandbox'
+                product={['transactions']}
+                publicKey={config.PLAID_PUBLIC_KEY}
+                onExit={this.handleOnExit}
+                onSuccess={this.handleOnSuccess}>
+                    Connect your account
+            </PlaidLink>
+        )
+    };
+
     renderSetup() {
+        const { accountSetup } = this.context
         return (
             <div className='LinkBankForm'>
                 <div>
@@ -35,17 +49,8 @@ class AccountSetupForm extends Component {
                     </p>
                 </div>
                 <section className='LinkBankForm__results-container'>
-                    {this.__isMounted &&
-                        <PlaidLink
-                            className='Button--contained-large'
-                            clientName='Roots'
-                            env='sandbox'
-                            product={['transactions']}
-                            publicKey={config.PLAID_PUBLIC_KEY}
-                            onExit={this.handleOnExit}
-                            onSuccess={this.handleOnSuccess}>
-                                Connect your account
-                        </PlaidLink>
+                    {accountSetup.isInstitutionFormMounted &&
+                        this.initializeLink()
                     }
                 </section>
             </div>
@@ -74,8 +79,9 @@ class AccountSetupForm extends Component {
     };
 
     componentDidMount() {
-        this.__isMounted = true;
-    }
+        this.context.institutionFormDidMount()
+    };
+
     render() {
         const { isSuccessful } = this.context.accountSetup;
         let form;

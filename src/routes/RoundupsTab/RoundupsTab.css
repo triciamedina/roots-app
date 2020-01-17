@@ -43,9 +43,9 @@
 .TransactionsList {
     width: 100%;
     padding: 0px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     list-style-type: none;
-    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
 }

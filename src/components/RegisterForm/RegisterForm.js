@@ -26,17 +26,14 @@ class RegisterForm extends Component {
         event.preventDefault();
 
         const { firstName, lastName } = event.target;
+        firstName.value = '';
+        lastName.value = '';
 
         this.context.handleRegisterStepTwo();
-
-        firstName.value = '';
-
-        lastName.value = '';
     };
 
     handleStepThree = (event) => {
         event.preventDefault();
-
         this.context.handleRegisterSubmit();
     };
 
@@ -179,7 +176,7 @@ class RegisterForm extends Component {
     };
 
     renderStepThree() {
-        const { password, confirmedPassword } = this.context.register;
+        const { password, confirmedPassword, isSuccessful, error } = this.context.register;
 
         return (
             <form 
@@ -240,8 +237,8 @@ class RegisterForm extends Component {
                         >
                                 Next
                         </Button>
-                        {!this.context.register.isSuccessful &&
-                            <p>{this.context.register.error}</p>
+                        {!isSuccessful &&
+                            <p>{error}</p>
                         }
                     </div>
                 </section>
@@ -264,17 +261,18 @@ class RegisterForm extends Component {
     };
 
     render() {
+        const { currentStep } = this.context.register
         let form;
 
-        if (this.context.register.currentStep === 1) {
+        if (currentStep === 1) {
             form = this.renderStepOne()
         };
 
-        if (this.context.register.currentStep === 2) {
+        if (currentStep === 2) {
             form = this.renderStepTwo()
         };
 
-        if (this.context.register.currentStep === 3) {
+        if (currentStep === 3) {
             form = this.renderStepThree()
         };
 

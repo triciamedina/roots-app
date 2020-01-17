@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Switch } from 'react-router-dom';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import PrivateRoute from '../Utils/PrivateRoute';
+import RegisterRoute from '../Utils/RegisterRoute';
 import LandingPage from '../../routes/LandingPage/LandingPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import RegisterPage from '../../routes/RegisterPage/RegisterPage';
@@ -91,6 +92,7 @@ const generateEmptyState = () => {
     accountSetup: {
       isSuccessful: false,
       institution: '',
+      isInstitutionFormMounted: false,
     },
   };
 };
@@ -129,6 +131,8 @@ class App extends Component {
       onAccountSetupSuccess: this.onAccountSetupSuccess,
       onAutoRoundupsChange: this.onAutoRoundupsChange,
       updateRoundups: this.updateRoundups,
+      institutionFormDidMount: this.institutionFormDidMount,
+      institutionFormRemoved: this.institutionFormRemoved,
     };
   };
 
@@ -178,7 +182,6 @@ class App extends Component {
             isSuccessful: true,
           }
         })
-        this.checkAccountExists()
       })
       .catch(res => {
         this.setState({
@@ -201,13 +204,13 @@ class App extends Component {
       }
     })
 
-    UserApiService.getAccount(authToken)
+    return UserApiService.getAccount(authToken)
       .then(res => {
-          TokenService.saveAccountToken(res.id)
+        TokenService.saveAccountToken(res.id)
           this.setState({
             accountSetup: {
               ...this.state.accountSetup,
-              isSuccessful: true
+              isSuccessful: true,
             }
           })
       })
@@ -550,7 +553,7 @@ class App extends Component {
     })
 
     const authToken = TokenService.getAuthToken();
-
+    
     UserApiService.getTransactions(authToken)
       .then(res => {
         this.setState({
@@ -625,7 +628,6 @@ class App extends Component {
     const { roundUps, donations }= this.state;
 
     const balance = TransactionService.calculateWalletTotal(roundUps.items, donations.items);
-
     const dailyTotal = TransactionService.calculateDailyTotal(roundUps.items);
 
     this.setState({
@@ -684,7 +686,7 @@ class App extends Component {
 
     UserApiService.postAccount(newAccount, authToken)
       .then(res => {
-        // TokenService.saveAccountToken(res.id)
+        TokenService.saveAccountToken(res.id)
         this.setState({
           accountSetup: {
             ...this.state.accountSetup,
@@ -702,13 +704,37 @@ class App extends Component {
       })
   };
 
+  getAutoRoundups = () => {
+    // check if exists in table and update state
+  };
+
   onAutoRoundupsChange = () => {
     this.setState({
       autoRoundups: {
         ...this.state.autoRoundups,
-        isOn: (this.state.autoRoundups.isOn ? false : true)
+        error: null
       }
     })
+    // check if currently on first. If on make PATCH request to change to null. If off m
+    const authToken = TokenService.getAuthToken();
+
+    UserApiService.postAutoRoundups(authToken)
+      .then(res => {
+        this.setState({
+          autoRoundups: {
+            ...this.state.autoRoundups,
+            isOn: (res.auto_roundups ? res.auto_roundups : false)
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          autoRoundups: {
+            ...this.state.autoRoundups,
+            error: res.error
+          }
+        })
+      })
   };
 
   updateRoundups = () => {
@@ -741,6 +767,24 @@ class App extends Component {
       })
   };
 
+  institutionFormDidMount = () => {
+    this.setState({
+      accountSetup: {
+        ...this.state.accountSetup,
+        isInstitutionFormMounted: true
+      }
+    })
+  };
+
+  institutionFormRemoved = () => {
+    this.setState({
+      accountSetup: {
+        ...this.state.accountSetup,
+        isInstitutionFormMounted: false
+      }
+    })
+  };
+
   render() {
     return (
       <RootsContext.Provider value={this.state}>
@@ -756,7 +800,7 @@ class App extends Component {
                 path={'/login'}
                 component={LoginPage}
               />
-              <PublicOnlyRoute
+              <RegisterRoute
                 exact 
                 path={'/register'}
                 component={RegisterPage}

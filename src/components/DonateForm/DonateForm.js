@@ -21,17 +21,16 @@ class DonateForm extends Component {
     };
 
     render() {
-        if (this.context.projects.showModal) {
+        const { projects, wallet: { balance } } = this.context
+        if (projects.showModal) {
             return null
         };
 
-        const project = this.context.projects.results.proposals.filter(project => 
+        const project = projects.results.proposals.filter(project => 
             project.id === this.props.match.params.project_id
         );
 
         const { costToComplete, totalPrice } = project[0];
-
-        const { balance } = this.context.wallet;
 
         return (
             <section className='DonateForm'>

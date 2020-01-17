@@ -34,7 +34,7 @@ class SearchForm extends Component {
     };
 
     render() {
-        const { searchInput } = this.context.projects;
+        const { searchInput, showResults } = this.context.projects;
 
         return (
             <form 
@@ -65,7 +65,7 @@ class SearchForm extends Component {
                         />)
                     }
                     </div>
-                    {!this.context.projects.showResults && this.renderSubmitButton()}
+                    {!showResults && this.renderSubmitButton()}
                 </div>
             </form>
         )

@@ -19,6 +19,7 @@ class RoundupsToggle extends Component {
                         type='checkbox'
                         id='roundups-toggle'
                         name='roundups-toggle'
+                        defaultChecked={autoRoundups.isOn}
                         onChange={this.context.onAutoRoundupsChange}
                         required 
                     />

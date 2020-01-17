@@ -6,7 +6,7 @@ import { Formatter } from '../Utils/Utils';
 
 function DonationItem(props) {
     const { donated_on, project_name, school_name, amount, image_url } = props;
-    // TODO: add link to view project in donorschoose.org ?
+    
     return (
         <li className='DonationItem'>
             <div className='DonationItem__container'>

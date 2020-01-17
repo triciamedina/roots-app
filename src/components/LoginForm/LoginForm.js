@@ -11,15 +11,17 @@ class LoginForm extends Component {
     static contextType = RootsContext;
 
     handleSubmit = (event) => {
-        event.preventDefault()
-        const { email, password } = event.target
-        this.context.handleSubmitJwtAuth()
-        email.value = ''
-        password.value = ''
+        event.preventDefault();
+
+        const { email, password } = event.target;
+        email.value = '';
+        password.value = '';
+
+        this.context.handleSubmitJwtAuth();
     };
 
     renderLoginForm() {
-        const { email, password } = this.context.login;
+        const { email, password, isSuccessful } = this.context.login;
 
         return (
             <form 
@@ -84,7 +86,7 @@ class LoginForm extends Component {
                     >
                         Next
                     </Button>
-                    {!this.context.login.isSuccessful && 
+                    {!isSuccessful && 
                         <p>{this.context.login.error}</p>
                     }
                 </div>
@@ -102,9 +104,10 @@ class LoginForm extends Component {
     };
     
     render() {
+        const { isSuccessful } = this.context.login;
         return (
             <>
-                {this.context.login.isSuccessful 
+                {isSuccessful 
                     ? <Redirect to={'/dashboard'} />
                     : this.renderLoginForm()
                 }

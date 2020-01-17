@@ -3,7 +3,6 @@ import './DateList.css';
 
 function DateList(props) {
     const { listItemType, items, className } = props;
-
     const ListItemType = listItemType;
 
     return (

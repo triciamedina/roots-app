@@ -9,13 +9,11 @@ class ConfirmationModal extends Component {
 
     handleCancel = () => {
         this.context.handleCloseModal();
-
         this.props.history.goBack();
     };
 
     handleConfirm = () => {
         this.context.handleConfirmDonation();
-
         this.props.history.push('/dashboard/donations');
     };
 

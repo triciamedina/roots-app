@@ -102,8 +102,11 @@ const RootsContext = React.createContext({
     accountSetup: {
         isSuccessful: false,
         institution: '',
+        isInstitutionFormMounted: false,
         onAccountSetupSuccess: () => {},
         onAccountSetupCancel: () => {},
+        institutionFormDidMount: () => {},
+        institutionFormRemoved: () => {},
     },
 });
 

@@ -7,7 +7,8 @@ class ProjectsList extends Component {
     static contextType = RootsContext;
 
     render() {
-        const items = this.context.projects.results.proposals.map(proposal => 
+        const { results } = this.context.projects
+        const items = results.proposals.map(proposal => 
             <ProjectItem
                 key={proposal.id}
                 projectName={proposal.title}

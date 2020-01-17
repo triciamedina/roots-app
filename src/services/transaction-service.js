@@ -59,10 +59,9 @@ const TransactionService = {
         const total = roundUps.filter(roundup => isToday(new Date(roundup.created_at)))
                 .reduce((total, roundup) => { 
                     const roundupAmount = TransactionService.calculateRoundup(roundup.amount)
-                    return total + roundupAmount
+                    return total + Dinero({ amount: roundupAmount * 100}).getAmount()
                 }, 0);
-                
-        return (Dinero({ amount: (total*100)}).getAmount())/100;
+        return (Dinero({ amount: (total)}).getAmount())/100;
     }
 };
 

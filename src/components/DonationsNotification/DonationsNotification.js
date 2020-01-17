@@ -9,11 +9,12 @@ class DonationsNotification extends Component {
 
     render() {
         const { items } = this.context.donations;
+        const amount = DonationService.calculateDonationsTotal(items)
 
         return (
             <div className='DonationsNotification'>
                 <p className='DonationsNotification__title'>
-                    You’ve given {Formatter.format(DonationService.calculateDonationsTotal(items))} this year!
+                    You’ve given {Formatter.format(amount)} this year!
                 </p>
             </div>
         )

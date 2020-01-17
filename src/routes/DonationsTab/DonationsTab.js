@@ -12,7 +12,6 @@ class DonationsTab extends Component {
 
     renderList() {
         const { items } = this.context.donations;
-
         const donations = DonationService.groupDonationsByYear(items);
 
         const keys = Object.keys(donations).sort((a, b) => {
@@ -21,7 +20,6 @@ class DonationsTab extends Component {
 
         return keys.map((key, index) => {
             let title = key;
-
             let donationsByYear = donations[key];
 
             return (

@@ -14,9 +14,8 @@ class RoundupsTab extends Component {
     static contextType = RootsContext;
 
     renderList() {
-        const { transactions } = this.context;
-
-        const roundups = TransactionService.groupTransactionsByDay(transactions.items);
+        const { items } = this.context.transactions;
+        const roundups = TransactionService.groupTransactionsByDay(items);
         
         const keys = Object.keys(roundups).sort((a, b) => {
             return b - a
@@ -24,7 +23,6 @@ class RoundupsTab extends Component {
 
         return keys.map((key, index) => {
             let title = key;
-
             let transactionsByDay = roundups[key];
 
             return (
@@ -47,25 +45,31 @@ class RoundupsTab extends Component {
     renderSetupButton() {
         return (
             <>
-                <p className='TransactionsList__setup-subtitle'>Link your bank account to start using Roots</p>
+                <p className='TransactionsList__setup-subtitle'>
+                    Link your bank account to start using Roots
+                </p>
                 <Link className='TransactionsList__setup-link' to='/account-setup'>
-                    <Button className='Button--contained-small'>Setup your account</Button>
+                    <Button className='Button--contained-small'>
+                        Setup your account
+                    </Button>
                 </Link>
             </>
         )
     };
 
     render() {
+        const { accountSetup: { isSuccessful } } = this.context;
+        
         return (
             <>
                 <Tabs active='roundups'/>
                 <section className='RoundupsTab'>
-                    {this.context.accountSetup.isSuccessful 
+                    {isSuccessful 
                         ? <RoundupsToggle />
                         : ''
                     }
                     <div className='TransactionsList__container'>
-                        {this.context.accountSetup.isSuccessful 
+                        {isSuccessful 
                             ? this.renderList()
                             : this.renderSetupButton()
                         }
