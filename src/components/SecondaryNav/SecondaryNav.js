@@ -64,7 +64,7 @@ class SecondaryNav extends Component {
     };
 
     render() {
-        const { projects: { showModal }, accountSetup: { currentStep }} = this.context
+        const { projects: { showModal }, accountSetup: { isSuccessful }} = this.context
         const { location } = this.props;
 
         if (showModal) {
@@ -76,7 +76,7 @@ class SecondaryNav extends Component {
                 <nav>
                     {!location.pathname.includes('/account-setup') && this.renderBackButton()}
                     {location.pathname.includes('/projects') && this.renderCloseButton()}
-                    {(location.pathname.includes('/account-setup') && currentStep !== 3) 
+                    {(location.pathname.includes('/account-setup') && !isSuccessful) 
                         && this.renderSkipButton()}
                 </nav>
             </header>
