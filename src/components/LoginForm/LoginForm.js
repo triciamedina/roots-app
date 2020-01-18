@@ -64,7 +64,7 @@ class LoginForm extends Component {
                         type='password'
                         id='password'
                         name='password' 
-                        autoComplete='password'
+                        autoComplete='current-password'
                         aria-label='Login password'
                         aria-required
                         onChange={e => this.context.onLoginPasswordChanged(e.target.value)}
