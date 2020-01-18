@@ -48,6 +48,7 @@ class DonateForm extends Component {
                         min='1' 
                         max={totalPrice} 
                         value={totalPrice - costToComplete} 
+                        aria-label='Funding received to date'
                         className='DonateForm__slider' 
                         disabled='disabled' 
                     />
@@ -64,6 +65,7 @@ class DonateForm extends Component {
                                 step='0.01'
                                 id='donateAmount'
                                 name='donateAmount' 
+                                aria-labe='Donate amount'
                                 defaultValue={balance}
                                 onChange={e => this.context.onDonateAmountChange(e.target.value)}
                             />
