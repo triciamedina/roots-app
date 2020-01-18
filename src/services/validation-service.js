@@ -55,6 +55,9 @@ const ValidationService = {
         }
     },
     validateProjectSearch(input) {
+        if (!Number.isInteger(Number(input.trim()))) {
+            return `Zip code must be 5 digits`
+        }
         if (input.trim().length === 0) {
             return 'Search input is required'
         }
