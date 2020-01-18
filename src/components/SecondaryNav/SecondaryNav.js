@@ -36,7 +36,7 @@ class SecondaryNav extends Component {
     renderBackButton() {
         return (
             <div className='left-arrow-icon'>
-                <button className='back-button' onClick={this.handleGoback}>
+                <button className='back-button' onClick={this.handleGoback} aria-label='Back'>
                     <img src={LeftArrow} alt=''/>
                 </button>
             </div>
@@ -46,7 +46,7 @@ class SecondaryNav extends Component {
     renderCloseButton() {
         return (
             <div className='times-icon'>
-                <button className='close-button' onClick={this.handleClose}>
+                <button className='close-button' onClick={this.handleClose} aria-label='Close'>
                     <img src={Times} alt=''/>
                 </button>
             </div>
