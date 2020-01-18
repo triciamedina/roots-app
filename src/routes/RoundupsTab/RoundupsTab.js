@@ -12,18 +12,18 @@ import { Button } from '../../components/Utils/Utils';
 
 class RoundupsTab extends Component {
     static contextType = RootsContext;
-
+    
     renderList() {
-        const { items } = this.context.transactions;
-        const roundups = TransactionService.groupTransactionsByDay(items);
+        const { transactions } = this.context;
+        const list = TransactionService.groupTransactionsByDay(transactions.items);
         
-        const keys = Object.keys(roundups).sort((a, b) => {
+        const keys = Object.keys(list).sort((a, b) => {
             return b - a
         });
 
         return keys.map((key, index) => {
             let title = key;
-            let transactionsByDay = roundups[key];
+            let transactionsByDay = list[key];
 
             return (
                 <React.Fragment key={title}>
@@ -33,7 +33,7 @@ class RoundupsTab extends Component {
                     <DateList 
                         key={index}
                         id={index}
-                        items={transactionsByDay} 
+                        items={transactionsByDay}
                         listItemType={TransactionItem}
                         className='TransactionsList'
                     />

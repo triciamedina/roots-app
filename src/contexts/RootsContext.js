@@ -5,6 +5,7 @@ const RootsContext = React.createContext({
         items: [],
         updateTransactions: () => {},
         handleCheckTransaction: () => {},
+        updateCheckedTransactions: () => {},
     },
     autoRoundups: {
         isOn: false,
@@ -74,6 +75,7 @@ const RootsContext = React.createContext({
         onLoginPasswordChanged: () => {},
         handleSubmitJwtAuth: () => {},
         checkAccountExists: () => {},
+        getUserInfo: () => {},
     },
     logout: {
         handleLogout: () => {},

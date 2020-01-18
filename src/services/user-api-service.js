@@ -112,12 +112,27 @@ const UserApiService = {
                     : res.json()
             )
     },
-    postAutoRoundups(authToken) {
-        return fetch(`${config.API_BASE_URL}/user/autoroundup`, {
-            method: 'POST',
+    updateUser(authToken, newValue) {
+        return fetch(`${config.API_BASE_URL}/user`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${authToken}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newValue)
+        })
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+    getUser(authToken) {
+        return fetch(`${config.API_BASE_URL}/user`, {
+            method: 'GET',
             headers: {
                 'Authorization': `Bearer ${authToken}`
-            }
+            },
         })
         .then(res => 
             (!res.ok)

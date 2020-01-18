@@ -126,6 +126,7 @@ class App extends Component {
       handleConfirmDonation: this.handleConfirmDonation,
       updateTransactions: this.updateTransactions,
       handleCheckTransaction: this.handleCheckTransaction,
+      updateCheckedTransactions: this.updateCheckedTransactions,
       updateWallet: this.updateWallet,
       updateDonations: this.updateDonations,
       onAccountSetupSuccess: this.onAccountSetupSuccess,
@@ -133,6 +134,7 @@ class App extends Component {
       updateRoundups: this.updateRoundups,
       institutionFormDidMount: this.institutionFormDidMount,
       institutionFormRemoved: this.institutionFormRemoved,
+      getUserInfo: this.getUserInfo,
     };
   };
 
@@ -219,6 +221,38 @@ class App extends Component {
           accountSetup: {
             ...this.state.accountSetup,
             isSuccessful: false,
+            error: res.error
+          }
+        })
+      })
+  };
+
+  getUserInfo = () => {
+    this.setState({
+      autoRoundups: {
+        ...this.state.autoRoundups,
+        error: null
+      }
+    })
+
+    const authToken = TokenService.getAuthToken()
+
+    UserApiService.getUser(authToken)
+      .then(res => {
+        const autoRoundupsStatus = res.auto_roundups;
+        const newValue = ((autoRoundupsStatus === null) ? false : true);
+
+        this.setState({
+          autoRoundups: {
+            ...this.state.autoRoundups,
+            isOn: newValue
+          }
+        })
+      })
+      .catch(res => {
+        this.setState({
+          autoRoundups: {
+            ...this.state.autoRoundups,
             error: res.error
           }
         })
@@ -554,7 +588,7 @@ class App extends Component {
 
     const authToken = TokenService.getAuthToken();
     
-    UserApiService.getTransactions(authToken)
+    return UserApiService.getTransactions(authToken)
       .then(res => {
         this.setState({
           transactions: {
@@ -563,6 +597,8 @@ class App extends Component {
             error: null
           }
         })
+
+        // TODO: if implementing pagination/pulling older transactions, post new ones to roundups
       })
       .catch(res => {
         this.setState({
@@ -592,7 +628,6 @@ class App extends Component {
     })
 
     const authToken = TokenService.getAuthToken();
-
     const selected = this.state.transactions.items.filter(item => item.transaction_id === id);
 
     const newRoundup = {
@@ -603,7 +638,6 @@ class App extends Component {
       transaction_id: selected[0].transaction_id
     };
 
-    // send authtoken and transaction object to POST /user/roundup endpoint
     UserApiService.postRoundup(newRoundup, authToken)
       .then(res => {
         this.setState({
@@ -622,6 +656,25 @@ class App extends Component {
           }
         })
       })
+  };
+
+  updateCheckedTransactions = () => {
+    const { roundUps, transactions } = this.state;
+
+    const newItems = transactions.items.map(transaction => {
+      if (roundUps.items.some(roundUp => 
+        roundUp.transaction_id === transaction.transaction_id)) {
+          return transaction = {...transaction, isChecked: true}
+        }
+        return transaction
+    })
+
+    this.setState({
+      transactions: {
+        ...this.state.transactions,
+        items: newItems
+      }
+    })
   };
 
   updateWallet = () => {
@@ -704,10 +757,6 @@ class App extends Component {
       })
   };
 
-  getAutoRoundups = () => {
-    // check if exists in table and update state
-  };
-
   onAutoRoundupsChange = () => {
     this.setState({
       autoRoundups: {
@@ -715,17 +764,33 @@ class App extends Component {
         error: null
       }
     })
-    // check if currently on first. If on make PATCH request to change to null. If off m
+
     const authToken = TokenService.getAuthToken();
 
-    UserApiService.postAutoRoundups(authToken)
+    const newValue = {
+      autoRoundups: (this.state.autoRoundups.isOn ? false : true)
+    }
+
+    UserApiService.updateUser(authToken, newValue)
       .then(res => {
+        const value = (res.auto_roundups ? true : false);
+        const { transactions, roundUps } = this.state;
+
         this.setState({
           autoRoundups: {
             ...this.state.autoRoundups,
-            isOn: (res.auto_roundups ? res.auto_roundups : false)
+            isOn: value
           }
         })
+
+        if (value === true) {
+          transactions.items.forEach(transaction => {
+            if (!roundUps.items.some(roundUp => 
+              roundUp.transaction_id === transaction.transaction_id)) {
+                this.handleCheckTransaction(transaction.transaction_id)
+              }
+            })
+        };
       })
       .catch(res => {
         this.setState({
@@ -747,7 +812,7 @@ class App extends Component {
 
     const authToken = TokenService.getAuthToken();
 
-    UserApiService.getRoundups(authToken)
+    return UserApiService.getRoundups(authToken)
       .then(res => {
         this.setState({
           roundUps: {

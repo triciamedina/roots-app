@@ -13,13 +13,8 @@ class TransactionItem extends Component {
     };
 
     render() {
-        const { name, amount, transaction_id } = this.props;
-        const{ roundUps: { items } } = this.context;
-
+        const { name, amount, transaction_id, isChecked } = this.props;
         const roundupAmount = TransactionService.calculateRoundup(amount);
-
-        const checked = (roundup) => roundup.transaction_id === transaction_id;
-        const isChecked = items.some(checked);
 
         return (
             <li key={transaction_id} className='TransactionItem'>

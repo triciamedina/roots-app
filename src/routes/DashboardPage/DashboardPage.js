@@ -11,12 +11,17 @@ class DashboardPage extends Component {
     static contextType = RootsContext;
 
     componentDidMount() {
+        this.context.getUserInfo();
+
         this.context.checkAccountExists().then(() => {
             const { accountSetup: { isSuccessful } } = this.context;
-            
+
             if (isSuccessful) {
-                this.context.updateTransactions();
-                this.context.updateRoundups();
+                this.context.updateRoundups().then(() => {
+                    this.context.updateTransactions().then(() => {
+                        this.context.updateCheckedTransactions()
+                    })
+                })
                 this.context.updateDonations();
             }
         })
