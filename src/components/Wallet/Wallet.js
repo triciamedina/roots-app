@@ -21,11 +21,13 @@ class Wallet extends Component {
                 <p className='Wallet__subtitle'>
                     + {Formatter.format(dailyTotal)} today
                 </p>
-                <Link to={'/projects'}>
-                    <Button className='Button--contained-small Wallet__give'>
-                        Give
-                    </Button>
-                </Link>
+                <div>
+                    <Link className='Wallet__Link' to={'/projects'}>
+                        <Button className='Button--contained-small Wallet__give'>
+                            Give
+                        </Button>
+                    </Link>
+                </div>
             </section>
         )
     };
