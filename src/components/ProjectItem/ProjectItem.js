@@ -8,8 +8,8 @@ function ProjectItem(props) {
     const { projectName, projectDescription, fundingNeeded, id } = props;
 
     return (
-        <Link to={`/projects/${id}`} className='ProjectLink'>
-            <li className='ProjectItem'>
+        <li className='ProjectItem'>
+            <Link to={`/projects/${id}`} className='ProjectLink'>
                 <div className='ProjectItem__container'>
                     <p className='ProjectItem__project-name'>
                         {ReactHtmlParser(projectName)}
@@ -23,8 +23,8 @@ function ProjectItem(props) {
                         {Formatter.format(fundingNeeded)} still needed
                     </p>
                 </div>
-            </li>
-        </Link>
+            </Link>
+        </li>
     )
 };
 
