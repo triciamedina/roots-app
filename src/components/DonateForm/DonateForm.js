@@ -65,7 +65,7 @@ class DonateForm extends Component {
                                 step='0.01'
                                 id='donateAmount'
                                 name='donateAmount' 
-                                aria-labe='Donate amount'
+                                aria-label='Donate amount'
                                 defaultValue={balance}
                                 onChange={e => this.context.onDonateAmountChange(e.target.value)}
                             />
