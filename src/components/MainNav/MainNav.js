@@ -42,7 +42,7 @@ class MainNav extends Component {
             <header className='MainNav--private'>
                 <nav>
                     <div className='CollapsibleMenu'>
-                        <input type='checkbox' id='menu' />
+                        <input type='checkbox' id='menu' aria-label='Menu'/>
                         <label htmlFor='menu'></label>
                         <ul className='CollapsibleMenu__list'>
                             <li>
