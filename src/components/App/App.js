@@ -240,7 +240,7 @@ class App extends Component {
     UserApiService.getUser(authToken)
       .then(res => {
         const autoRoundupsStatus = res.auto_roundups;
-        const newValue = ((autoRoundupsStatus === false) ? false : true);
+        const newValue = ((autoRoundupsStatus === null) ? false : true);
         console.log(newValue)
         this.setState({
           autoRoundups: {
