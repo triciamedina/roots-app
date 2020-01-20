@@ -208,13 +208,22 @@ class App extends Component {
 
     return UserApiService.getAccount(authToken)
       .then(res => {
-        TokenService.saveAccountToken(res.id)
+        if (res.id) {
           this.setState({
             accountSetup: {
               ...this.state.accountSetup,
               isSuccessful: true,
             }
           })
+          TokenService.saveAccountToken(res.id)
+        } else {
+          this.setState({
+            accountSetup: {
+              ...this.state.accountSetup,
+              isSuccessful: false,
+            }
+          })
+        }
       })
       .catch(res => {
         this.setState({
