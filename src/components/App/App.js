@@ -250,7 +250,6 @@ class App extends Component {
       .then(res => {
         const autoRoundupsStatus = res.auto_roundups;
         const newValue = ((autoRoundupsStatus === null) ? false : true);
-        console.log(newValue)
         this.setState({
           autoRoundups: {
             ...this.state.autoRoundups,
