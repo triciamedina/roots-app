@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import PlaidLink from 'react-plaid-link';
 import './AccountSetupForm.css';
 import RootsContext from '../../contexts/RootsContext';
 import { Button } from '../Utils/Utils';
-import PlaidLink from 'react-plaid-link';
 import config from '../../config';
 
 class AccountSetupForm extends Component {
