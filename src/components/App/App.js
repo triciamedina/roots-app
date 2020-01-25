@@ -444,6 +444,7 @@ class App extends Component {
           }
         })
         localStorage.setItem('projects', JSON.stringify(this.state.projects))
+        localStorage.setItem('wallet', JSON.stringify(this.state.wallet))
       })
       .catch(res => {
         this.setState({
@@ -465,6 +466,7 @@ class App extends Component {
       }
     })
     localStorage.clear('projects')
+    localStorage.clear('wallet')
   };
 
   handleClearLogin = () => {

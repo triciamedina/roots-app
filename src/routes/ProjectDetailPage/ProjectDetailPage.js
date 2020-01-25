@@ -10,7 +10,6 @@ class ProjectDetailPage extends Component {
     static contextType = RootsContext;
 
     componentDidMount() {
-        console.log('Project Detail page mounted')
         const projects = JSON.parse(localStorage.getItem('projects'));
 
         if (projects) {

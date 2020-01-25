@@ -20,23 +20,21 @@ class DonateForm extends Component {
         this.context.handleOpenModal(project);
     };
 
-    componentDidMount() {
-        console.log('Donate Form component mounted')
-    }
-
     render() {
-        const { projects, wallet: { balance } } = this.context
+        const { projects } = this.context
+        const defaultProjects = JSON.parse(localStorage.getItem('projects'))
+        const wallet = JSON.parse(localStorage.getItem('wallet'));
 
         if (projects.showModal) {
             return null
         };
 
-        const defaultProjects = JSON.parse(localStorage.getItem('projects'))
         const proposals = projects.results.proposals || defaultProjects.results.proposals;
+
         const project = proposals.filter(project => 
             project.id === this.props.match.params.project_id
         );
-        
+
         const { costToComplete, totalPrice } = project[0];
 
         return (
@@ -73,7 +71,7 @@ class DonateForm extends Component {
                                 id='donateAmount'
                                 name='donateAmount' 
                                 aria-label='Donate amount'
-                                defaultValue={balance}
+                                defaultValue={wallet.balance}
                                 onChange={e => this.context.onDonateAmountChange(e.target.value)}
                             />
                         </div>
