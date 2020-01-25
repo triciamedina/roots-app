@@ -58,5 +58,10 @@
     .TransactionsList__container {
         background-color: #d8d8d8;
         padding: 36px 0px;
+        margin: 16px 0px;
+    }
+
+    .TransactionsList__setup-subtitle {
+        margin: 0px 0px 0px 0px;
     }
 }

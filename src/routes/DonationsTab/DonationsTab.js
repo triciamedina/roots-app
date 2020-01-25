@@ -23,7 +23,7 @@ class DonationsTab extends Component {
             let donationsByYear = donations[key];
 
             return (
-                <React.Fragment key={title}>
+                <div className='DonationsTab__container'>
                     <h2 className='DonationsTab__title'>
                         {title}
                     </h2>
@@ -34,7 +34,7 @@ class DonationsTab extends Component {
                         listItemType={DonationItem}
                         className='DonationsList'
                     />
-                </React.Fragment>
+                </div>
             )
         })
     };
@@ -45,9 +45,7 @@ class DonationsTab extends Component {
                 <Tabs active='donations'/>
                 <section className='DonationsTab'>
                     <DonationsNotification />
-                    <div className='DonationsTab__container'>
-                        {this.renderList()}
-                    </div>
+                    {this.renderList()}
                 </section>
             </>
         )
