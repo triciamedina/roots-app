@@ -40,6 +40,7 @@ class MainNav extends Component {
     renderPrivateMenu() {
         return (
             <header className='MainNav--private'>
+                <Logo />
                 <nav>
                     <div className='CollapsibleMenu'>
                         <input type='checkbox' id='menu' aria-label='Menu'/>

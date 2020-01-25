@@ -35,14 +35,16 @@ class DashboardPage extends Component {
                 <MainNav />
                 <main className='DashBoardPage'>
                     <Wallet />
-                    <Switch>
-                        <Route exact path={['/dashboard', '/dashboard/roundups']}>
-                            <RoundupsTab />
-                        </Route>
-                        <Route exact path={['/dashboard/donations']}>
-                            <DonationsTab />
-                        </Route>
-                    </Switch>
+                    <div className='tab-container'>
+                        <Switch>
+                            <Route exact path={['/dashboard', '/dashboard/roundups']}>
+                                <RoundupsTab />
+                            </Route>
+                            <Route exact path={['/dashboard/donations']}>
+                                <DonationsTab />
+                            </Route>
+                        </Switch>
+                    </div>
                 </main>
              </>
         )

@@ -68,3 +68,20 @@
     -ms-transform: translateX(16px);
     transform: translateX(16px);
 }
+
+@media screen and (min-width: 1028px) {
+    .roundups__toggle-container {
+        background-color: #d8d8d8;
+        width: 100%;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        flex-direction: row;
+        padding: 36px 24px;
+    }
+
+    .toggle {
+        position: relative;
+        display: inline-block;
+        left: 0px;
+    }
+}

@@ -48,3 +48,31 @@
     margin: 0px;
     color: rgba(0, 0, 0, 60%);
 }
+
+@media screen and (min-width: 1028px) {
+    .ProjectContent {
+        max-width: 625px;
+        padding-top: 0px;
+        padding-bottom: 48px;
+        margin-right: 24px;
+        height: 100%;
+    }
+
+    .ProjectContent__intro {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .ProjectContent__image img {
+        width: 200px;
+        height: 200px;
+        margin-right: 24px;
+        margin-bottom: 24px;
+    }
+
+    .ProjectContent__description {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 23px;
+    }
+}

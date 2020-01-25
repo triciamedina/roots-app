@@ -100,7 +100,16 @@ a {
     width: 100%;
 }
 
-@media screen and (min-width: 600px) {
+.MainNav--private .Logo {
+    display: none;
+}
+
+@media screen and (min-width: 1028px) {
+    .MainNav--private {
+        background-color: white;
+        z-index: 1;
+    }
+
     .CollapsibleMenu {
         display: none;
     }
@@ -108,5 +117,9 @@ a {
     .PublicMenu,
     .PrivateMenu {
         display: block;
+    }
+
+    .MainNav--private .Logo {
+        display: flex;
     }
 }

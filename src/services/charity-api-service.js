@@ -11,7 +11,8 @@ const CharityApiService = {
         const params = {
             zip,
             max: 10,
-            index: 0
+            index: 0,
+            showSynopsis: true,
         };
         
         const queryString = CharityApiService.formatQueryParams(params);

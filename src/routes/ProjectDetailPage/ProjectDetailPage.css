@@ -6,3 +6,12 @@
     align-items: center;
     justify-content: flex-start;
 }
+
+@media screen and (min-width: 1028px) {
+    .ProjectDetailPage {
+        padding-top: 88px;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}

@@ -4,9 +4,6 @@
     padding-right: 24px;
     width: 100%;
     max-width: 600px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between; */
 }
 
 .search-form__container {
@@ -74,4 +71,10 @@
     display: flex;
     flex-direction: column;
     padding-top: 34px;
+}
+
+@media screen and (min-width: 1028px) {
+    .search-form {
+        max-width: 650px;
+    }
 }
