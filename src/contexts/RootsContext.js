@@ -100,6 +100,7 @@ const RootsContext = React.createContext({
         updateDonateAmount: () => {},
         onDonateAmountChange: () => {},
         handleConfirmDonation: () => {},
+        updateProjects: () => {},
     },
     accountSetup: {
         isSuccessful: false,

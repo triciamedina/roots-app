@@ -135,6 +135,7 @@ class App extends Component {
       institutionFormDidMount: this.institutionFormDidMount,
       institutionFormRemoved: this.institutionFormRemoved,
       getUserInfo: this.getUserInfo,
+      updateProjects: this.updateProjects,
     };
   };
 
@@ -442,6 +443,7 @@ class App extends Component {
             results: res.data[0]
           }
         })
+        localStorage.setItem('projects', JSON.stringify(this.state.projects))
       })
       .catch(res => {
         this.setState({
@@ -462,6 +464,7 @@ class App extends Component {
         showResults: false,
       }
     })
+    localStorage.clear('projects')
   };
 
   handleClearLogin = () => {
@@ -855,6 +858,12 @@ class App extends Component {
         ...this.state.accountSetup,
         isInstitutionFormMounted: false
       }
+    })
+  };
+
+  updateProjects = (projects) => {
+    this.setState({
+      projects
     })
   };
 

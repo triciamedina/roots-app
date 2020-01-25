@@ -10,9 +10,9 @@ class SearchForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
         this.context.handleSearchSubmit();
     };
+
     renderSubmitButton() {
         const { searchInput } = this.context.projects;
 

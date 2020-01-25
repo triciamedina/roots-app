@@ -4,16 +4,26 @@ import { withRouter } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import RootsContext from '../../contexts/RootsContext';
 
+
+
 class ProjectContent extends Component {
     static contextType = RootsContext;
+
+    componentDidMount() {
+        console.log('Project Content component mounted')
+    };
 
     render() {
         if (this.context.projects.showModal) {
             return null
         };
 
-        const { proposals } = this.context.projects.results;
+        const { projects } = this.props;
 
+        const defaultProjects = JSON.parse(localStorage.getItem('projects'))
+
+        const proposals = projects.results.proposals || defaultProjects.results.proposals;
+        
         const project = proposals.filter(project => 
             project.id === this.props.match.params.project_id
             );
