@@ -45,7 +45,7 @@ class ProjectsPage extends Component {
     };
 
     render() {
-        const { wallet } = this.context;
+        const wallet = JSON.parse(localStorage.getItem('wallet')) || this.context.wallet
 
         return (
             <>
