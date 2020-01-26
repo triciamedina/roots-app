@@ -23,7 +23,7 @@ class RoundupsModal extends Component {
             >
                 <div 
                     className='RoundupsModal__overlay'
-                    tabindex='-1'
+                    tabIndex='-1'
                 >
                 </div>
                 <div 

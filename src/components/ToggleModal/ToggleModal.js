@@ -24,7 +24,7 @@ class ToggleModal extends Component {
                     role='dialog'
                     aria-labelledby='toggle-dialog-title'
                     aria-describedby='toggle-dialog-description'
-                    tabindex='-1'
+                    tabIndex='-1'
                 ></div>
                 <div className='ToggleModal__screen'>
                     <h1 
