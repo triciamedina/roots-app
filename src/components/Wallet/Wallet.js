@@ -25,7 +25,6 @@ class Wallet extends Component {
                     <Link className='Wallet__Link' to={'/projects'}>
                         <Button 
                             className='Button--contained-small Wallet__give'
-                            disabled={balance === 0}
                         >
                             Give
                         </Button>

@@ -1,3 +1,5 @@
+import { Formatter } from '../components/Utils/Utils';
+
 const ValidationService = {
     validateLoginEmail(email) {
         if (email.trim().length === 0) {
@@ -68,6 +70,11 @@ const ValidationService = {
     validateDonationAmount(input) {
         if (Number(input) <= 0 ) {
             return `Donation amount is required`
+        }
+    },
+    validateWalletBalance(balance) {
+        if (Number(balance) <= 0 ) {
+            return `Your wallet balance is ${Formatter.format(balance)}`
         }
     }
 };

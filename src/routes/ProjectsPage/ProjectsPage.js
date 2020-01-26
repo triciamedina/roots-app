@@ -3,7 +3,8 @@ import './ProjectsPage.css';
 import SecondaryNav from '../../components/SecondaryNav/SecondaryNav';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import SearchResults from '../../components/SearchResults/SearchResults';
-import RootsContext from '../../contexts/RootsContext'
+import RootsContext from '../../contexts/RootsContext';
+import ValidationService from '../../services/validation-service';
 
 class ProjectsPage extends Component {
     static contextType = RootsContext;
@@ -13,14 +14,44 @@ class ProjectsPage extends Component {
        if (projects) {
            this.context.updateProjects(projects)
        }
-    }
+    };
+
+    renderForm() {
+        return (
+            <>
+                <SearchForm />
+                <SearchResults />
+            </>
+        )
+    };
+    
+    renderNotification() {
+        const { wallet } = this.context;
+
+        return (
+            <div className='ProjectsPage__notification'>
+                <i className='fas fa-times-circle ProjectsPage__notification--icon'></i>
+                <h1 className='ProjectsPage__notification--title'>
+                    {ValidationService.validateWalletBalance(wallet.balance)}
+                </h1>
+                <p className='ProjectsPage__notification--description'>
+                    Check that your bank account is linked and start adding round ups to your account to give back today.
+                </p>
+            </div>
+        )
+    };
+
     render() {
+        const { wallet } = this.context;
+
         return (
             <>
                 <SecondaryNav />
                 <main className='ProjectsPage'>
-                    <SearchForm />
-                    <SearchResults />
+                    {ValidationService.validateWalletBalance(wallet.balance)
+                        ? this.renderNotification()
+                        : this.renderForm()
+                    }
                 </main>
             </>
         )
