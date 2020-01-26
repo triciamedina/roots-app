@@ -64,6 +64,11 @@ const ValidationService = {
         if (input.trim().length !== 5) {
             return 'Zip code must be 5 digits'
         }
+    },
+    validateDonationAmount(input) {
+        if (Number(input) <= 0 ) {
+            return `Donation amount is required`
+        }
     }
 };
 

@@ -6,7 +6,7 @@
     padding-bottom: 24px;
     width: 100%;
     max-width: 600px;
-    height: 239px;
+    min-height: 239px;
     display: flex;
     flex-direction: column;
     background-color: white;

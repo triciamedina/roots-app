@@ -23,7 +23,7 @@ class DonationsTab extends Component {
             let donationsByYear = donations[key];
 
             return (
-                <div className='DonationsTab__container'>
+                <div key={title} className='DonationsTab__container'>
                     <h2 className='DonationsTab__title'>
                         {title}
                     </h2>

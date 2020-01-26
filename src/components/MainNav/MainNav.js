@@ -67,9 +67,9 @@ class MainNav extends Component {
         return (
             <>
                 {TokenService.hasAuthToken()
-                            ? this.renderPrivateMenu()
-                            : this.renderPublicMenu()
-                        } 
+                    ? this.renderPrivateMenu()
+                    : this.renderPublicMenu()
+                } 
             </>
         ) 
     };

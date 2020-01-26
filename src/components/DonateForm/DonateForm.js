@@ -3,6 +3,8 @@ import './DonateForm.css';
 import { Button, Formatter } from '../Utils/Utils';
 import { withRouter } from 'react-router-dom';
 import RootsContext from '../../contexts/RootsContext';
+import ValidationError from '../ValidationError/ValidationError';
+import ValidationService from '../../services/validation-service';
 
 class DonateForm extends Component {
     static contextType = RootsContext;
@@ -21,8 +23,8 @@ class DonateForm extends Component {
     };
 
     render() {
-        const { projects } = this.context
-        const defaultProjects = JSON.parse(localStorage.getItem('projects'))
+        const { projects } = this.context;
+        const defaultProjects = JSON.parse(localStorage.getItem('projects'));
         const wallet = JSON.parse(localStorage.getItem('wallet'));
 
         if (projects.showModal) {
@@ -74,9 +76,14 @@ class DonateForm extends Component {
                                 defaultValue={wallet.balance}
                                 onChange={e => this.context.onDonateAmountChange(e.target.value)}
                             />
+                            <ValidationError message={ValidationService.validateDonationAmount(projects.donateAmount.value)}  />
                         </div>
                         <div className='DonateForm__submit'> 
-                            <Button type='submit' className='Button--contained-large'>
+                            <Button 
+                                type='submit' 
+                                className='Button--contained-large'
+                                disabled={ValidationService.validateDonationAmount(projects.donateAmount.value)}
+                            >
                                 Give
                             </Button>
                         </div>
