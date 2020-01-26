@@ -23,7 +23,10 @@ class Wallet extends Component {
                 </p>
                 <div>
                     <Link className='Wallet__Link' to={'/projects'}>
-                        <Button className='Button--contained-small Wallet__give'>
+                        <Button 
+                            className='Button--contained-small Wallet__give'
+                            disabled={balance === 0}
+                        >
                             Give
                         </Button>
                     </Link>

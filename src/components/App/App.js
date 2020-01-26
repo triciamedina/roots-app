@@ -33,8 +33,8 @@ const generateEmptyState = () => {
       items: [],
     },
     wallet: {
-      balance: '',
-      dailyTotal: '',
+      balance: 0,
+      dailyTotal: 0,
     },
     roundUps: {
       items: []
