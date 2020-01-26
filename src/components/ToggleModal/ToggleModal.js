@@ -16,12 +16,23 @@ class ToggleModal extends Component {
 
     render() {
         return (
-            <section className='ToggleModal'>
+            <section 
+                className='ToggleModal'
+                role='dialog'
+                aria-labelledby='toggle-dialog-title'
+                aria-describedby='toggle-dialog-description'
+            >
                 <div className='ToggleModal__screen'>
-                    <h1 className='ToggleModal__title'>
+                    <h1 
+                        id='toggle-dialog-title'
+                        className='ToggleModal__title'
+                    >
                         Are you sure?
                     </h1>
-                    <p className='ToggleModal__description'>
+                    <p
+                        id='toggle-dialog-description'
+                        className='ToggleModal__description'
+                    >
                         Turning on automatic round ups will add round ups from the past thirty days to your balance.
                     </p>
                     <div>

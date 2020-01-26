@@ -18,12 +18,23 @@ class RoundupsModal extends Component {
 
     render() {
         return (
-            <section className='RoundupsModal'>
+            <section 
+                className='RoundupsModal' 
+                role='dialog'
+                aria-labelledby='roundups-dialog-title'
+                aria-describedby='roundups-dialog-description'
+            >
                 <div className='RoundupsModal__screen'>
-                    <h1 className='RoundupsModal__title'>
+                    <h1 
+                        id='roundups-dialog-title'
+                        className='RoundupsModal__title'
+                    >
                         Are you sure?
                     </h1>
-                    <p className='RoundupsModal__description'>
+                    <p 
+                        className='RoundupsModal__description'
+                        id='roundups-dialog-description'
+                    >
                         Once a round up is added to your balance this cannot be undone.
                     </p>
                     <label 
