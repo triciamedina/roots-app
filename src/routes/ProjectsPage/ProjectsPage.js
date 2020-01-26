@@ -29,7 +29,7 @@ class ProjectsPage extends Component {
     };
     
     renderNotification() {
-        const { wallet } = this.context;
+        const wallet = JSON.parse(localStorage.getItem('wallet')) || this.context.wallet
 
         return (
             <div className='ProjectsPage__notification'>
