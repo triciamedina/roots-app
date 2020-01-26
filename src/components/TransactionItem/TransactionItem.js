@@ -14,6 +14,7 @@ class TransactionItem extends Component {
 
     render() {
         const { name, amount, transaction_id, isChecked = false } = this.props;
+        const { showModalAgain } = this.context.transactions
         const roundupAmount = TransactionService.calculateRoundup(amount);
 
         return (
@@ -46,7 +47,10 @@ class TransactionItem extends Component {
                             name='transactions' 
                             checked={isChecked}
                             disabled={isChecked}
-                            onChange={e => this.context.openRoundupsModal(e.target.id)}
+                            onChange={e => (showModalAgain
+                                ? this.context.openRoundupsModal(e.target.id)
+                                : this.context.handleCheckTransaction(e.target.id)
+                            )}
                         />
                         <span 
                             className='circle'

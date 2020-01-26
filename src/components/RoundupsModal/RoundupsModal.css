@@ -40,3 +40,25 @@
     margin: 0px 0px 16px 0px;
     text-align: center;
 }
+
+.RoundupsModal__preference-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px 0px 16px 0px;
+}
+
+.RoundupsModal__preference {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0px;
+    margin: 0px;
+    color: rgba(0, 0, 0, 60%);
+}
+
+@media screen and (min-width: 1028px) {
+    .RoundupsModal__screen {
+        width: 30%;
+    }
+}

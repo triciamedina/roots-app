@@ -26,6 +26,20 @@ class RoundupsModal extends Component {
                     <p className='RoundupsModal__description'>
                         Once a round up is added to your balance this cannot be undone.
                     </p>
+                    <label 
+                        htmlFor='modal-preference' 
+                        className='RoundupsModal__preference-container'
+                    >
+                        <input 
+                            type='checkbox'
+                            id='modal-preference'
+                            name='modal-preference'
+                            onChange={this.context.updateModalPreference}
+                        />
+                        <span className='RoundupsModal__preference'>
+                            Do not ask me again
+                        </span>
+                    </label>
                     <div>
                         <Button 
                             className='Button--contained-xsmall'

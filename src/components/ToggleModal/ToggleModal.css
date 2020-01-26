@@ -9,7 +9,7 @@
 }
 
 .ToggleModal__screen {
-    position:fixed;
+    position: fixed;
     background: white;
     width: 80%;
     height: auto;
@@ -39,4 +39,10 @@
     padding: 0px;
     margin: 0px 0px 16px 0px;
     text-align: center;
+}
+
+@media screen and (min-width: 1028px) {
+    .ToggleModal__screen {
+        width: 30%;
+    }
 }

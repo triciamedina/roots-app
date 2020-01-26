@@ -23,6 +23,7 @@ const generateEmptyState = () => {
       items: [],
       openModal: false,
       selected: null,
+      showModalAgain: true,
     },
     autoRoundups: {
       isOn: false,
@@ -125,6 +126,7 @@ class App extends Component {
       handleOpenModal: this.handleOpenModal,
       handleCloseModal: this.handleCloseModal,
       handleCloseRoundupsModal: this.handleCloseRoundupsModal,
+      updateModalPreference: this.updateModalPreference,
       updateDonateAmount: this.updateDonateAmount,
       onDonateAmountChange: this.onDonateAmountChange,
       handleConfirmDonation: this.handleConfirmDonation,
@@ -523,6 +525,8 @@ class App extends Component {
     })
   };
 
+
+
   handleCloseRoundupsModal = (id) => {
     const newItems = this.state.transactions.items.map(item => {
       if (item.transaction_id === id) {
@@ -538,6 +542,15 @@ class App extends Component {
         items: newItems,
         openModal: false,
         selected: null,
+      }
+    })
+  };
+
+  updateModalPreference = () => {
+    this.setState({
+      transactions: {
+        ...this.state.transactions,
+        showModalAgain: false,
       }
     })
   };
