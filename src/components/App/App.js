@@ -279,8 +279,10 @@ class App extends Component {
 
   handleLogout = () => {
     TokenService.clearAuthToken();
-
     TokenService.clearAccountToken();
+
+    localStorage.clear('projects')
+    localStorage.clear('wallet')
 
     this.setState({
       ...this.state,
