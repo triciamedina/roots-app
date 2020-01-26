@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './RoundupsToggle.css';
 import RootsContext from '../../contexts/RootsContext';
-import ReactTooltip from 'react-tooltip';
 
 class RoundupsToggle extends Component {
     static contextType = RootsContext;
@@ -19,16 +18,15 @@ class RoundupsToggle extends Component {
                         type='checkbox'
                         id='roundups-toggle'
                         name='roundups-toggle'
-                        defaultChecked={autoRoundups.isOn}
-                        onChange={this.context.onAutoRoundupsChange}
+                        checked={autoRoundups.isOn}
+                        onChange={autoRoundups.isOn 
+                            ? this.context.onAutoRoundupsChange
+                            : this.context.openToggleModal}
                         required 
                     />
-                    <span className='slider--round'
-                        data-tip={autoRoundups.isOn ? 'Turn off' : 'Turn on'}
-                    >
+                    <span className='slider--round'>
                     </span>
                 </label>
-                <ReactTooltip />
             </div>
         )
     };

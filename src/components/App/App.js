@@ -21,9 +21,12 @@ const generateEmptyState = () => {
   return {
     transactions: {
       items: [],
+      openModal: false,
+      selected: null,
     },
     autoRoundups: {
       isOn: false,
+      openModal: false,
     },
     donations: {
       items: [],
@@ -121,15 +124,19 @@ class App extends Component {
       handleClearSearch: this.handleClearSearch,
       handleOpenModal: this.handleOpenModal,
       handleCloseModal: this.handleCloseModal,
+      handleCloseRoundupsModal: this.handleCloseRoundupsModal,
       updateDonateAmount: this.updateDonateAmount,
       onDonateAmountChange: this.onDonateAmountChange,
       handleConfirmDonation: this.handleConfirmDonation,
       updateTransactions: this.updateTransactions,
+      openRoundupsModal: this.openRoundupsModal,
       handleCheckTransaction: this.handleCheckTransaction,
       updateCheckedTransactions: this.updateCheckedTransactions,
       updateWallet: this.updateWallet,
       updateDonations: this.updateDonations,
       onAccountSetupSuccess: this.onAccountSetupSuccess,
+      openToggleModal: this.openToggleModal,
+      handleCloseToggleModal: this.handleCloseToggleModal,
       onAutoRoundupsChange: this.onAutoRoundupsChange,
       updateRoundups: this.updateRoundups,
       institutionFormDidMount: this.institutionFormDidMount,
@@ -516,6 +523,25 @@ class App extends Component {
     })
   };
 
+  handleCloseRoundupsModal = (id) => {
+    const newItems = this.state.transactions.items.map(item => {
+      if (item.transaction_id === id) {
+        return {...item, isChecked: false}
+      } else {
+        return item
+      }
+    });
+
+    this.setState({
+      transactions: {
+        ...this.state.transactions,
+        items: newItems,
+        openModal: false,
+        selected: null,
+      }
+    })
+  };
+
   updateDonateAmount = () => {
     const amount = this.state.wallet.balance;
 
@@ -607,7 +633,7 @@ class App extends Component {
           transactions: {
             ...this.state.transactions,
             items: res.transactions,
-            error: null
+            error: null,
           }
         })
 
@@ -623,6 +649,16 @@ class App extends Component {
       })
   };
 
+  openRoundupsModal = (id) => {
+    this.setState({
+      transactions : {
+        ...this.state.transactions,
+        openModal: true,
+        selected: id,
+      }
+    })
+  };
+
   handleCheckTransaction = (id) => {
     const newItems = this.state.transactions.items.map(item => item.transaction_id === id 
       ? item = {...item, isChecked: true}
@@ -632,7 +668,9 @@ class App extends Component {
     this.setState({
       transactions: {
         ...this.state.transactions,
-        items: newItems
+        items: newItems,
+        openModal: false,
+        selected: null,
       },
       roundUps: {
         ...this.state.roundUps,
@@ -685,7 +723,7 @@ class App extends Component {
     this.setState({
       transactions: {
         ...this.state.transactions,
-        items: newItems
+        items: newItems,
       }
     })
   };
@@ -770,11 +808,30 @@ class App extends Component {
       })
   };
 
+  openToggleModal = () => {
+    this.setState({
+      autoRoundups: {
+        ...this.state.autoRoundups,
+        openModal: true,
+      }
+    })
+  };
+
+  handleCloseToggleModal = () => {
+    this.setState({
+      autoRoundups: {
+        ...this.state.autoRoundups,
+        openModal: false,
+      }
+    })
+  };
+
   onAutoRoundupsChange = () => {
     this.setState({
       autoRoundups: {
         ...this.state.autoRoundups,
-        error: null
+        error: null,
+        openModal: false,
       }
     })
 

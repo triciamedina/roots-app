@@ -3,13 +3,20 @@ import React from 'react';
 const RootsContext = React.createContext({
     transactions: {
         items: [],
+        openModal: false,
+        selected: null,
         updateTransactions: () => {},
+        openRoundupsModal: () => {},
+        handleCloseRoundupsModal: () => {},
         handleCheckTransaction: () => {},
         updateCheckedTransactions: () => {},
     },
     autoRoundups: {
         isOn: false,
+        openModal: false,
         onAutoRoundupsChange: () => {},
+        openToggleModal: () => {},
+        handleCloseToggleModal: () => {},
       },
     donations: {
         items: [],

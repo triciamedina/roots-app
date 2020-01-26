@@ -6,6 +6,8 @@ import RoundupsTab from '../RoundupsTab/RoundupsTab';
 import DonationsTab from '../DonationsTab/DonationsTab';
 import MainNav from '../../components/MainNav/MainNav';
 import RootsContext from '../../contexts/RootsContext';
+import RoundupsModal from '../../components/RoundupsModal/RoundupsModal';
+import ToggleModal from '../../components/ToggleModal/ToggleModal';
 
 class DashboardPage extends Component {
     static contextType = RootsContext;
@@ -34,6 +36,8 @@ class DashboardPage extends Component {
             <>
                 <MainNav />
                 <main className='DashBoardPage'>
+                    {this.context.transactions.openModal ? <RoundupsModal /> : ''}
+                    {this.context.autoRoundups.openModal ? <ToggleModal /> : ''}
                     <Wallet />
                     <div className='tab-container'>
                         <Switch>

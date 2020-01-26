@@ -13,7 +13,7 @@ class TransactionItem extends Component {
     };
 
     render() {
-        const { name, amount, transaction_id, isChecked } = this.props;
+        const { name, amount, transaction_id, isChecked = false } = this.props;
         const roundupAmount = TransactionService.calculateRoundup(amount);
 
         return (
@@ -44,13 +44,12 @@ class TransactionItem extends Component {
                             type='checkbox' 
                             id={transaction_id}
                             name='transactions' 
-                            defaultChecked={isChecked}
+                            checked={isChecked}
                             disabled={isChecked}
-                            onChange={e => this.context.handleCheckTransaction(e.target.id)}
+                            onChange={e => this.context.openRoundupsModal(e.target.id)}
                         />
                         <span 
                             className='circle'
-                            data-tip={isChecked ? '' : 'Add'}
                         >
                         </span>
                     </label>
