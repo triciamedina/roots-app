@@ -3,7 +3,7 @@ import './ProjectDetailPage.css';
 import SecondaryNav from '../../components/SecondaryNav/SecondaryNav';
 import ProjectContent from '../../components/ProjectContent/ProjectContent';
 import DonateForm from '../../components/DonateForm/DonateForm';
-import ConfirmationModal from '../../components/ConfirmationModal/ConfirmationModal';
+import Confirmation from '../../components/Confirmation/Confirmation';
 import RootsContext from '../../contexts/RootsContext'
 
 class ProjectDetailPage extends Component {
@@ -25,7 +25,7 @@ class ProjectDetailPage extends Component {
                 <main className='ProjectDetailPage'>
                     <ProjectContent projects={projects} />
                     <DonateForm />
-                    <ConfirmationModal />
+                    <Confirmation />
                 </main>
             </>
         )

@@ -1,11 +1,11 @@
-.ConfirmationModal {
+.Confirmation {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
 }
 
-.ConfirmationModal__container {
+.Confirmation__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +15,7 @@
     max-width: 450px;
 }
 
-.ConfirmationModal__title {
+.Confirmation__title {
     font-weight: 500;
     font-size: 26px;
     line-height: 32px;
@@ -23,7 +23,7 @@
     padding: 0px;
 }
 
-.ConfirmationModal__description {
+.Confirmation__description {
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
@@ -31,7 +31,7 @@
     margin: 0px 0px 75px 0px;
 }
 
-.ConfirmationModal__icon {
+.Confirmation__icon {
     color: rgba(0, 0, 0, 12%);
     font-size: 100px;
     margin-bottom: 50px;

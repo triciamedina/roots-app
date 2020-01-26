@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import './ConfirmationModal.css';
+import './Confirmation.css';
 import { Button, Formatter } from '../Utils/Utils';
 import RootsContext from '../../contexts/RootsContext';
 
-class ConfirmationModal extends Component {
+class Confirmation extends Component {
     static contextType = RootsContext;
 
     handleCancel = () => {
@@ -25,12 +25,12 @@ class ConfirmationModal extends Component {
         const { donateAmount } = this.context.projects;
 
          return (
-            <section className='ConfirmationModal__container'>
-                <i className='fas fa-check-circle ConfirmationModal__icon'></i>
-                <h1 className='ConfirmationModal__title'>
+            <section className='Confirmation__container'>
+                <i className='fas fa-check-circle Confirmation__icon'></i>
+                <h1 className='Confirmation__title'>
                     Complete your donation at Donors Choose
                 </h1>
-                <p className='ConfirmationModal__description'>
+                <p className='Confirmation__description'>
                     You should be redirected to Donors Choose to complete your donation of {Formatter.format(donateAmount.value)}.
                 </p>
                 <Button 
@@ -50,4 +50,4 @@ class ConfirmationModal extends Component {
     };
 };
 
-export default withRouter(ConfirmationModal);
+export default withRouter(Confirmation);
