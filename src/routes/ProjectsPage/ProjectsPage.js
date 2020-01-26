@@ -10,10 +10,13 @@ class ProjectsPage extends Component {
     static contextType = RootsContext;
 
     componentDidMount() {
-       const projects = JSON.parse(localStorage.getItem('projects'))
+       const projects = JSON.parse(localStorage.getItem('projects'));
+
        if (projects) {
            this.context.updateProjects(projects)
-       }
+       };
+
+       this.context.updateWallet();
     };
 
     renderForm() {

@@ -15,6 +15,8 @@ class ProjectDetailPage extends Component {
         if (projects) {
             this.context.updateProjects(projects)
         };
+
+        this.context.updateWallet();
     }
 
     render() {
