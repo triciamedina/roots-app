@@ -50,7 +50,7 @@ class RoundupsTab extends Component {
                 </p>
                 <Link className='TransactionsList__setup-link' to='/account-setup'>
                     <Button className='Button--contained-small'>
-                        Setup your account
+                        Set up your account
                     </Button>
                 </Link>
             </>
