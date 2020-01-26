@@ -20,11 +20,18 @@ class RoundupsModal extends Component {
         return (
             <section 
                 className='RoundupsModal' 
-                role='dialog'
-                aria-labelledby='roundups-dialog-title'
-                aria-describedby='roundups-dialog-description'
             >
-                <div className='RoundupsModal__screen'>
+                <div 
+                    className='RoundupsModal__overlay'
+                    tabindex='-1'
+                >
+                </div>
+                <div 
+                    className='RoundupsModal__screen'
+                    role='dialog'
+                    aria-labelledby='roundups-dialog-title'
+                    aria-describedby='roundups-dialog-description'
+                >
                     <h1 
                         id='roundups-dialog-title'
                         className='RoundupsModal__title'

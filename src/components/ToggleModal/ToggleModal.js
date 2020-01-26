@@ -18,10 +18,14 @@ class ToggleModal extends Component {
         return (
             <section 
                 className='ToggleModal'
-                role='dialog'
-                aria-labelledby='toggle-dialog-title'
-                aria-describedby='toggle-dialog-description'
             >
+                <div 
+                    className='ToggleModal__overlay'
+                    role='dialog'
+                    aria-labelledby='toggle-dialog-title'
+                    aria-describedby='toggle-dialog-description'
+                    tabindex='-1'
+                ></div>
                 <div className='ToggleModal__screen'>
                     <h1 
                         id='toggle-dialog-title'
