@@ -621,6 +621,7 @@ class App extends Component {
             balance: newWalletBalance
           }
         })
+        localStorage.clear('projects')
       })
       .catch(res => {
         this.setState({
