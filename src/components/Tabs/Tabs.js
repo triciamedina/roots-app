@@ -8,7 +8,7 @@ class Tabs extends Component {
         const { active } = this.props;
 
         return (
-            <nav className='Tabs' aria-label='Dahboard tabs'>
+            <nav className='Tabs' aria-label='Dashboard tabs'>
                 <Link to={'/dashboard/roundups'} className='Tabs__container'>
                     <Button 
                         className={'Button--tab ' + (active === 'roundups' && 'active')}
