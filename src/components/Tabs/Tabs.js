@@ -11,16 +11,16 @@ class Tabs extends Component {
             <nav 
                 className='Tabs' 
                 aria-label='Dashboard tabs'
-                role='tablist' 
+                // role='tablist' 
             >
                 <Link 
                     to={'/dashboard/roundups'}
                     className='Tabs__container'
-                    role='tab'
-                    aria-selected={active === 'roundups'}
-                    aria-controls='panel-1' 
-                    id='tab-1'
-                    tabIndex={active === 'roundups' ? '0' : '-1'}
+                    // role='tab'
+                    // aria-selected={active === 'roundups'}
+                    // aria-controls='panel-1' 
+                    // id='tab-1'
+                    // tabIndex={active === 'roundups' ? '0' : '-1'}
                 >
                     <Button 
                         className={'Button--tab ' + (active === 'roundups' && 'active')}
@@ -30,11 +30,11 @@ class Tabs extends Component {
                 </Link>
                 <Link 
                     to={'/dashboard/donations'}
-                    role='tab'
-                    aria-selected={active === 'donations'}
-                    aria-controls='panel-2' 
-                    id='tab-2'
-                    tabIndex={active === 'donations' ? '0' : '-1'}
+                    // role='tab'
+                    // aria-selected={active === 'donations'}
+                    // aria-controls='panel-2' 
+                    // id='tab-2'
+                    // tabIndex={active === 'donations' ? '0' : '-1'}
                 >
                     <Button 
                         className={'Button--tab ' + (active === 'donations' && 'active')}
