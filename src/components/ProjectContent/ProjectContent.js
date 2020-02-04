@@ -35,7 +35,10 @@ class ProjectContent extends Component {
         } = project[0];
         
         return (
-            <section className='ProjectContent'>
+            <section 
+                className='ProjectContent'
+                tabIndex='0'
+            >
                 <div className='ProjectContent__intro'>
                     <div className='ProjectContent__image'>
                         <img src={retinaImageURL} alt='' />
