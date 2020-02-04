@@ -65,9 +65,6 @@ class RoundupsTab extends Component {
                 <Tabs active='roundups'/>
                 <main 
                     className='RoundupsTab'
-                    id='panel-1' 
-                    role='tabpanel' 
-                    aria-labelledby='tab-1'
                 >
                     {isSuccessful 
                         ? <RoundupsToggle />

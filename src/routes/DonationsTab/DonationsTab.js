@@ -45,9 +45,6 @@ class DonationsTab extends Component {
                 <Tabs active='donations'/>
                 <main 
                     className='DonationsTab'
-                    id='panel-2' 
-                    role='tabpanel' 
-                    aria-labelledby='tab-2'
                 >
                     <DonationsNotification />
                     {this.renderList()}
