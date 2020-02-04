@@ -63,7 +63,7 @@ class RoundupsTab extends Component {
         return (
             <>
                 <Tabs active='roundups'/>
-                <main 
+                <div 
                     className='RoundupsTab'
                 >
                     {isSuccessful 
@@ -76,7 +76,7 @@ class RoundupsTab extends Component {
                             : this.renderSetupButton()
                         }
                     </section>
-                </main>
+                </div>
             </>
         )
     };

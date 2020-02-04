@@ -43,12 +43,12 @@ class DonationsTab extends Component {
         return (
             <>
                 <Tabs active='donations'/>
-                <main 
+                <div 
                     className='DonationsTab'
                 >
                     <DonationsNotification />
                     {this.renderList()}
-                </main>
+                </div>
             </>
         )
     };
