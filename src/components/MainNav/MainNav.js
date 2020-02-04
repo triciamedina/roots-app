@@ -12,7 +12,7 @@ class MainNav extends Component {
                 <nav>
                     <div className='CollapsibleMenu'>
                         <input type='checkbox' id='menu' aria-label='Menu' />
-                        <label htmlFor='menu'></label>
+                        <label htmlFor='menu' title='menu'>Menu</label>
                         <ul className='CollapsibleMenu__list'>
                             <li>
                                 <LoginButton className='Button--text-large' />
@@ -44,7 +44,7 @@ class MainNav extends Component {
                 <nav>
                     <div className='CollapsibleMenu'>
                         <input type='checkbox' id='menu' aria-label='Menu'/>
-                        <label htmlFor='menu'></label>
+                        <label htmlFor='menu' title='menu'>Menu</label>
                         <ul className='CollapsibleMenu__list'>
                             <li>
                                 <LogoutButton className='Button--contained-large' />

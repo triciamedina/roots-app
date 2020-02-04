@@ -9,11 +9,11 @@ class RoundupsToggle extends Component {
         const { autoRoundups } = this.context;
 
         return (
-            <div className='roundups__toggle-container'>
+            <section className='RoundupsToggle__container'>
                 <label htmlFor='roundups-toggle' className='toggle'>
-                    <span className='roundups-toggle__title'>
+                    <h3 className='RoundupsToggle__title'>
                         Automatic round ups
-                    </span>
+                    </h3>
                     <input 
                         type='checkbox'
                         id='roundups-toggle'
@@ -27,7 +27,7 @@ class RoundupsToggle extends Component {
                     <span className='slider--round'>
                     </span>
                 </label>
-            </div>
+            </section>
         )
     };
 };

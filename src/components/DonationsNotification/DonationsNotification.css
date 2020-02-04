@@ -6,7 +6,8 @@
 }
 
 .DonationsNotification__title {
-    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     font-size: 14px;
     line-height: 19px;
     padding: 0px;
@@ -16,9 +17,10 @@
 
 @media screen and (min-width: 1028px) {
     .DonationsNotification {
-        background-color: #d8d8d8;
+        background-color: white;
+        border-radius: 16px;
         width: 100%;
-        margin-top: 16px;
+        margin-top: 6px;
         margin-bottom: 16px;
         flex-direction: row;
         padding: 36px 24px;

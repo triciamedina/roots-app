@@ -5,6 +5,7 @@ import './AccountSetupForm.css';
 import RootsContext from '../../contexts/RootsContext';
 import { Button } from '../Utils/Utils';
 import config from '../../config';
+import { CheckCircle } from 'react-feather';
 
 class AccountSetupForm extends Component {
     static contextType = RootsContext;
@@ -25,6 +26,15 @@ class AccountSetupForm extends Component {
         return (
             <PlaidLink
                 className='Button--contained-large'
+                style={        
+                    {
+                        padding: '15px 45px',
+                        outline: 'none',
+                        background: '#472BBA',
+                        border: '0',
+                        borderRadius: '4px',
+                    }
+                }
                 clientName='Roots'
                 env='sandbox'
                 product={['transactions']}
@@ -61,7 +71,7 @@ class AccountSetupForm extends Component {
         const { institution } = this.context.accountSetup
         return (
             <section className='Confirmation'>
-                <i className='fas fa-check-circle Confirmation__icon'></i>
+                <CheckCircle size='100' color='#EAEBF3' className='Confirmation__icon' />
                 <h1 className='Confirmation__title'>
                     Bank account linked
                 </h1>

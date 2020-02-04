@@ -8,10 +8,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 .SecondaryNav nav {
     flex: 2;
+    max-width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 .left-arrow-icon,
@@ -19,17 +26,12 @@
     display: inline-block;
 }
 
-.left-arrow-icon img {
-    width: 18px;
-}
-
 .back-button,
 .close-button {
     border: 0px;
     background-color: transparent;
     cursor: pointer;
-    padding: 10px 0px;
-    height: 48px;
+    padding: 0px;
 }
 
 .back-button i,
@@ -37,13 +39,10 @@
     font-size: 20px;
 }
 
-.times-icon,
 .skip-button {
-    float: right;
-}
-
-.times-icon img {
-    width: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .skip-button button {

@@ -12,23 +12,25 @@ class Wallet extends Component {
 
         return (
             <section className='Wallet__container'>
-                <p className='Wallet__title'>
-                    Your total balance
-                </p>
-                <h1 className='Wallet__balance'>
-                    {Formatter.format(balance)}
-                </h1>
-                <p className='Wallet__subtitle'>
-                    + {Formatter.format(dailyTotal)} today
-                </p>
-                <div>
-                    <Link className='Wallet__Link' to={'/projects'}>
-                        <Button 
-                            className='Button--contained-small Wallet__give'
-                        >
-                            Give
-                        </Button>
-                    </Link>
+                <h2 className='Wallet__title'>
+                    Your balance
+                </h2>
+                <div className='Wallet__card'>
+                    <h3 className='Wallet__balance'>
+                        {Formatter.format(balance)}
+                    </h3>
+                    <p className='Wallet__subtitle'>
+                        + {Formatter.format(dailyTotal)} today
+                    </p>
+                    <div>
+                        <Link className='Wallet__Link' to={'/projects'}>
+                            <Button 
+                                className='WalletButton--contained-small Wallet__give'
+                            >
+                                Donate
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
             </section>
         )

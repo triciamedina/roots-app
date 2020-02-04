@@ -944,7 +944,7 @@ class App extends Component {
   render() {
     return (
       <RootsContext.Provider value={this.state}>
-        <div className='App'>
+        <>
             <Switch>
               <PublicOnlyRoute 
                 exact 
@@ -979,7 +979,7 @@ class App extends Component {
                 component={ProjectDetailPage}
               />
             </Switch>
-        </div>
+        </>
       </RootsContext.Provider>
     )
   }

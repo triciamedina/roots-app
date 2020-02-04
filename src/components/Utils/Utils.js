@@ -9,6 +9,10 @@ export const Formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2
 });
 
+export function Input(props) {
+    return <input className={props.className} {...props}>{props.children}</input>
+};
+
 export function Button(props) {
     return <button className={props.className} {...props}>{props.children}</button>
 };

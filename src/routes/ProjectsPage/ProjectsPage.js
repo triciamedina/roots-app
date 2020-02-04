@@ -5,6 +5,7 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import SearchResults from '../../components/SearchResults/SearchResults';
 import RootsContext from '../../contexts/RootsContext';
 import ValidationService from '../../services/validation-service';
+import { AlertCircle } from 'react-feather';
 
 class ProjectsPage extends Component {
     static contextType = RootsContext;
@@ -33,7 +34,11 @@ class ProjectsPage extends Component {
 
         return (
             <div className='ProjectsPage__notification'>
-                <i className='fas fa-times-circle ProjectsPage__notification--icon'></i>
+                <AlertCircle 
+                    size='100' 
+                    color='#EAEBF3' 
+                    className='ProjectsPage__notification--icon'
+                />
                 <h1 className='ProjectsPage__notification--title'>
                     {ValidationService.validateWalletBalance(wallet.balance)}
                 </h1>

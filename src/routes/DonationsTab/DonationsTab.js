@@ -23,10 +23,10 @@ class DonationsTab extends Component {
             let donationsByYear = donations[key];
 
             return (
-                <div key={title} className='DonationsTab__container'>
-                    <h2 className='DonationsTab__title'>
+                <section key={title} className='DonationsTab__container'>
+                    <h3 className='DonationsTab__title'>
                         {title}
-                    </h2>
+                    </h3>
                     <DateList 
                         key={index}
                         id={index}
@@ -34,7 +34,7 @@ class DonationsTab extends Component {
                         listItemType={DonationItem}
                         className='DonationsList'
                     />
-                </div>
+                </section>
             )
         })
     };
@@ -43,10 +43,15 @@ class DonationsTab extends Component {
         return (
             <>
                 <Tabs active='donations'/>
-                <section className='DonationsTab'>
+                <main 
+                    className='DonationsTab'
+                    id='panel-2' 
+                    role='tabpanel' 
+                    aria-labelledby='tab-2'
+                >
                     <DonationsNotification />
                     {this.renderList()}
-                </section>
+                </main>
             </>
         )
     };

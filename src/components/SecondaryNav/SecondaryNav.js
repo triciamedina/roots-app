@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import './SecondaryNav.css'
 import { withRouter } from 'react-router'
-import Times from '../../img/times-solid.svg';
-import LeftArrow from '../../img/chevron-left-solid.svg';
 import RootsContext from '../../contexts/RootsContext';
 import { Button } from '../Utils/Utils';
+import { ChevronLeft, X } from 'react-feather';
 
 class SecondaryNav extends Component {
     static contextType = RootsContext;
@@ -37,7 +36,7 @@ class SecondaryNav extends Component {
         return (
             <div className='left-arrow-icon'>
                 <button className='back-button' onClick={this.handleGoback} aria-label='Back'>
-                    <img src={LeftArrow} alt=''/>
+                    <ChevronLeft size='40' color='black' />
                 </button>
             </div>
         )
@@ -47,7 +46,7 @@ class SecondaryNav extends Component {
         return (
             <div className='times-icon'>
                 <button className='close-button' onClick={this.handleClose} aria-label='Close'>
-                    <img src={Times} alt=''/>
+                    <X size='35' color='black' />
                 </button>
             </div>
         )

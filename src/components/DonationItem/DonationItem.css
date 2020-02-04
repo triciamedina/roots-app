@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 18px 13px;
+    padding: 20px;
     margin-top: 0px;
     margin-bottom: 20px;
     margin-left: auto;
@@ -12,7 +12,7 @@
     width: 100%;
     max-width: 600px;
     border-radius: 4px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 20%);
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.8), 5px 5px 15px rgba(234, 235, 243, 1);
 }
 
 .DonationItem__container {
@@ -21,41 +21,43 @@
 }
 
 .DonationItem__date {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
     padding: 0px;
-    margin: 0px;
+    margin: 0px 0px 5px 0px;
     color: black;
 }
 
 .DonationItem__project-name {
-    font-weight: 400;
-    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
     line-height: 24px;
     margin: 0px;
     padding: 7px 0px;
 }
 
 .DonationItem__project-school {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
     padding: 0px;
-    margin: 0px;
+    margin: 5px 0px 0px 0px;
     color: rgba(0, 0, 0, 60%);
 }
 
 .DonationItem__project-amount {
-    font-weight: 400;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 14px;
     line-height: 20px;
-    margin: 9px 0px 0px 0px;
+    margin: 15px 0px 0px 0px;
     padding: 3px 9px;
-    color: black;
-    background-color: #cdcdcd;
+    color: #4822BA;
+    background-color: #EAEBF3;
     border-radius: 10px;
     width: 100px;
     display: flex;

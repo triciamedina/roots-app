@@ -32,17 +32,20 @@
     align-items: center;
     justify-content: center;
     z-index: 3;
+    border-radius: 4px;
 }
 
 .RoundupsModal__title {
-    font-weight: 500;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 26px;
     line-height: 32px;
-    margin: 0px 0px 16px 0px;
+    margin: 16px 0px;
     padding: 0px;
 }
 
 .RoundupsModal__description {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;

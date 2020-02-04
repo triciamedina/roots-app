@@ -1,71 +1,127 @@
-.Button--contained-large {
-    font-family: 'Roboto', sans-serif;
-    border: 0px;
-    padding: 15px 45px;
-    background-color: rgba(0, 0, 0, 12%);
+.Button--contained-large, 
+.Button--contained-small,
+.Button--contained-xsmall {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #472BBA;
+    color: white;
     cursor: pointer;
+    box-shadow: 0 5px 10px rgba(71,43,186,.2), 0 15px 40px rgba(71,43,186,.2);
+    border-radius: 4px;
+    border: 0;
+}
+
+.Button--contained-large:disabled, 
+.Button--contained-small:disabled,
+.Button--contained-xsmall:disabled {
+    cursor: not-allowed;
+    background-color: rgba(71,43,186, .5);
+}
+
+.Button--contained-large {
+    padding: 15px 45px;
     width: 100%;
-    font-family: inherit;
-    font-size: 100%;
 }
 
 .Button--contained-small {
-    font-family: 'Roboto', sans-serif;
-    border: 0px;
     padding: 15px 45px;
-    background-color: rgba(0, 0, 0, 12%);
+}
+
+.WalletButton--contained-small {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    background: rgb(233,31,122);
+    background: linear-gradient(152deg, rgba(233,31,122,1) 0%, rgba(253,82,80,1) 100%);
+    color: white;
     cursor: pointer;
-    font-family: inherit;
-    font-size: 100%;
+    box-shadow: 0 5px 10px rgba(233,31,122, .2), 0 15px 40px rgba(233,31,122,.2);
+    border-radius: 4px;
+    border: 0;
 }
 
 .Button--contained-xsmall {
-    font-family: 'Roboto', sans-serif;
-    border: 0px;
     padding: 15px 25px;
     margin: 10px;
     min-width: 100px;
-    background-color: rgba(0, 0, 0, 12%);
+}
+
+.Button--text-large,
+.Button--text-med,
+.Button--text-small {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: transparent;
     cursor: pointer;
-    font-family: inherit;
-    font-size: 100%;
+    border: 0px;
 }
 
 .Button--text-large {
-    font-family: 'Roboto', sans-serif;
-    border: 0px;
     padding: 15px 45px;
-    background-color: transparent;
-    cursor: pointer;
     width: 100%;
-    font-family: inherit;
-    font-size: 100%;
+}
+
+.Button--text-med {
+    padding: 15px 15px;
 }
 
 .Button--text-small {
-    font-family: 'Roboto', sans-serif;
-    border: 0px;
     padding: 15px 45px;
-    background-color: transparent;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 100%;
 }
 
 .Button--text-xsmall {
-    border: 0px;
-    padding: 15px 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
     background-color: transparent;
     cursor: pointer;
+    border: 0px;
+    padding: 15px 0px;
 }
 
 .Button--tab {
-        border: 0px;
-        background-color: transparent;
-        width: 100%;
-        height: 100%;
-        padding: 15px 0px;
-        font-size: 14px;
-        font-family: inherit;
-        cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border: 0px;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+}
+
+.Button--tab.active::after {
+    content: '';
+    width: 25px;
+    border-bottom: 2px solid #fd5250;
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    top: 140%;
+}
+
+.Input__login,
+.Input__register,
+.Input__search, 
+.Input__Donate {
+    padding: 16px 22px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid #4822BA;
+    border-radius: 4px 4px 0 0;
+    background-color: #EAEBF3;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.Input__Donate {
+    width: 100%;
+    text-align: center;
 }

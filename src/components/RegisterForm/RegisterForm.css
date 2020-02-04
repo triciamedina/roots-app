@@ -11,7 +11,8 @@
 }
 
 .RegisterForm__title {
-    font-weight: 500;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 26px;
     line-height: 32px;
     margin: 0px;
@@ -25,54 +26,41 @@
     height: 100%;
 }
 
-.RegisterForm__input {
+.RegisterForm__input-container {
     display: flex;
     flex-direction: column;
     margin: 15px 0px;
-}
-
-.RegisterForm__input input {
-    padding: 16px 22px;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 1px solid black;
-    background-color: rgba(0, 0, 0, 12%);
-}
-
-.RegisterForm__input label {
-    padding-bottom: 10px;
-}
-
-.RegisterForm__label {
-    color: rgba(0, 0, 0, 38%);
-    font-size: 16px;
 }
 
 .RegisterForm__submit {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 20%;
+    height: 30%;
 }
 
-.register-form__secondary p {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    padding: 0px;
-    margin: 0px;
-}
-
-.register-form__secondary {
+.RegisterForm__secondary {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 15px;
+    padding: 40px 0;
 }
 
-.register-form__submit a {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+.RegisterForm__secondary-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 0px 0px 10px 0px;
+    margin: 0px;
+}
+
+.text-link,
+.text-link:visited {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #472BBA;
 }

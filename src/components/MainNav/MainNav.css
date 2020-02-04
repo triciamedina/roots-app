@@ -7,10 +7,12 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    z-index: 1;
 }
 
 .MainNav--public {
     background-color: white;
+    box-shadow: 5px 5px 15px rgba(234, 235, 243, 1);
 }
 
 .MainNav--private {
@@ -54,9 +56,10 @@
 }
 
 .CollapsibleMenu label {
-    background: url(../../img/bars-solid.svg) no-repeat left center;
-    height: 20px;
-    width: 20px;
+    background: url(../../img/menu.svg) no-repeat left center;
+    color: transparent;
+    height: 32px;
+    width: 32px;
     padding: 25px 0px;
 }
 
@@ -76,6 +79,7 @@
     width: 100%;
     padding: 0px 24px;
 }
+
 input:checked ~ .CollapsibleMenu__list {
     position: absolute;
     z-index: -1;
@@ -92,8 +96,8 @@ input:checked ~ .CollapsibleMenu__list {
     padding: 120px 0px 0px 0px;
 }
 
-input:checked +label {
-    background-image: url(../../img/times-solid.svg);
+input:checked + label {
+    background-image: url(../../img/x.svg);
 }
 
 a {
@@ -108,6 +112,7 @@ a {
     .MainNav--private {
         background-color: white;
         z-index: 1;
+        box-shadow: 5px 5px 15px rgba(234, 235, 243, 1);
     }
 
     .CollapsibleMenu {

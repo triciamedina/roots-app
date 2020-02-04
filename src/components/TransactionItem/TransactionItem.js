@@ -34,12 +34,12 @@ class TransactionItem extends Component {
                         htmlFor={transaction_id} 
                         className='TransactionItem__toggle'
                     >
-                        <span 
+                        <h4 
                             className='TransactionItem__roundup'
                             data-tip='Round up amount'
                         >
                             {Formatter.format(roundupAmount)}
-                        </span>
+                        </h4>
                         
                         <input 
                             type='checkbox' 

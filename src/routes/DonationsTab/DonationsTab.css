@@ -6,6 +6,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(234, 235, 243, .8), 5px 5px 15px rgba(234, 235, 243, 1);
+    border-radius: 16px 16px 0px 0px;
 }
 
 .DonationsTab__container {
@@ -16,7 +19,8 @@
 }
 
 .DonationsTab__title {
-    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     font-size: 14px;
     line-height: 19px;
     padding: 0px 24px 20px 24px;
@@ -37,10 +41,12 @@
 @media screen and (min-width: 1028px) {
     .DonationsTab {
         height: 100%;
+        background-color: transparent;
     }
 
     .DonationsTab__container {
-        background-color: #d8d8d8;
+        background-color: white;
+        border-radius: 16px;
         padding: 36px 0px;
     }
 

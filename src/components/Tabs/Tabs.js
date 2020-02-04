@@ -8,18 +8,32 @@ class Tabs extends Component {
         const { active } = this.props;
 
         return (
-            <section className='tabs'>
-                    <Link to={'/dashboard/roundups'}>
-                        <Button className={'Button--tab ' + (active === 'roundups' && 'active')}>
-                            Round ups
-                        </Button>
-                    </Link>
-                    <Link to={'/dashboard/donations'}>
-                        <Button className={'Button--tab ' + (active === 'donations' && 'active')}>
-                            Donation history
-                        </Button>
-                    </Link>
-            </section>
+            <nav className='Tabs'>
+                <Link to={'/dashboard/roundups'} className='Tabs__container'>
+                    <Button 
+                        className={'Button--tab ' + (active === 'roundups' && 'active')}
+                        role='tab'
+                        aria-selected={active === 'roundups'}
+                        aria-controls='panel-1' 
+                        id='tab-1'
+                        tabIndex={active === 'roundups' ? '0' : '-1'}
+                    >
+                        <h2 className='Tab__title'>Round ups</h2>
+                    </Button>
+                </Link>
+                <Link to={'/dashboard/donations'}>
+                    <Button 
+                        className={'Button--tab ' + (active === 'donations' && 'active')}
+                        role='tab'
+                        aria-selected={active === 'donations'}
+                        aria-controls='panel-2' 
+                        id='tab-2'
+                        tabIndex={active === 'donations' ? '0' : '-1'}
+                    >
+                        <h2 className='Tab__title'>Donation history</h2>
+                    </Button>
+                </Link>
+            </nav>
         )
     };
 };

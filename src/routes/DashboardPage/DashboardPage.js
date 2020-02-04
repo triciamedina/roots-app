@@ -39,7 +39,7 @@ class DashboardPage extends Component {
                     {this.context.transactions.openModal ? <RoundupsModal /> : ''}
                     {this.context.autoRoundups.openModal ? <ToggleModal /> : ''}
                     <Wallet />
-                    <div className='tab-container'>
+                    <section className='tab-container' role='tablist' aria-label='Dashboard Tabs'>
                         <Switch>
                             <Route exact path={['/dashboard', '/dashboard/roundups']}>
                                 <RoundupsTab />
@@ -48,7 +48,7 @@ class DashboardPage extends Component {
                                 <DonationsTab />
                             </Route>
                         </Switch>
-                    </div>
+                    </section>
                 </main>
              </>
         )

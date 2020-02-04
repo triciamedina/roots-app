@@ -26,10 +26,10 @@ class RoundupsTab extends Component {
             let transactionsByDay = list[key];
 
             return (
-                <React.Fragment key={title}>
-                    <h2 className='TransactionsList__title'>
-                            {moment(title, 'YYYY-MM_DD').format('MMMM Do, YYYY')}
-                        </h2>
+                <fieldset key={title}>
+                    <legend>
+                        <h3 className='TransactionsList__title'>{moment(title, 'YYYY-MM_DD').format('MMMM Do, YYYY')}</h3>
+                    </legend>
                     <DateList 
                         key={index}
                         id={index}
@@ -37,7 +37,7 @@ class RoundupsTab extends Component {
                         listItemType={TransactionItem}
                         className='TransactionsList'
                     />
-                </React.Fragment>
+                </fieldset>
             )
         });
     };
@@ -45,9 +45,9 @@ class RoundupsTab extends Component {
     renderSetupButton() {
         return (
             <>
-                <p className='TransactionsList__setup-subtitle'>
+                <h3 className='TransactionsList__setup-subtitle'>
                     Link your bank account to start using Roots
-                </p>
+                </h3>
                 <Link className='TransactionsList__setup-link' to='/account-setup'>
                     <Button className='Button--contained-small'>
                         Set up your account
@@ -63,18 +63,23 @@ class RoundupsTab extends Component {
         return (
             <>
                 <Tabs active='roundups'/>
-                <section className='RoundupsTab'>
+                <main 
+                    className='RoundupsTab'
+                    id='panel-1' 
+                    role='tabpanel' 
+                    aria-labelledby='tab-1'
+                >
                     {isSuccessful 
                         ? <RoundupsToggle />
                         : ''
                     }
-                    <div className='TransactionsList__container'>
+                    <section className='TransactionsList__container'>
                         {isSuccessful 
                             ? this.renderList()
                             : this.renderSetupButton()
                         }
-                    </div>
-                </section>
+                    </section>
+                </main>
             </>
         )
     };

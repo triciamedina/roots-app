@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './DonateForm.css';
-import { Button, Formatter } from '../Utils/Utils';
+import { Button, Formatter, Input } from '../Utils/Utils';
 import { withRouter } from 'react-router-dom';
 import RootsContext from '../../contexts/RootsContext';
 import ValidationError from '../ValidationError/ValidationError';
@@ -66,8 +66,9 @@ class DonateForm extends Component {
                     onSubmit={this.handleSubmit}
                 >
                     <div className='DonateForm__form-container'>
-                        <div className='DonateForm__form-input'>
-                            <input 
+                        <div className='DonateForm__input-container'>
+                            <Input 
+                                className='Input__Donate'
                                 type='number'
                                 step='0.01'
                                 id='donateAmount'

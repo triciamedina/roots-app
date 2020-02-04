@@ -6,6 +6,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(234, 235, 243, .8), 5px 5px 15px rgba(234, 235, 243, 1);
+    border-radius: 16px 16px 0px 0px;
 }
 
 .TransactionsList__container {
@@ -21,23 +24,24 @@
 }
 
 .TransactionsList__setup-subtitle {
-    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     font-size: 14px;
     line-height: 20px;
     padding: 0px;
     margin: 50px 0px 0px 0px;
-    color: rgba(0, 0, 0, 60%);
+    color: black;
 }
 
 .TransactionsList__title {
-    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     font-size: 14px;
     line-height: 19px;
     padding: 0px 24px 20px 24px;
     margin: 0px;
     color: black;
     width: 100%;
-    max-width: 600px;
 }
 
 .TransactionsList {
@@ -50,13 +54,32 @@
     margin-right: auto;
 }
 
+.RoundupsTab fieldset {
+    border: 0;
+    width: 100%;
+    padding: 0px;
+}
+
+.RoundupsTab legend {
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 @media screen and (min-width: 1028px) {
     .RoundupsTab {
         height: 100%;
+        background-color: transparent;
+        box-shadow: unset;
     }
 
     .TransactionsList__container {
-        background-color: #d8d8d8;
+        background-color: white;
+        border-radius: 16px;
         padding: 36px 0px;
         margin: 16px 0px;
     }

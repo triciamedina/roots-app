@@ -4,6 +4,7 @@
     flex-direction: row;
     align-items: center;
     padding: 20px;
+    height: 92px;
 }
 
 .Logo__image {
@@ -14,7 +15,8 @@
 }
 
 .Logo__text {
-    font-weight: 500;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 26px;
     line-height: 32px;
     margin: 0px;

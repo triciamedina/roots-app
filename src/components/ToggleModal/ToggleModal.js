@@ -41,7 +41,7 @@ class ToggleModal extends Component {
                     </p>
                     <div>
                         <Button 
-                            className='Button--contained-xsmall'
+                            className='Button--text-med'
                             onClick={this.handleCancel}
                         >
                             Cancel

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './RegisterForm.css';
-import { Button } from '../Utils/Utils';
+import { Button, Input } from '../Utils/Utils';
 import RootsContext from '../../contexts/RootsContext';
 import { withRouter } from 'react-router';
 import ValidationService from '../../services/validation-service';
@@ -50,17 +50,15 @@ class RegisterForm extends Component {
                     Let’s get started
                 </h1>
                 <section className='RegisterForm__container'>
-                    <div className='RegisterForm__input'>
-                        <label htmlFor='emailInput'>
-                            <span className='RegisterForm__label'>
-                                Email address
-                            </span>
-                        </label>
-                        <input 
+                    <div className='RegisterForm__input-container'>
+                        <Input 
+                            className='Input__register'
                             type='text' 
                             id='emailInput' 
                             name='emailInput'
-                            aria-required 
+                            placeholder='Email address'
+                            aria-label='Registration email address'
+                            aria-required
                             onChange={e => this.context.onRegisterEmailChanged(e.target.value)}
                         />
                         {email.touched &&
@@ -69,16 +67,14 @@ class RegisterForm extends Component {
                             />
                         }
                     </div>
-                    <div className='RegisterForm__input'>
-                        <label htmlFor='emailConfirmInput'>
-                            <span className='RegisterForm__label'>
-                                Confirm email address
-                            </span>
-                        </label>
-                        <input 
+                    <div className='RegisterForm__input-container'>
+                        <Input 
+                            className='Input__register'
                             type='text'
                             id='emailConfirmInput'
-                            name='emailConfirmInput' 
+                            name='emailConfirmInput'
+                            placeholder='Confirm email address'
+                            aria-label='Confirm email address'
                             aria-required
                             onChange={e => this.context.onRegisterConfirmedEmailChanged(e.target.value)}
                         />
@@ -119,16 +115,14 @@ class RegisterForm extends Component {
                     Let’s get started
                 </h1>
                 <section className='RegisterForm__container'>
-                    <div className='RegisterForm__input'>
-                        <label htmlFor='firstName'>
-                            <span className='RegisterForm__label'>
-                                First name
-                            </span>
-                        </label>
-                        <input 
+                    <div className='RegisterForm__input-container'>
+                        <Input
+                            className='Input__register'
                             type='text'
                             id='firstName'
                             name='firstName'
+                            placeholder='First name'
+                            aria-label='First name'
                             aria-required 
                             onChange={e => this.context.onRegisterFirstNameChanged(e.target.value)}
                         />
@@ -138,16 +132,14 @@ class RegisterForm extends Component {
                             />
                         }
                     </div>
-                    <div className='RegisterForm__input'>
-                        <label htmlFor='lastName'>
-                            <span className='RegisterForm__label'>
-                                Last name
-                            </span>
-                        </label>
-                        <input 
+                    <div className='RegisterForm__input-container'>
+                        <Input 
+                            className='Input__register'
                             type='text' 
                             id='lastName'
                             name='lastName'
+                            placeholder='Last name'
+                            aria-label='Last name'
                             aria-required
                             onChange={e => this.context.onRegisterLastNameChanged(e.target.value)}
                         />
@@ -188,16 +180,14 @@ class RegisterForm extends Component {
                     Let’s get started
                 </h1>
                 <section className='RegisterForm__container'>
-                    <div className='RegisterForm__input'>
-                        <label htmlFor='passwordInput'>
-                            <span className='RegisterForm__label'>
-                                Password
-                            </span>
-                        </label>
-                        <input 
+                    <div className='RegisterForm__input-container'>
+                        <Input
+                            className='Input__register'
                             type='password'
                             id='passwordInput'
                             name='passwordInput' 
+                            placeholder='Password'
+                            aria-label='Password'
                             aria-required
                             onChange={e => this.context.onRegisterPasswordChanged(e.target.value)}
                         />
@@ -207,16 +197,14 @@ class RegisterForm extends Component {
                             />
                         }
                     </div>
-                    <div className='RegisterForm__input'>
-                        <label htmlFor='passwordConfirmInput'>
-                            <span className='RegisterForm__label'>
-                                Confirm password
-                            </span>
-                        </label>
-                        <input 
+                    <div className='RegisterForm__input-container'>
+                        <Input 
+                            className='Input__register'
                             type='password' 
                             id='passwordConfirmInput' 
                             name='passwordConfirmInput' 
+                            placeholder='Confirm password'
+                            aria-label='Confirm password'
                             aria-required
                             onChange={e => this.context.onRegisterConfirmedPasswordChanged(e.target.value)}
                         />
@@ -249,13 +237,13 @@ class RegisterForm extends Component {
 
     renderLoginLink() {
         return (
-            <section className='register-form__secondary'>
-                <p>Already have an account?</p>
-                <p>
-                    <Link to={'/login'} className='text-link'>
-                        Login
-                    </Link>
+            <section className='RegisterForm__secondary'>
+                <p className='RegisterForm__secondary-title'>
+                    Already have an account?
                 </p>
+                <Link to={'/login'} className='text-link'>
+                    Login
+                </Link>
             </section>
         )
     };

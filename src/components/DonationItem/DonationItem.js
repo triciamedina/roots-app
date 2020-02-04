@@ -13,9 +13,9 @@ function DonationItem(props) {
                 <p className='DonationItem__date'>
                     {moment(donated_on).format('MMMM Do, YYYY')}
                 </p>
-                <p className='DonationItem__project-name'>
+                <h4 className='DonationItem__project-name'>
                     {ReactHtmlParser(project_name)}
-                </p>
+                </h4>
                 <p className='DonationItem__project-school'>
                     {ReactHtmlParser(school_name)}
                 </p>

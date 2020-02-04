@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './SearchForm.css';
-import { Button } from '../Utils/Utils';
+import { Button, Input } from '../Utils/Utils';
 import RootsContext from '../../contexts/RootsContext';
 import ValidationError from '../ValidationError/ValidationError';
 import ValidationService from '../../services/validation-service';
@@ -17,7 +17,7 @@ class SearchForm extends Component {
         const { searchInput } = this.context.projects;
 
         return (
-            <div className='search-form__submit'>
+            <div className='SearchForm__submit'>
                 <Button 
                     className='Button--contained-large'
                     type='submit'
@@ -39,23 +39,21 @@ class SearchForm extends Component {
         return (
             <form 
                 action=''
-                className='search-form'
+                className='SearchForm'
                 onSubmit={this.handleSubmit}
             >
-                <h1 className='search-form__title'>
+                <h1 className='SearchForm__title'>
                     Find a classroom to support
                 </h1>
-                <div className='search-form__container'>
-                    <div className='search-form__input'>
-                        <label htmlFor='search'>
-                            <span className='search-form__label'>
-                                Zip
-                            </span>
-                        </label>
-                        <input 
+                <div className='SearchForm__container'>
+                    <div className='SearchForm__input-container'>
+                        <Input 
+                            className='Input__search'
                             type='text' 
                             id='search' 
                             name='search'
+                            placeholder='Zip code'
+                            aria-label='Zip code'
                             aria-required
                             onChange={e => this.context.onSearchInputChange(e.target.value)}
                         />

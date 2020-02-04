@@ -24,7 +24,7 @@ class ProjectContent extends Component {
             );
         
         const { 
-            imageURL,
+            retinaImageURL,
             title,
             synopsis,
             teacherName, 
@@ -38,7 +38,7 @@ class ProjectContent extends Component {
             <section className='ProjectContent'>
                 <div className='ProjectContent__intro'>
                     <div className='ProjectContent__image'>
-                        <img src={imageURL} alt='' />
+                        <img src={retinaImageURL} alt='' />
                     </div>
                     <div>
                         <h1 className='ProjectContent__title'>

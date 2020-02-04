@@ -11,7 +11,8 @@
 }
 
 .LinkBankForm__title {
-    font-weight: 500;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 26px;
     line-height: 32px;
     margin: 0px 0px 20px 0px;
@@ -19,9 +20,10 @@
 }
 
 .LinkBankForm__description {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 22px;
+    line-height: 25px;
     padding: 0px 0px 15px 0px;  
     margin: 0px;
 }
@@ -29,9 +31,9 @@
 .LinkBankForm__results-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
-    padding-top: 20px;
+    padding-top: 40px;
     padding-bottom: 35px;
     overflow: hidden;
 }
@@ -47,13 +49,12 @@
 }
 
 .Confirmation__icon {
-    color: rgba(0, 0, 0, 12%);
-    font-size: 100px;
     margin-bottom: 50px;
 }
 
 .Confirmation__title {
-    font-weight: 500;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 26px;
     line-height: 32px;
     margin: 0px 0px 42px 0px;
@@ -61,9 +62,10 @@
 }
 
 .Confirmation__description {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 22px;
+    line-height: 25px;
     padding: 0px;
     margin: 0px 0px 75px 0px;
 }

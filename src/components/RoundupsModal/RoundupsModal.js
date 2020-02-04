@@ -60,7 +60,7 @@ class RoundupsModal extends Component {
                     </label>
                     <div>
                         <Button 
-                            className='Button--contained-xsmall'
+                            className='Button--text-med'
                             onClick={this.handleCancel}
                         >
                             Cancel

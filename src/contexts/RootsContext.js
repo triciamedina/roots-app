@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RootsContext = React.createContext({
+export const rootsDefaults = {
     transactions: {
         items: [],
         openModal: false,
@@ -120,6 +120,8 @@ const RootsContext = React.createContext({
         institutionFormDidMount: () => {},
         institutionFormRemoved: () => {},
     },
-});
+}
+
+const RootsContext = React.createContext(rootsDefaults);
 
 export default RootsContext;

@@ -12,11 +12,11 @@ class DonationsNotification extends Component {
         const amount = DonationService.calculateDonationsTotal(items)
 
         return (
-            <div className='DonationsNotification'>
-                <p className='DonationsNotification__title'>
+            <section className='DonationsNotification'>
+                <h3 className='DonationsNotification__title'>
                     You’ve given {Formatter.format(amount)} this year!
-                </p>
-            </div>
+                </h3>
+            </section>
         )
     };
 };
