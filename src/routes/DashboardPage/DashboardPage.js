@@ -41,9 +41,6 @@ class DashboardPage extends Component {
                     <Wallet />
                     <section 
                         className='tab-container' 
-                        role='tablist' 
-                        aria-label='Dashboard Tabs'
-                        aria-owns='tab-1 tab-2'
                     >
                         <Switch>
                             <Route exact path={['/dashboard', '/dashboard/roundups']}>
