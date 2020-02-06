@@ -90,7 +90,7 @@ class DonateForm extends Component {
                                 className='Button--contained-large'
                                 disabled={ValidationService.validateDonationAmount(projects.donateAmount.value)}
                             >
-                                Give
+                                Donate
                             </Button>
                         </div>
                     </div>
