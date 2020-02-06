@@ -1,5 +1,5 @@
 # Roots
-Roots is a micro-donations concept app with a focus on giving back to your local community. Roots will help you set aside spare change by rounding up your everyday purchases. Then invest your spare change back into your community by funding classrooms in your area.
+Roots is a micro-donations app with a focus on giving back to your local community. Roots will help you set aside spare change by rounding up your everyday purchases. Then invest your spare change back into your community by funding classrooms in your area.
 
 ## Live App
 https://roots-app.triciamedina.now.sh/
