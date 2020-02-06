@@ -13,7 +13,8 @@
 
 .Wallet__card {
     background-color: rgb(71,43,186);
-    background-image: linear-gradient(122deg, rgba(71,43,186,1) 0%, rgba(180,52,224,1) 100%);
+    background: rgb(71,43,186);
+    background: linear-gradient(151deg, rgba(71,43,186,1) 14%, rgba(18,160,149,1) 100%, rgba(0,201,136,1) 100%);
     box-shadow: 0 5px 10px rgba(71,43,186,.2), 0 15px 40px rgba(71,43,186,.2);
     width: 100%;
     max-width: 350px;
