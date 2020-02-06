@@ -18,9 +18,10 @@ https://roots-app.triciamedina.now.sh/
 
 ### Linking to a bank account in Plaid Sandbox
 
+```
 Username: user_good
-
 Password: pass_good
+```
 
 ## Getting Started
 
