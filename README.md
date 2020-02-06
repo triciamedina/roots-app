@@ -18,7 +18,7 @@ $ npm install
 
 ### Testing
 
-Run tests with Jest and Enzyme.
+Run tests with Jest.
 
 ```
 $ npm run test
