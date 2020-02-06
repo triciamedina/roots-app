@@ -3,6 +3,8 @@ Roots is a micro-donations app with a focus on giving back to your local communi
 
 <img width="250" alt="Screen Shot 2020-02-06 at 9 14 58 AM" src="https://user-images.githubusercontent.com/48637126/73962030-97488d80-4905-11ea-94e7-e452ce6d6564.png">
 
+<img width="250" alt="Screen Shot 2020-02-06 at 9 18 37 AM" src="https://user-images.githubusercontent.com/48637126/73962485-73d21280-4906-11ea-878f-5e1e88657b3a.png">
+
 <img width="250" alt="Screen Shot 2020-02-06 at 9 18 53 AM" src="https://user-images.githubusercontent.com/48637126/73962445-5dc45200-4906-11ea-9894-82c4fc7e9a35.png">
 
 ## Live App
