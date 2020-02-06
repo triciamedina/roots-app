@@ -8,9 +8,9 @@ beforeEach(() => {
 });
 
 // Takes the context data to test, or uses defaults
-const getDashboardPageWithContext = (context = {}) => {
+const getAccountSetupPageWithContext = (context = {}) => {
   
-  // Mock the RootsContext module being used in DashboardPage component
+  // Mock the RootsContext module being used in AccountSetupPage component
   jest.doMock('../../contexts/RootsContext', () => {
     return {
       RootsContext: {
@@ -20,15 +20,15 @@ const getDashboardPageWithContext = (context = {}) => {
   });
   
   // Re-require after calling jest.doMock.
-  // return the updated DashboardPage module that now includes the mocked context
-  return require('./DashboardPage').DashboardPage;
+  // return the updated AccountSetupPage module that now includes the mocked context
+  return require('./AccountSetupPage').AccountSetupPage;
 };
 
-describe('<DashboardPage />', () => {
+describe('<AccountSetupPage />', () => {
   it('renders without crashing', () => {
-    const DashboardPage = getDashboardPageWithContext();
+    const AccountSetupPage = getAccountSetupPageWithContext();
     const div = document.createElement('div');
-    ReactDOM.render(<BrowserRouter>{DashboardPage}</BrowserRouter>, div);
+    ReactDOM.render(<BrowserRouter>{AccountSetupPage}</BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 });

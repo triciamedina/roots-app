@@ -4,8 +4,6 @@ import { withRouter } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import RootsContext from '../../contexts/RootsContext';
 
-
-
 class ProjectContent extends Component {
     static contextType = RootsContext;
 

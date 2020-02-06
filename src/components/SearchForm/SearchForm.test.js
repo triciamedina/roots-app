@@ -8,9 +8,9 @@ beforeEach(() => {
 });
 
 // Takes the context data to test, or uses defaults
-const getDashboardPageWithContext = (context = {}) => {
+const getSearchFormWithContext = (context = {}) => {
   
-  // Mock the RootsContext module being used in DashboardPage component
+  // Mock the RootsContext module being used in SearchForm component
   jest.doMock('../../contexts/RootsContext', () => {
     return {
       RootsContext: {
@@ -20,15 +20,15 @@ const getDashboardPageWithContext = (context = {}) => {
   });
   
   // Re-require after calling jest.doMock.
-  // return the updated DashboardPage module that now includes the mocked context
-  return require('./DashboardPage').DashboardPage;
+  // return the updated SearchForm module that now includes the mocked context
+  return require('./SearchForm').SearchForm;
 };
 
-describe('<DashboardPage />', () => {
+describe('<SearchForm />', () => {
   it('renders without crashing', () => {
-    const DashboardPage = getDashboardPageWithContext();
+    const SearchForm = getSearchFormWithContext();
     const div = document.createElement('div');
-    ReactDOM.render(<BrowserRouter>{DashboardPage}</BrowserRouter>, div);
+    ReactDOM.render(<BrowserRouter>{SearchForm}</BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 });

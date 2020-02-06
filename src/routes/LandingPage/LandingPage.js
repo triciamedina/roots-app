@@ -2,10 +2,10 @@ import React from 'react';
 import { RegisterButton } from '../../components/Utils/Utils';
 import MainNav from '../../components/MainNav/MainNav';
 import './LandingPage.css';
-import Screen from '../../img/screen@2x.png'
-import CreditCard from '../../img/credit-card.svg'
-import Location from '../../img/location.svg'
-import Leaf from '../../img/leaf.svg'
+import Screen from '../../img/screen@2x.png';
+import CreditCard from '../../img/credit-card.svg';
+import Location from '../../img/location.svg';
+import Leaf from '../../img/leaf.svg';
 
 function LandingPage() {
     return (
