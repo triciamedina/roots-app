@@ -10,15 +10,25 @@ https://roots-app.triciamedina.now.sh/
 
 Clone the repository and download dependencies.
 
-`$ git clone https://github.com/triciamedina/roots-app.git`
-`$ cd roots-app`
-`$ npm install`
+```
+$ git clone https://github.com/triciamedina/roots-app.git
+```
+
+```
+$ cd roots-app
+```
+
+```
+$ npm install
+```
 
 ### Testing
 
 Run tests with Jest and Enzyme.
 
-`$ npm run test`
+```
+$ npm run test
+```
 
 ## Built With
 - [Plaid API](https://plaid.com/docs/)
