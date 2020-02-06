@@ -28,6 +28,11 @@
     padding: 15px 45px;
 }
 
+.demo {
+    background-color: white;
+    color: #472BBA;
+}
+
 .WalletButton--contained-small {
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;

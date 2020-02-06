@@ -29,6 +29,7 @@ class Tabs extends Component {
                 </Link>
                 <Link 
                     to={'/dashboard/donations'}
+                    className='Tabs__container'
                 >
                     <Button 
                         className={'Button--tab ' + (active === 'donations' && 'active')}

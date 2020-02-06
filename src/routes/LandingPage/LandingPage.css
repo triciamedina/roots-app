@@ -125,6 +125,14 @@
     align-items: center;
 }
 
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #472BBA;
+    min-height: 250px;
+}
+
 @media screen and (min-width: 1028px) {
     .hero {
         flex-direction: row;
@@ -170,6 +178,7 @@
     .secondary {
         flex-direction: row;
         justify-content: center;
+        min-height: 500px;
     }
 
     .secondary.first {

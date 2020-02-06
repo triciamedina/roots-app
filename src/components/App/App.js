@@ -172,8 +172,9 @@ class App extends Component {
     })
   };
 
-  handleSubmitJwtAuth = () => {
-    const { email, password } = this.state.login;
+  handleSubmitJwtAuth = (demoEmail, demoPass) => {
+    const email = demoEmail || this.state.login.email.value;
+    const password = demoPass || this.state.login.password.value
 
     this.setState({
       login: {
@@ -183,8 +184,8 @@ class App extends Component {
     })
 
     AuthApiService.postLogin({
-      email: email.value,
-      password: password.value,
+      email,
+      password
     })
       .then(res => {
         TokenService.saveAuthToken(res.authToken)
