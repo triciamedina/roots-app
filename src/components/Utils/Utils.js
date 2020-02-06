@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Utils.css';
 import RootsContext from '../../contexts/RootsContext';
+import PropTypes from 'prop-types';
 
 export const Formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -13,8 +14,16 @@ export function Input(props) {
     return <input className={props.className} {...props}>{props.children}</input>
 };
 
+Input.propTypes = {
+    className: PropTypes.string,
+};
+
 export function Button(props) {
     return <button className={props.className} {...props}>{props.children}</button>
+};
+
+Button.propTypes = {
+    className: PropTypes.string,
 };
 
 export function LoginButton(props) {
@@ -25,12 +34,20 @@ export function LoginButton(props) {
     )
 };
 
+LoginButton.propTypes = {
+    className: PropTypes.string,
+};
+
 export function RegisterButton(props) {
     return (
         <Link to={'/register'}>
             <button className={props.className} {...props}>Get started</button>
         </Link>
     )
+};
+
+RegisterButton.propTypes = {
+    className: PropTypes.string,
 };
 
 export class LogoutButton extends Component {

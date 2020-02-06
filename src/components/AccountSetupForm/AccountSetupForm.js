@@ -6,9 +6,14 @@ import RootsContext from '../../contexts/RootsContext';
 import { Button } from '../Utils/Utils';
 import config from '../../config';
 import { CheckCircle } from 'react-feather';
+import ReactRouterPropTypes from 'react-router-prop-types'
 
 class AccountSetupForm extends Component {
     static contextType = RootsContext;
+
+    static propTypes = {
+        history: ReactRouterPropTypes.history.isRequired
+    };
     
     handleOnSuccess = (publicToken, metadata) => {
         this.context.onAccountSetupSuccess(publicToken, metadata)

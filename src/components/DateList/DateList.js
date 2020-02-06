@@ -1,5 +1,6 @@
 import React from 'react';
 import './DateList.css';
+import PropTypes from 'prop-types'
 
 function DateList(props) {
     const { listItemType, items, className } = props;
@@ -12,6 +13,12 @@ function DateList(props) {
             )}
         </ul>
     )
+};
+
+DateList.propTypes = {
+    listItemType: PropTypes.elementType.isRequired,
+    items: PropTypes.array.isRequired,
+    className: PropTypes.string
 };
 
 export default DateList;

@@ -4,9 +4,15 @@ import { withRouter } from 'react-router'
 import RootsContext from '../../contexts/RootsContext';
 import { Button } from '../Utils/Utils';
 import { ChevronLeft, X } from 'react-feather';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 class SecondaryNav extends Component {
     static contextType = RootsContext;
+
+    static propTypes = {
+        history: ReactRouterPropTypes.history.isRequired,
+        location: ReactRouterPropTypes.location.isRequired,
+      }
 
     handleGoback = () => {
         const { history, location } = this.props;

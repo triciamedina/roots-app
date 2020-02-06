@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../Utils/Utils';
 import './Tabs.css';
+import PropTypes from 'prop-types';
 
 class Tabs extends Component {
+    static propTypes = {
+        active: PropTypes.string.isRequired,
+    };
+
     render() {
         const { active } = this.props;
 

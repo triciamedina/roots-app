@@ -3,9 +3,16 @@ import './ProjectContent.css';
 import { withRouter } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import RootsContext from '../../contexts/RootsContext';
+import ReactRouterPropTypes from 'react-router-prop-types';
+import PropTypes from 'prop-types';
 
 class ProjectContent extends Component {
     static contextType = RootsContext;
+
+    static propTypes = {
+        match: ReactRouterPropTypes.match.isRequired,
+        projects: PropTypes.object
+    };
 
     render() {
         if (this.context.projects.showModal) {

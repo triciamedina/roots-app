@@ -4,9 +4,17 @@ import { Formatter } from '../Utils/Utils';
 import RootsContext from '../../contexts/RootsContext';
 import ReactToolTip from 'react-tooltip';
 import TransactionService from '../../services/transaction-service';
+import PropTypes from 'prop-types';
 
 class TransactionItem extends Component {
     static contextType = RootsContext;
+
+    static propTypes = {
+        name: PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
+        transaction_id: PropTypes.string.isRequired,
+        isChecked: PropTypes.bool,
+    };
 
     componentDidMount() {
         this.context.updateWallet();

@@ -4,7 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import ProjectItem from './ProjectItem';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<BrowserRouter><ProjectItem /></BrowserRouter>, div);
-  ReactDOM.unmountComponentAtNode(div);
+    const div = document.createElement('div');
+    ReactDOM.render(<BrowserRouter><ProjectItem 
+        projectName=''
+        projectDescription=''
+        fundingNeeded=''
+        id=''
+    /></BrowserRouter>, div);
+    ReactDOM.unmountComponentAtNode(div);
 });

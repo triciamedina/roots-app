@@ -4,9 +4,14 @@ import './Confirmation.css';
 import { Button, Formatter } from '../Utils/Utils';
 import RootsContext from '../../contexts/RootsContext';
 import { CheckCircle } from 'react-feather';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 class Confirmation extends Component {
     static contextType = RootsContext;
+
+    static propTypes = {
+        history: ReactRouterPropTypes.history.isRequired
+    };
 
     handleCancel = () => {
         this.context.handleCloseModal();

@@ -5,6 +5,6 @@ import Tabs from './Tabs';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<BrowserRouter><Tabs /></BrowserRouter>, div);
+  ReactDOM.render(<BrowserRouter><Tabs active='' /></BrowserRouter>, div);
   ReactDOM.unmountComponentAtNode(div);
 });

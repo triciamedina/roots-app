@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import './ProjectItem.css';
 import { Formatter } from '../Utils/Utils';
+import PropTypes from 'prop-types';
 
 function ProjectItem(props) {
     const { projectName, projectDescription, fundingNeeded, id } = props;
@@ -26,6 +27,13 @@ function ProjectItem(props) {
             </Link>
         </li>
     )
+};
+
+ProjectItem.propTypes = {
+    projectName: PropTypes.string.isRequired,
+    projectDescription: PropTypes.string.isRequired,
+    fundingNeeded: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
 };
 
 export default ProjectItem;

@@ -5,9 +5,14 @@ import { withRouter } from 'react-router-dom';
 import RootsContext from '../../contexts/RootsContext';
 import ValidationError from '../ValidationError/ValidationError';
 import ValidationService from '../../services/validation-service';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 class DonateForm extends Component {
     static contextType = RootsContext;
+
+    static propTypes = {
+        match: ReactRouterPropTypes.match.isRequired,
+    };
     
     handleSubmit = (event) => {
         const project = this.context.projects.results.proposals.filter(project => 
