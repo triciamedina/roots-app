@@ -11,6 +11,8 @@ Roots is a micro-donations app with a focus on giving back to your local communi
 
 <kbd><img width="250" alt="Screen Shot 2020-02-06 at 9 19 38 AM" src="https://user-images.githubusercontent.com/48637126/73963453-39697500-4908-11ea-95b1-90d52127458f.png"></kbd>
 
+<kbd><img width="250" alt="Screen Shot 2020-02-06 at 9 19 54 AM" src="https://user-images.githubusercontent.com/48637126/73963509-5605ad00-4908-11ea-8869-d16632631c98.png"></kbd>
+
 ## Live App
 https://roots-app.triciamedina.now.sh/
 
