@@ -29,6 +29,7 @@ class AccountSetupForm extends Component {
 
     initializeLink() {
         return (
+            <>
             <PlaidLink
                 className='Button--contained-large'
                 style={        
@@ -48,6 +49,24 @@ class AccountSetupForm extends Component {
                 onSuccess={this.handleOnSuccess}>
                     Connect your account
             </PlaidLink>
+            {this.renderSandboxCredentials()}
+            </>
+        )
+    };
+
+    renderSandboxCredentials() {
+        return (
+            <div className='link-sandbox__message'>
+                <p className='link-sandbox__title'>This feature is currently in sandbox box mode.</p>
+                <ul className='link-sandbox__list'>
+                    <li className='link-sandbox__credentials'>
+                        username: user_good
+                    </li>
+                    <li className='link-sandbox__credentials'>
+                        password: pass_good
+                    </li>
+                </ul>
+            </div>
         )
     };
 
