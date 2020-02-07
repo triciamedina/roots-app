@@ -15,8 +15,11 @@ const ValidationService = {
         if (email.trim().length === 0) {
             return 'Email is required'
         }
-        if(email.trim().length < 6 || email.trim().length > 50) {
+        if (email.trim().length < 6 || email.trim().length > 50) {
             return 'Email must be between 6 and 50 characters'
+        }
+        if (!email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
+            return 'Email must be a valid email address'
         }
     },
     validateRegisterEmailMatch(email, confirmedEmail) {
@@ -44,7 +47,7 @@ const ValidationService = {
         if (password.trim().length < 8 || password.trim().length > 36) {
             return 'Password must be between 8 and 36 characters'
         }
-        if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
+        if (!/\d/.test(password)) {
             return 'Password must contain at least one digit'
         }
     },
