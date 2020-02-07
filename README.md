@@ -16,7 +16,7 @@ Roots is a micro-donations app with a focus on giving back to your local communi
 ## Live App
 https://roots-app.triciamedina.now.sh/
 
-### Using Roots in Plaid Sandbox environment
+### Linking a bank account in the Plaid Sandbox environment
 
 ```
 Username: user_good
