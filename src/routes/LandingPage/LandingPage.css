@@ -156,8 +156,11 @@ footer {
     }
 
     .hero a {
-        align-items: flex-start;
-        max-width: 450px;
+        display: inline;
+    }
+
+    .hero__cta-group {
+        width: 100%;
     }
 
     .hero > .image-container {

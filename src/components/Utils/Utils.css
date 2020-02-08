@@ -84,6 +84,13 @@
     background-color: transparent;
     cursor: pointer;
     border: 0px;
+    color: black;
+}
+
+.Button--text-large:hover,
+.Button--text-med:hover,
+.Button--text-small:hover {
+    color: #472BBA;
 }
 
 .Button--text-large {

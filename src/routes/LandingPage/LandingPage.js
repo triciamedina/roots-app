@@ -26,7 +26,15 @@ class LandingPage extends Component {
                         <section className='text-container left'>
                             <h2 className='hero__title'>Invest in a future for everyone</h2>
                             <p className='hero__body'>We make it easy for anyone to give back to their community.</p>
-                            <RegisterButton className='Button--contained-small' />
+                            <div className='hero__cta-group'>
+                                <RegisterButton className='Button--contained-small' />
+                                <Button 
+                                    className='Button--text-small'
+                                    onClick={this.handleDemoLogin}
+                                >
+                                    Try a demo
+                                </Button>
+                            </div>
                         </section>
                         <section className='image-container'>
                             <img className='hero__image' src={Screen} alt=''/>
