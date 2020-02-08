@@ -25,7 +25,7 @@ class Wallet extends Component {
                     <div>
                         <Link className='Wallet__Link' to={'/projects'}>
                             <Button 
-                                className='WalletButton--contained-small Wallet__give'
+                                className='WalletButton--contained-small'
                             >
                                 Donate
                             </Button>

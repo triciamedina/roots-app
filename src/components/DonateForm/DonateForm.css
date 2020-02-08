@@ -1,5 +1,5 @@
 .DonateForm {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     padding-left: 24px;
     padding-right: 24px;
@@ -58,10 +58,15 @@ input[type=range]::-webkit-slider-thumb {
     margin: 22px 0px 15px 0px;
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (max-height: 500px) {
+    .DonateForm {
+        position: relative;
+    }
+}
+
+@media screen and (min-width: 1000px) {
     .DonateForm {
         max-width: 650px;
-        position: relative;
         height: auto;
     }
 }

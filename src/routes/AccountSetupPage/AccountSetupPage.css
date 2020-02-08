@@ -4,3 +4,9 @@
     display: flex;
     justify-content: center;
 }
+
+@media screen and (max-height: 500px) {
+    .AccountSetupPage {
+        height: 100%;
+    }
+}

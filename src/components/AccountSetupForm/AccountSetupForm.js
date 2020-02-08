@@ -94,12 +94,12 @@ class AccountSetupForm extends Component {
     renderConfirmation() {
         const { institution } = this.context.accountSetup
         return (
-            <section className='Confirmation'>
-                <CheckCircle size='100' color='#EAEBF3' className='Confirmation__icon' />
-                <h1 className='Confirmation__title'>
+            <section className='AccountSetupForm__confirmation'>
+                <CheckCircle size='100' color='#EAEBF3' className='AccountSetupForm__confirmation-icon' />
+                <h1 className='AccountSetupForm__confirmation-title'>
                     Bank account linked
                 </h1>
-                <p className='Confirmation__description'>
+                <p className='AccountSetupForm__confirmation-description'>
                     Your account has been successfully linked! The money to fund your donations will come from your {institution.name} account.
                 </p>
                 <Button

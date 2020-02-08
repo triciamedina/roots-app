@@ -10,8 +10,7 @@
     height: 8vh;
     width: 100%;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    position: fixed;
 }
 
 .Tabs__container {
@@ -28,12 +27,37 @@
     margin: 0;
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (max-height: 500px) {
+    .Tabs {
+        position: relative;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .Tabs {
+        height: 10vh;
+    }
+
+    .Tab__title {
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .Tabs {
+        margin-left: 50%;
+        left: -300px;
+    }
+}
+@media screen and (min-width: 1000px) {
     .Tabs {
         background-color: #EAEBF3;
         border: none;
         height: 48px;
         padding: 0px;
+        position: relative;
     }
 
     .Tabs__container {

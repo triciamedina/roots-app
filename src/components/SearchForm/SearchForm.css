@@ -1,5 +1,5 @@
 .SearchForm {
-    padding-top: 120px;
+    padding-top: 40px;
     padding-left: 24px;
     padding-right: 24px;
     width: 100%;
@@ -47,7 +47,7 @@
     padding-top: 34px;
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (min-width:00px) {
     .SearchForm {
         max-width: 650px;
     }

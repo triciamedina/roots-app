@@ -43,7 +43,7 @@ class ProjectsPage extends Component {
                     {ValidationService.validateWalletBalance(wallet.balance)}
                 </h1>
                 <p className='ProjectsPage__notification--description'>
-                    Check that your bank account is linked and start adding round ups to your account to give back today.
+                    Start adding round ups to your account to give back today.
                 </p>
             </div>
         )

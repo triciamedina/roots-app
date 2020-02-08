@@ -1,7 +1,6 @@
 .DonationsTab {
     width: 100%;
-    height: 52vh;
-    overflow: scroll;
+    min-height: 52vh;
     padding: 0px 0px 30px 0px;
     display: flex;
     flex-direction: column;
@@ -9,6 +8,9 @@
     background-color: white;
     box-shadow: 5px 5px 15px rgba(234, 235, 243, .8), 5px 5px 15px rgba(234, 235, 243, 1);
     border-radius: 16px 16px 0px 0px;
+    position: relative;
+    top: 8vh;
+    z-index: 2;
 }
 
 .DonationsTab__container {
@@ -38,10 +40,19 @@
     margin-top: 0px;
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (max-height: 700px) {
+    .DonationsTab {
+        top: 10vh;
+        min-height: 50vh;
+    }
+}
+
+@media screen and (min-width: 1000px) {
     .DonationsTab {
         height: 100%;
         background-color: transparent;
+        top: 0;
+        z-index: 0;
     }
 
     .DonationsTab__container {

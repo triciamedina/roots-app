@@ -1,7 +1,6 @@
 .RoundupsTab {
     width: 100%;
-    height: 52vh;
-    overflow: scroll;
+    min-height: 52vh;
     padding: 0px 0px 30px 0px;
     display: flex;
     flex-direction: column;
@@ -9,6 +8,9 @@
     background-color: white;
     box-shadow: 5px 5px 15px rgba(234, 235, 243, .8), 5px 5px 15px rgba(234, 235, 243, 1);
     border-radius: 16px 16px 0px 0px;
+    position: relative;
+    top: 8vh;
+    z-index: 2;
 }
 
 .TransactionsList__container {
@@ -70,18 +72,33 @@
     margin-right: auto;
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (max-height: 700px) {
+    .TransactionsList__setup-subtitle {
+        text-align: center;
+        padding: 0px 24px;
+        margin: 30px 0px 0px 0px;
+    }
+
+    .RoundupsTab {
+        top: 10vh;
+        min-height: 50vh;
+    }
+}
+
+@media screen and (min-width: 1000px) {
     .RoundupsTab {
         height: 100%;
         background-color: transparent;
         box-shadow: unset;
+        padding: 0px 24px 24px 0px;
+        top: 0;
+        z-index: 0;
     }
 
     .TransactionsList__container {
         background-color: white;
         border-radius: 16px;
         padding: 36px 0px;
-        margin: 16px 0px;
     }
 
     .TransactionsList__setup-subtitle {

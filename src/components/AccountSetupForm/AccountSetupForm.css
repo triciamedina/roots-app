@@ -38,7 +38,7 @@
     overflow: hidden;
 }
 
-.Confirmation {
+.AccountSetupForm__confirmation {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,11 +48,11 @@
     max-width: 400px;
 }
 
-.Confirmation__icon {
+.AccountSetupForm__confirmation-icon {
     margin-bottom: 50px;
 }
 
-.Confirmation__title {
+.AccountSetupForm__confirmation-title {
     font-family: 'Nunito', sans-serif;
     font-weight: 700;
     font-size: 26px;
@@ -61,7 +61,7 @@
     padding: 0px;
 }
 
-.Confirmation__description {
+.AccountSetupForm__confirmation-description {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -74,6 +74,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .link-sandbox__title{
@@ -89,4 +90,10 @@
     padding: 0px;
     color: #E60060;
     font-size: 14px;
+}
+
+@media screen and (max-height: 700px) {
+    .LinkBankForm {
+        padding-top: 60px;
+    }
 }

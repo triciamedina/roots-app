@@ -32,7 +32,7 @@ class Confirmation extends Component {
 
          return (
             <section className='Confirmation__container'>
-                <CheckCircle size='100' color='#EAEBF3' className='Confirmation__icon' />
+                <CheckCircle size='100' color='#EAEBF3' className='Confirmation__icon donation' />
                 <h1 className='Confirmation__title'>
                     Complete your donation at Donors Choose
                 </h1>

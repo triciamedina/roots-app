@@ -17,7 +17,8 @@
 }
 
 .Confirmation__title {
-    font-weight: 500;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
     font-size: 26px;
     line-height: 32px;
     margin: 0px 0px 42px 0px;
@@ -25,9 +26,10 @@
 }
 
 .Confirmation__description {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 22px;
+    line-height: 25px;
     padding: 0px;
     margin: 0px 0px 75px 0px;
 }
@@ -36,4 +38,19 @@
     color: rgba(0, 0, 0, 12%);
     font-size: 100px;
     margin-bottom: 50px;
+}
+
+@media screen and (max-height: 700px) {
+    .Confirmation__icon {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .Confirmation__title {
+        margin: 0px 0px 35px 0px;
+    }
+
+    .Confirmation__description {
+        margin: 0px 0px 35px 0px;
+    }
 }

@@ -108,7 +108,13 @@ a {
     display: none;
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (max-height: 500px) {
+    input:checked ~ .CollapsibleMenu__list {
+        min-height: 100vh;
+    }
+}
+
+@media screen and (min-width: 1000px) {
     .MainNav--private {
         background-color: white;
         z-index: 1;

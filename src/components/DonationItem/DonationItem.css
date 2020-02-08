@@ -84,7 +84,7 @@
     height: 80px;
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (min-width: 1000px) {
     .DonationItem {
         background-color: white;
     }

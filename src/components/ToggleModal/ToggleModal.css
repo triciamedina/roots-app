@@ -4,7 +4,7 @@
     left: 0;
     width:100vw;
     height: 100vh;
-    z-index: 2;
+    z-index: 3;
 }
 
 .ToggleModal__overlay {
@@ -14,7 +14,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
-    z-index: 2;
+    z-index: 3;
 }
 
 .ToggleModal__screen {
@@ -31,7 +31,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 3;
+    z-index: 4;
     border-radius: 4px;
 }
 
@@ -54,7 +54,7 @@
     text-align: center;
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (min-width: 1000px) {
     .ToggleModal__screen {
         width: 30%;
     }

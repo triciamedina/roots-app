@@ -116,7 +116,7 @@ span.circle {
     margin-right: 50px;
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (min-width: 1000px) {
     .TransactionItem {
         background-color: white;
     }

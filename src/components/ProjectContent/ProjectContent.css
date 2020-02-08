@@ -1,14 +1,11 @@
 .ProjectContent {
-    padding-top: 90px;
     padding-left: 24px;
     padding-right: 24px;
-    padding-bottom: 30px;
+    padding-bottom: 278px;
     width: 100%;
     max-width: 600px;
-    height: calc(100vh - 239px);
     display: flex;
     flex-direction: column;
-    overflow: scroll;
 }
 
 .ProjectContent__image img {
@@ -59,11 +56,16 @@
     color: rgba(0, 0, 0, 60%);
 }
 
-@media screen and (min-width: 1028px) {
+@media screen and (max-height: 500px) {
+    .ProjectContent {
+        padding-bottom: 0px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
     .ProjectContent {
         max-width: 650px;
-        padding-top: 0px;
-        padding-bottom: 48px;
+        padding-top: 15px;
         height: 100%;
         display: block;
     }
