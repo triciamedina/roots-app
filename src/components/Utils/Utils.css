@@ -168,6 +168,12 @@
         font-size: 14px;
     }
 
+    .Button--text-large,
+    .Button--text-med,
+    .Button--text-small {
+        font-size: 14px;
+    }
+
     .WalletButton--contained-small {
         padding: 10px 40px;
         font-size: 14px;

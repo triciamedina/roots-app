@@ -55,12 +55,14 @@
     margin: 0px;
 }
 
-.text-link,
-.text-link:visited {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    color: #472BBA;
+.RegisterForm__Link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-height: 700px) {
+    .RegisterForm {
+        padding-top: 40px;
+    }
 }

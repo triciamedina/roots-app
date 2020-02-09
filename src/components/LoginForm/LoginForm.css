@@ -71,3 +71,15 @@
     text-decoration: none;
     color: #472BBA;
 }
+
+.LoginForm__Link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-height: 700px) {
+    .LoginForm {
+        padding-top: 40px;
+    }
+}

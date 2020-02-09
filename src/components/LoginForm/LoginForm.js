@@ -89,8 +89,10 @@ class LoginForm extends Component {
                 </section>
                 <section className='LoginForm__secondary'>
                     <p className='LoginForm__secondary-title'>Don’t have an account?</p>
-                    <Link to={'/register'} className='text-link'>
-                        Get started
+                    <Link to={'/register'} className='LoginForm__Link'>
+                        <Button className='Button--text-small'>
+                            Get started
+                        </Button>
                     </Link>
                 </section>
             </form>

@@ -241,8 +241,10 @@ class RegisterForm extends Component {
                 <p className='RegisterForm__secondary-title'>
                     Already have an account?
                 </p>
-                <Link to={'/login'} className='text-link'>
-                    Login
+                <Link to={'/login'} className='RegisterForm__Link'>
+                    <Button className='Button--text-small'>
+                        Login
+                    </Button>
                 </Link>
             </section>
         )
