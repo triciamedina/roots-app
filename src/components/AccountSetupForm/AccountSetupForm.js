@@ -37,7 +37,6 @@ class AccountSetupForm extends Component {
                         padding: '15px 45px',
                         outline: 'none',
                         background: '#472BBA',
-                        border: '0',
                         borderRadius: '4px',
                     }
                 }

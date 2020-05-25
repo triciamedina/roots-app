@@ -5,16 +5,23 @@
     font-weight: 700;
     font-size: 16px;
     background-color: #472BBA;
+    border: 2px solid #472BBA;
     color: white;
     cursor: pointer;
-    box-shadow: 0 5px 10px rgba(71, 43, 186, .2), 0 15px 40px rgba(71, 43, 186, .2);
     border-radius: 4px;
-    border: 0;
     position: relative;
+    transition: 0.5s ease;
 }
 
-.Button--contained-large:after, 
-.Button--contained-small:after,
+.Button--contained-large:hover,
+.Button--contained-small:hover,
+.Button--contained-xsmall:hover {
+    background-color: transparent !important;
+    color: #472BBA !important;
+    border: 2px solid #472BBA !important;
+}
+
+/* .Button--contained-large:after,
 .Button--contained-xsmall:after,
 .WalletButton--contained-small:after {
     position: absolute;
@@ -27,18 +34,17 @@
     background-color: rgba(0, 0, 0);
 }
 
-.Button--contained-large:hover:after, 
-.Button--contained-small:hover:after,
-.Button--contained-xsmall:hover:after,
-.WalletButton--contained-small:hover:after {
+.Button--contained-large:hover:after,
+.Button--contained-xsmall:hover:after {
     opacity: .2;
-}
+} */
 
 .Button--contained-large:disabled, 
 .Button--contained-small:disabled,
 .Button--contained-xsmall:disabled {
     cursor: not-allowed;
     background-color: rgba(71,43,186, .5);
+    border: 2px solid transparent;
 }
 
 .Button--contained-large {
@@ -50,23 +56,27 @@
     padding: 15px 45px;
 }
 
-.demo {
-    background-color: white;
-    color: #472BBA;
-}
-
-.WalletButton--contained-small {
+.WalletButton--contained-small,
+.Button--contained-small.demo {
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    background: white;
-    color: #472BBA;
+    background: transparent;
+    color: white;
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(71, 43, 186, .2), 0 15px 40px rgba(71, 43, 186, .2);
     border-radius: 4px;
-    border: 0;
+    border: 2px solid white;
     position: relative;
     padding: 15px 50px;
+    transition: 0.5s ease;
+}
+
+.WalletButton--contained-small:hover,
+.Button--contained-small.demo:hover {
+    background-color: #00C988;
+    border: 2px solid #00C988;
+    color: white;
 }
 
 .Button--contained-xsmall {
