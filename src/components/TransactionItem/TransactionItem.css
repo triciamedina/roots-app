@@ -57,15 +57,16 @@ span.circle {
 }
 
 .TransactionItem__toggle input + span.circle::after {
-	content: "+";
-    height: 40px;
-    width: 40px;
-    font-weight: 300;
-    font-size: 30px;
-    color: rgba(71, 43, 186, 100%);
+	content: "";
+    height: 20px;
+    width: 20px;
+    background-image: url('../../img/plus.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
     position: absolute;
-    top: 0px;
-    left: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .TransactionItem__toggle input + span.circle::before {
@@ -80,18 +81,16 @@ span.circle {
 }
 
 .TransactionItem__toggle input:checked + span.circle::after {
-	content: "";
-    border: 2px solid;
-    border-radius: 0px;
-    border-left: 0;
-    border-top: 0;
-    height: 15px;
-    width: 7px;
-    transform: rotate(45deg);
-    color: #4822BA;
+    content: "";
+    background-image: url('../../img/check.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 20px;
+    width: 20px;
     position: absolute;
-    top: 10px;
-    left: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .TransactionItem__toggle input:checked + span.circle::before {
