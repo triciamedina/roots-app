@@ -9,7 +9,7 @@ https://roots-app.now.sh/
 ## Roots REST API
 https://github.com/triciamedina/roots-server
 
-### Linking a bank account in the Plaid Sandbox environment
+## Linking a bank account in the Plaid Sandbox environment
 
 ```
 Username: user_good
