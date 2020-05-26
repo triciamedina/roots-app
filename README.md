@@ -6,13 +6,15 @@ Roots is a micro-donations app concept with a focus on giving back to your local
 ## Live App
 https://roots-app.now.sh/
 
+## Roots REST API
+https://github.com/triciamedina/roots-server
+
 ### Linking a bank account in the Plaid Sandbox environment
 
 ```
 Username: user_good
 Password: pass_good
 ```
-
 ## Getting Started
 
 ### Installing
