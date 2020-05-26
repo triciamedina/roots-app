@@ -21,7 +21,7 @@ function DonationItem(props) {
                     {ReactHtmlParser(school_name)}
                 </p>
                 <p className='DonationItem__project-amount'>
-                    <i className="fas fa-check"></i>
+                    <span className='check'></span>
                     {Formatter.format(amount)}
                 </p>
             </div>
