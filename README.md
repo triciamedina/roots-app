@@ -1,10 +1,10 @@
 # Roots
 Roots is a micro-donations app concept with a focus on giving back to your local community. Set aside spare change by rounding up your everyday purchases, then invest your spare change back into your community by helping fund classrooms in your area.
 
+<kbd><img width="1154" alt="Screen Shot 2020-05-26 at 12 02 39 PM" src="https://user-images.githubusercontent.com/48637126/82941885-fc270280-9f4b-11ea-8054-def7d5af6ec7.png"></kbd>
+
 ## Live App
 https://roots-app.now.sh/
-
-<kbd><img width="1154" alt="Screen Shot 2020-05-26 at 12 02 39 PM" src="https://user-images.githubusercontent.com/48637126/82941885-fc270280-9f4b-11ea-8054-def7d5af6ec7.png"></kbd>
 
 ### Linking a bank account in the Plaid Sandbox environment
 
