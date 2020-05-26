@@ -1,7 +1,7 @@
 # Roots
 Roots is a micro-donations app concept with a focus on giving back to your local community. Set aside spare change by rounding up your everyday purchases, then invest your spare change back into your community by helping fund classrooms in your area.
 
-<img width="1154" alt="Screen Shot 2020-05-26 at 12 02 39 PM" src="https://user-images.githubusercontent.com/48637126/82940336-8457d880-9f49-11ea-9daf-26115fa65f0c.png">
+<img style="border:1px solid gray" width="1154" alt="" src="https://user-images.githubusercontent.com/48637126/82940921-5b841300-9f4a-11ea-9e37-96d63d290343.png">
 
 ## Live App
 https://roots-app.now.sh/
