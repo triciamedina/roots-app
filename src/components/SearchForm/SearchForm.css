@@ -1,9 +1,9 @@
 .SearchForm {
-    padding-top: 40px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 40px 24px;
+    padding-bottom: 0px;
     width: 100%;
-    max-width: 600px;
+    max-width: 1000px;
+    background-color: white;
 }
 
 
@@ -46,8 +46,8 @@
     padding-top: 34px;
 }
 
-@media screen and (min-width:00px) {
+@media screen and (min-width: 1000px) {
     .SearchForm {
-        max-width: 650px;
+       border-radius: 4px;
     }
 }

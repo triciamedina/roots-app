@@ -14,6 +14,8 @@
     text-align: center;
     padding: 32px;
     max-width: 450px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .Confirmation__title {
@@ -52,5 +54,12 @@
 
     .Confirmation__description {
         margin: 0px 0px 35px 0px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .Confirmation__container {
+        background-color: white;
+        border-radius: 4px;
     }
 }

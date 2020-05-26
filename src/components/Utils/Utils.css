@@ -74,9 +74,9 @@
 
 .WalletButton--contained-small:hover,
 .Button--contained-small.demo:hover {
-    background-color: #00C988;
-    border: 2px solid #00C988;
-    color: white;
+    background-color: #00C988 !important;
+    border: 2px solid #00C988 !important;
+    color: white !important;
 }
 
 .Button--contained-xsmall {

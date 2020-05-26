@@ -22,10 +22,10 @@ class ProjectsPage extends Component {
 
     renderForm() {
         return (
-            <>
+            <div className='ProjectsPageContainer'>
                 <SearchForm />
                 <SearchResults />
-            </>
+            </div>
         )
     };
     
@@ -54,7 +54,7 @@ class ProjectsPage extends Component {
 
         return (
             <>
-                <SecondaryNav />
+                <SecondaryNav page={'ProjectsPage'} />
                 <main className='ProjectsPage'>
                     {ValidationService.validateWalletBalance(wallet.balance)
                         ? this.renderNotification()

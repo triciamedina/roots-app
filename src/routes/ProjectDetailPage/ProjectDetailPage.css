@@ -3,10 +3,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    min-height: 100vh;
 }
 
 @media screen and (min-width: 1000px) {
     .ProjectDetailPage {
+        flex-direction: row;
+        align-items: flex-start;
         justify-content: center;
+        background-color: #EAEBF3;
     }
 }

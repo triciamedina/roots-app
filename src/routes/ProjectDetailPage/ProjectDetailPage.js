@@ -21,7 +21,7 @@ class ProjectDetailPage extends Component {
         const { projects } = this.context
         return (
             <>
-                <SecondaryNav />
+                <SecondaryNav page={'ProjectsPage'} />
                 <main className='ProjectDetailPage'>
                     <ProjectContent projects={projects} />
                     <DonateForm />

@@ -1,5 +1,5 @@
 .SecondaryNav {
-    padding: 20px;
+    padding: 20px 0px;
     top: 0;
     left: 0;
     background-color: white;
@@ -8,6 +8,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: white;
 }
 
 .SecondaryNav nav {
@@ -18,6 +19,11 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    padding: 0px 24px;
+}
+
+.SecondaryNav.projects-page-nav nav{
+    max-width: 1000px;
 }
 
 .left-arrow-icon,
@@ -52,5 +58,13 @@
 @media screen and (min-width: 1000px) {
     .SecondaryNav {
         z-index: 1;
+    }
+
+    .SecondaryNav.projects-page-nav {
+        background-color: #EAEBF3;
+    }
+
+    .SecondaryNav.projects-page-nav nav{
+        padding: 0px;
     }
 }

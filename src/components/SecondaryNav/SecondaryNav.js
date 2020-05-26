@@ -70,14 +70,14 @@ class SecondaryNav extends Component {
 
     render() {
         const { projects: { showModal }, accountSetup: { isSuccessful }} = this.context
-        const { location } = this.props;
+        const { location, page=null } = this.props;
 
         if (showModal) {
             return null
         };
 
         return (
-            <header className='SecondaryNav'>
+            <header className={'SecondaryNav' + ((page === 'ProjectsPage') ? ' projects-page-nav' : '')}>
                 <nav>
                     {!location.pathname.includes('/account-setup') && this.renderBackButton()}
                     {location.pathname.includes('/projects') && this.renderCloseButton()}
